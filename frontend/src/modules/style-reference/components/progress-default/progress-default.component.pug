@@ -1,0 +1,20 @@
+sbpro-card
+    .card-header Default Bootstrap Progress Indicators
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                sbpro-progress-bar.mb-3([value]='0')
+                sbpro-progress-bar.mb-3([value]='25')
+                sbpro-progress-bar.mb-3([value]='50')
+                sbpro-progress-bar.mb-3([value]='75')
+                sbpro-progress-bar.mb-3([value]='100')
+                
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                The width of the progress bar is set by the <code>[value]</code> attribute
+                for <code>sbpro-progress-bar</code>
+                

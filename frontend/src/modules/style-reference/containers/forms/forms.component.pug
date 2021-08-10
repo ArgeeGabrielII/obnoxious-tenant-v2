@@ -1,0 +1,28 @@
+sbpro-dashboard-head(
+    icon='edit-3',
+    title='Forms',
+    description='Dynamic form components to give your users informative and intuitive inputs'
+)
+.container-xl.px-4.mt-n10
+    .row.gx-4
+        .col-lg-9
+            sbpro-forms-default(
+                sbproTocItem='Default Form Controls'
+            )
+            sbpro-forms-solid(
+                sbproTocItem='Solid Form Controls'
+            )
+            sbpro-forms-checkbox-custom(
+                sbproTocItem='Custom Checkboxes & Radio'
+            )
+            sbpro-forms-checkbox-solid(
+                sbproTocItem='Solid Checkboxes & Radio'
+            )
+            sbpro-forms-input-groups(
+                sbproTocItem='Input Groups'
+            )
+            sbpro-forms-date-range-picker(
+                sbproTocItem='Date Range Picker'
+            )
+        .col-lg-3
+            sbpro-toc-nav([tocIndex]='tocIndex')

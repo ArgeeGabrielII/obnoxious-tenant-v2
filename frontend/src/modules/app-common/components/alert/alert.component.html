@@ -1,0 +1,13 @@
+<ng-container *ngIf="icon; else withoutIcon"
+    ><div class="alert alert-icon" *ngIf="!dismissed" [ngClass]="classes" role="alert">
+        <button class="btn-close" *ngIf="dismissable" type="button" aria-label="Close" (click)="closeAlert()"><span aria-hidden="true">×</span></button><ng-content select=".alert-icon-aside"></ng-content>
+        <div class="alert-icon-content">
+            <h5 class="alert-heading" *ngIf="heading">{{heading}}</h5>
+            <ng-container *ngTemplateOutlet="defaultContent"></ng-container>
+        </div></div></ng-container
+><ng-template #withoutIcon
+    ><div class="alert" *ngIf="!dismissed" [ngClass]="classes" role="alert">
+        <button class="btn-close" *ngIf="dismissable" type="button" aria-label="Close" (click)="closeAlert()"><span aria-hidden="true">×</span></button>
+        <h5 class="alert-heading" *ngIf="heading">{{heading}}</h5>
+        <ng-container *ngTemplateOutlet="defaultContent"></ng-container></div></ng-template
+><ng-template #defaultContent><ng-content></ng-content></ng-template>

@@ -1,0 +1,22 @@
+li.nav-item.dropdown.no-caret.me-3.dropdown-notifications(
+    *ngIf='messagesService.messages$ | async as messages',
+    ngbDropdown,
+    [placement]='placement',
+    display='dynamic'
+)
+    a#navbarDropdownMessages.btn.btn-icon.btn-transparent-dark.dropdown-toggle(
+        ngbDropdownToggle,
+        data-cy='messagesMenu',
+        role='button',
+        aria-haspopup='true',
+        aria-expanded='false'
+    )
+        i-feather(name='mail')
+    .dropdown-menu.border-0.shadow.animated--fade-in-up(
+        ngbDropdownMenu,
+        aria-labelledby='navbarDropdownMessages'
+    )
+        h6.dropdown-header.dropdown-notifications-header
+            i-feather.me-2(name='mail')
+            | Message Center
+        sbpro-top-nav-messages-item(*ngFor='let message of messages', [message]='message')

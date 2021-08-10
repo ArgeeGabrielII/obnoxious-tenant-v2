@@ -1,0 +1,7 @@
+<div class="card card-collapsable mb-4" [ngClass]="cardClasses">
+    <a class="card-header" [ngClass]="{collapsed: collapsed}" (click)="toggle()" data-toggle="collapse" role="button" [attr.aria-expanded]="!collapsed"
+        >{{headerText}}
+        <div class="card-collapsable-arrow"><fa-icon class="me-1" [icon]='["fas", "chevron-down"]'></fa-icon></div
+    ></a>
+    <div class="collapse show" #collapsibleSection><ng-content select=".card-body"></ng-content><ng-content select=".card-footer"></ng-content></div>
+</div>

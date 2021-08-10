@@ -1,0 +1,23 @@
+sbpro-card
+    .card-header Lift Sizing
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                
+                h6.small.text-muted.fw-500 Card Link Lift Example (Small):
+                sbpro-card.pointer([classes]='["lift", "lift-sm"]')
+                    .card-body
+                        | Card with the lift utility applied. Hover over me, and then click on me!
+
+                h6.small.text-muted.fw-500.mt-4 Button Lift Example (Small):
+                a([routerLink]='').btn.btn-primary.lift.lift-sm
+                    | Hover me!
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Use <code>.lift-sm</code> along with the <code>.lift</code> utility to have a
+                less significant lift effect applied to an element.

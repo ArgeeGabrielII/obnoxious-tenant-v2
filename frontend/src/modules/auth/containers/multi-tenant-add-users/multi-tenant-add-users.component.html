@@ -1,0 +1,46 @@
+<sb-layout-auth
+    ><div class="container-xl px-4">
+        <div class="row gx-4 justify-content-center">
+            <!-- Create Organization-->
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+                <div class="card mt-5">
+                    <div class="card-body p-5 text-center">
+                        <div class="icons-org-create align-items-center mx-auto"><i-feather class="icon-users" name="users"></i-feather><fa-icon class="icon-plus" [icon]='["fas", "plus"]'></fa-icon></div>
+                        <div class="h3 text-primary fw-300 mb-0">Who else is part of this organization?</div>
+                    </div>
+                    <hr class="m-0" />
+                    <div class="card-body p-5">
+                        <form [formGroup]="addUsersForm" (ngSubmit)="onSubmit()">
+                            <div formArrayName="emails" *ngFor="let email of emails.controls; let i=index">
+                                <div class="mb-3">
+                                    <input class="form-control form-control-solid" [attr.data-cy]='"emailInput_" + i' type="text" placeholder="name@example.com" [formControlName]="i" [class.is-valid]="emailControlValid(i)" [class.is-invalid]="emailControlInvalid(i)" />
+                                    <div class="invalid-feedback" *ngIf='email.hasError("required")'>Email required.</div>
+                                    <div class="invalid-feedback" *ngIf='email.hasError("email")'>Email is not valid.</div>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-end">
+                                <button class="btn btn-link p-0" data-cy="addAnotherButton" [disabled]="addUsersForm.invalid" (click)="addAnother()"><fa-icon class="icon-plus-circle me-1" [icon]='["fas", "plus-circle"]'></fa-icon>Add another</button>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-grid"><button class="btn btn-primary" data-cy="addMembersButton" type="submit" [disabled]="addUsersForm.invalid">Add Members</button></div>
+                            </div>
+                            <div class="mb-5">
+                                <a class="d-flex align-items-center" [routerLink]=""><i-feather class="me-1" name="link"></i-feather>Get an invite link to share</a>
+                            </div>
+                            <div class="text-center">Or, <a routerLink="/dashboard">skip for now</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></sb-layout-auth
+><ng-template #confirmationModal let-modal
+    ><div class="modal-header">
+        <h5 class="modal-title">Add Members Data</h5>
+        <button class="btn-close" type="button" aria-label="Close" (click)='modal.dismiss("Cross click")'><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="modal-body">
+        Wired up and ready to go. Just add a backend.<br /><br /><span *ngFor="let email of emails.controls"><code>{{email.value}}</code><br /></span>
+    </div>
+    <div class="modal-footer"><button class="btn btn-secondary" type="button" (click)="modal.close()">Close</button><button class="btn btn-primary" type="button" (click)='modal.close("DASHBOARD")'>Proceed back to Dashboard</button></div></ng-template
+>

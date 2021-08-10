@@ -1,0 +1,25 @@
+sbpro-card
+    .card-header Fade In Transition
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+
+                sbpro-dropdown(
+                    dropdownStyle='text',
+                    background='btn-primary',
+                    animation='animated--fade-in'
+                )
+                    .dropdown-trigger
+                        | Click Me!
+                    .dropdown-items
+                        a.dropdown-item Action
+                        a.dropdown-item Another action
+                        a.dropdown-item Something else here
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Add <code>animated--fade-in</code> to the <code>animation</code> attribute on <code>sbpro-dropdown</code>

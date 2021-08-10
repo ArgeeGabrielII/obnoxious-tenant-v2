@@ -1,0 +1,99 @@
+sb-layout-auth
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
+            .col-xl-5.col-lg-6.col-md-8.col-sm-11
+                .card.my-5
+                    .card-body.p-5.text-center
+                        .h3.fw-light.mb-3 Sign In
+                        button.btn.btn-icon.btn-facebook.mx-1
+                            fa-icon([icon]='["fab", "facebook-f"]')
+                        button.btn.btn-icon.btn-github.mx-1
+                            fa-icon([icon]='["fab", "github"]')
+                        button.btn.btn-icon.btn-google.mx-1
+                            fa-icon([icon]='["fab", "google"]')
+                        button.btn.btn-icon.btn-twitter.mx-1
+                            fa-icon([icon]='["fab", "twitter"]')
+                    hr.my-0
+                    .card-body.p-5
+                        form([formGroup]='loginForm', (ngSubmit)='onSubmit()')
+                            .mb-3
+                                label.text-gray-600.small(for='inputEmailAddress') Email address
+                                input#inputEmailAddress.form-control.form-control-solid(
+                                    data-cy='emailInput',
+                                    type='email',
+                                    placeholder='Enter email address',
+                                    aria-describedby='emailHelp',
+                                    formControlName='email',
+                                    [class.is-valid]='emailControlValid',
+                                    [class.is-invalid]='emailControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='emailControl.hasError("required")')
+                                    | Email required.
+                                .invalid-feedback(*ngIf='emailControl.hasError("email")')
+                                    | Email is not valid.
+
+                            .mb-3
+                                label.text-gray-600.small(for='inputPassword') Password
+                                input#inputPassword.form-control.form-control-solid(
+                                    data-cy='passwordInput',
+                                    type='password',
+                                    placeholder='Enter password',
+                                    formControlName='password',
+                                    [class.is-valid]='passwordControlValid',
+                                    [class.is-invalid]='passwordControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='passwordControl.hasError("required")')
+                                    | Password required.
+                                .invalid-feedback(*ngIf='passwordControl.hasError("minlength")')
+                                    | Password must be at least 8 characters.
+
+                            .mb-3
+                                a.small(routerLink='/auth/forgot-password') Forgot your password?
+                            .d-flex.align-items-center.justify-content-between
+                                .form-check.form-check-solid
+                                    input#rememberPasswordCheck.form-check-input.small(
+                                        data-cy='rememberPasswordCheck',
+                                        type='checkbox',
+                                        formControlName='checkbox'
+                                    )
+                                    label.form-check-label(for='rememberPasswordCheck')
+                                        | Remember password
+
+                                button.btn.btn-primary(
+                                    data-cy='loginButton',
+                                    type='submit',
+                                    [disabled]='loginForm.invalid'
+                                ) Login
+
+                    hr.my-0
+                    .card-body.px-5.py-4
+                        .small.text-center
+                            | New user? 
+                            a(routerLink='/auth/register-social') Create an account!
+
+ng-template(#confirmationModal, let-modal)
+    .modal-header
+        h5.modal-title Login Form Data
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Wired up and ready to go. Just add a backend.
+        <br><br>
+        email: <code>{{loginForm.value.email}}</code>
+        <br>
+        password: <code>{{loginForm.value.password}}</code>
+        <br>
+        remember password: <code>{{loginForm.value.checkbox}}</code>
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("DASHBOARD")'
+        ) Proceed back to Dashboard

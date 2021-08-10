@@ -1,0 +1,26 @@
+#layoutError.bg-white
+    #layoutError_content
+        main            
+            .container-xl.px-4
+                .row.gx-4.justify-content-center
+                    .col-lg-6
+                        .text-center.mt-4
+                            img.img-fluid.p-4(src='assets/img/illustrations/400-error-bad-request.svg', alt='')
+                            p.lead Your client has issued a malformed or illegal request.
+                            a.text-arrow-icon(routerLink='/')
+                                i-feather.ms-0.me-1(name='arrow-left')
+                                | Return to Dashboard
+
+    #layoutError_footer
+            
+        footer.footer-admin.mt-auto.footer-light
+            .container-fluid.px-4
+                .row.gx-4
+                    .col-md-6.small
+                        | Copyright &copy; Your Website 2021
+                    .col-md-6.text-md-end.small
+                        a(href='javascript:void(0);') Privacy Policy
+                        | 
+                        | &middot;
+                        | 
+                        a(href='javascript:void(0);') Terms &amp; Conditions

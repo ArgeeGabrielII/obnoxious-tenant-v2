@@ -1,0 +1,17 @@
+sbpro-card
+    .card-header Collapsable Card
+    .card-body
+        .sbp-preview
+            .sbp-preview-content.bg-light
+
+                sbpro-card-collapsable.mx-auto(headerText='Collapsable Card Example', style="width: 60%;")
+                    .card-body
+                        p.card-text.
+                            This is a collapsable card example using custom collapse functionality with some added custom styling. 
+                            <br><strong>Click on the card header</strong>
+                            to see the card body collapse and expand!
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )

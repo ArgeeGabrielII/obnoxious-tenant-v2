@@ -1,0 +1,110 @@
+sbpro-card
+    .card-header Extending Buttons
+    .card-body
+        sbpro-card-icon
+            .card-icon
+                i-feather.text-white-50(name='alert-triangle')
+            .card-body
+                h6.card-title Using Utility Classes vs. Overriding SCSS Variables
+                p.card-text.small
+                    | Utility classes are a quick and powerful way to extend the styling the button component. Specifically, border, shadow, text, and spacing utilities work well to customize a button.
+                p.card-text.small
+                    | Use utility classes to transform the style of a single button, or a small group of buttons. The best way to globally restyle the button component is by overriding button specific SCSS variables.
+        .sbp-btn-example.mb-4
+            h6.small.text-muted.fw-500 Square Buttons:
+            .sbp-preview.mb-4
+                .sbp-preview-content
+                    button.my-1.me-2.btn.btn-primary.rounded-0 Primary
+                    button.my-1.me-2.btn.btn-secondary.rounded-0 Secondary
+                    button.my-1.me-2.btn.btn-outline-primary.rounded-0 Primary
+                    button.my-1.me-2.btn.btn-outline-secondary.rounded-0 Secondary
+                    button.my-1.me-2.btn.btn-primary.btn-icon.rounded-0
+                        i-feather(name='feather')
+                    button.my-1.me-2.btn.btn-secondary.btn-icon.rounded-0
+                        i-feather(name='feather')
+                    button.my-1.me-2.btn.btn-outline-primary.btn-icon.rounded-0
+                        i-feather(name='feather')
+                    button.my-1.me-2.btn.btn-outline-secondary.btn-icon.rounded-0
+                        i-feather(name='feather')
+
+                .sbp-preview-code
+                    sbpro-code-sample(
+                        [codeSamples]='codeSamplesSquare',
+                    )
+
+                .sbp-preview-text.
+                    Append the <code>.rounded-0</code> helper utility class onto any button and it will square the edges, resulting in a squared button.
+
+        .sbp-btn-example.mb-4
+            h6.small.text-muted.fw-500 Shadowed Buttons:
+            .sbp-preview.mb-4
+                .sbp-preview-content
+                    button.my-1.me-2.btn.btn-primary.shadow-sm Primary
+                    button.my-1.me-2.btn.btn-secondary.shadow-sm Secondary
+                    button.my-1.me-2.btn.btn-outline-primary.shadow-sm Primary
+                    button.my-1.me-2.btn.btn-outline-secondary.shadow-sm Secondary
+                    button.my-1.me-2.btn.btn-primary.btn-icon.shadow-sm
+                        i-feather(name='feather')
+                    button.my-1.me-2.btn.btn-secondary.btn-icon.shadow-sm
+                        i-feather(name='feather')
+                    button.my-1.me-2.btn.btn-outline-primary.btn-icon.shadow-sm
+                        i-feather(name='feather')
+                    button.my-1.me-2.btn.btn-outline-secondary.btn-icon.shadow-sm
+                        i-feather(name='feather')
+
+                .sbp-preview-code
+                    sbpro-code-sample(
+                        [codeSamples]='codeSamplesShadowed',
+                    )
+
+                .sbp-preview-text.
+                    Append the <code>.shadow-sm</code> helper utility class onto any button and it will give the button a subtle shadow effect. You can use the <code>.shadow</code> and <code>.shadow-lg</code> utilities to add more shadow depth.
+
+        .sbp-btn-example.mb-4
+            h6.small.text-muted.fw-500 Pill Buttons:
+            .sbp-preview.mb-4
+                .sbp-preview-content
+                    button.my-1.me-2.btn.btn-primary.rounded-pill Primary
+                    button.my-1.me-2.btn.btn-secondary.rounded-pill Secondary
+                    button.my-1.me-2.btn.btn-outline-primary.rounded-pill Primary
+                    button.my-1.me-2.btn.btn-outline-secondary.rounded-pill Secondary
+
+                .sbp-preview-code
+                    sbpro-code-sample(
+                        [codeSamples]='codeSamplesPill',
+                    )
+
+                .sbp-preview-text.
+                    Append the <code>.rounded-pill</code> helper utility class onto any button and it will give the button a pill effect. Note, this will have no effect on icon buttons which are already circular.
+
+        .sbp-btn-example
+            h6.small.text-muted.fw-500 Deeper Customization:
+            .sbp-preview.mb-4
+                .sbp-preview-content
+                    button.my-1.me-2.btn.btn-primary.rounded-pill.px-4 Primary
+                    button.my-1.me-2.btn.btn-secondary.rounded-pill.px-4 Secondary
+                    button.my-1.me-2.btn.btn-outline-primary.rounded-pill.px-4 Primary
+                    button.my-1.me-2.btn.btn-outline-secondary.rounded-pill.px-4 Secondary
+
+                .sbp-preview-code
+                    sbpro-code-sample(
+                        [codeSamples]='codeSamplesDeeper',
+                    )
+
+                .sbp-preview-text.
+                    Spacing utilities are especially useful when trying to acheive a certain look and feel for a specific button. In the above example, the <code>.px-4</code> helper utility was added to the button component in order to create more negative space to the left and right sides of the button.
+
+                .p-4.border-bottom
+                    button.my-1.me-2.btn.btn-primary.btn-sm.rounded-0.shadow-sm.px-4.py-3.text-uppercase.fw-800 Primary
+                    button.my-1.me-2.btn.btn-secondary.btn-sm.rounded-0.shadow-sm.px-4.py-3.text-uppercase.fw-800 Secondary
+                    button.my-1.me-2.btn.btn-outline-primary.btn-sm.rounded-0.shadow-sm.px-4.py-3.text-uppercase.fw-800 Primary
+                    button.my-1.me-2.btn.btn-outline-secondary.btn-sm.rounded-0.shadow-sm.px-4.py-3.text-uppercase.fw-800 Secondary
+
+                .sbp-preview-code
+                    sbpro-code-sample(
+                        [codeSamples]='codeSamplesDeeperSquare',
+                    )
+
+                .sbp-preview-text.
+                    Multiple utility classes used together can drastically change the styling of a button. This should only be done in cases where only a single button, or a small group of buttons need to have a specific style. To modify buttons globally, it is best to override button SCSS variables.
+

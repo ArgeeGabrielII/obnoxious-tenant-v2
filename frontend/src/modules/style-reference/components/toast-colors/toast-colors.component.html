@@ -1,0 +1,44 @@
+<sbpro-card
+    ><div class="card-header">Toast Colors</div>
+    <div class="card-body">
+        <h6 class="small text-muted fw-500">Text Color Modification:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content"><sbpro-toast [header]="toastTextPrimary" body="This toast uses the primary text utility on the toast header." headerClasses="text-primary"></sbpro-toast><sbpro-toast [header]="toastTextSecondary" body="This toast uses the secondary text utility on the toast header." headerClasses="text-secondary"></sbpro-toast><sbpro-toast [header]="toastTextSuccess" body="This toast uses the success text utility on the toast header." headerClasses="text-success"></sbpro-toast><sbpro-toast [header]="toastTextInfo" body="This toast uses the info text utility on the toast header." headerClasses="text-info"></sbpro-toast><sbpro-toast [header]="toastTextWarning" body="This toast uses the warning text utility on the toast header." headerClasses="text-warning"></sbpro-toast><sbpro-toast [header]="toastTextDanger" body="This toast uses the danger text utility on the toast header." headerClasses="text-danger"></sbpro-toast></div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">The above examples use a different text color utility class on the toast header to add another level of context and emphasis to toast notifications. You can use any of the text color utilities available with Bootstrap or with the SB Admin Pro theme!</div>
+        </div>
+        <h6 class="small text-muted fw-500">Background Color Modification:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content">
+                <sbpro-toast [header]="toastTextPrimaryWhite" body="This toast uses the primary text utility on the toast header." headerClasses="bg-primary text-white"></sbpro-toast><sbpro-toast [header]="toastTextSecondaryWhite" body="This toast uses the secondary text utility on the toast header." headerClasses="bg-secondary text-white"></sbpro-toast><sbpro-toast [header]="toastTextSuccessWhite" body="This toast uses the success text utility on the toast header." headerClasses="bg-success text-white"></sbpro-toast><sbpro-toast [header]="toastTextInfoWhite" body="This toast uses the info text utility on the toast header." headerClasses="bg-info text-white"></sbpro-toast><sbpro-toast [header]="toastTextWarningWhite" body="This toast uses the warning text utility on the toast header." headerClasses="bg-warning text-white"></sbpro-toast
+                ><sbpro-toast [header]="toastTextDangerWhite" body="This toast uses the danger text utility on the toast header." headerClasses="bg-danger text-white"></sbpro-toast>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesBackground"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">The above examples use a combination of background color utilities and text color utilities on the toast header to add another level of context and emphasis to toast notifications. You can use any combination of the background color or text color utilities available with Bootstrap or with the SB Admin Pro theme!</div>
+        </div>
+    </div></sbpro-card
+><!-- Header Text Templates--><ng-template #toastTextPrimary
+    ><i-feather class="me-2" name="alert-circle"></i-feather><strong class="me-auto">Primary Text Toast</strong><small class="text-muted ms-2">just now</small><button class="ms-2 mb-1 btn-close" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextSecondary
+    ><i-feather class="me-2" name="alert-circle"></i-feather><strong class="me-auto">Secondary Text Toast</strong><small class="text-muted ms-2">just now</small><button class="ms-2 mb-1 btn-close" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextSuccess
+    ><i-feather class="me-2" name="alert-circle"></i-feather><strong class="me-auto">Success Text Toast</strong><small class="text-muted ms-2">just now</small><button class="ms-2 mb-1 btn-close" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextInfo
+    ><i-feather class="me-2" name="alert-circle"></i-feather><strong class="me-auto">Info Text Toast</strong><small class="text-muted ms-2">just now</small><button class="ms-2 mb-1 btn-close" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextWarning
+    ><i-feather class="me-2" name="alert-circle"></i-feather><strong class="me-auto">Warning Text Toast</strong><small class="text-muted ms-2">just now</small><button class="ms-2 mb-1 btn-close" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextDanger
+    ><i-feather class="me-2" name="alert-circle"></i-feather><strong class="me-auto">Danger Text Toast</strong><small class="text-muted ms-2">just now</small><button class="ms-2 mb-1 btn-close" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><!-- Header Background Templates--><ng-template #toastTextPrimaryWhite
+    ><i-feather class="me-2 text-white-50" name="alert-circle"></i-feather><strong class="me-auto">Primary Background Toast</strong><small class="text-muted ms-2 text-white-50">just now</small><button class="ms-2 mb-1 btn-close text-white" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextSecondaryWhite
+    ><i-feather class="me-2 text-white-50" name="alert-circle"></i-feather><strong class="me-auto">Secondary Background Toast</strong><small class="text-muted ms-2 text-white-50">just now</small><button class="ms-2 mb-1 btn-close text-white" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextSuccessWhite
+    ><i-feather class="me-2 text-white-50" name="alert-circle"></i-feather><strong class="me-auto">Success Background Toast</strong><small class="text-muted ms-2 text-white-50">just now</small><button class="ms-2 mb-1 btn-close text-white" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextInfoWhite
+    ><i-feather class="me-2 text-white-50" name="alert-circle"></i-feather><strong class="me-auto">Info Background Toast</strong><small class="text-muted ms-2 text-white-50">just now</small><button class="ms-2 mb-1 btn-close text-white" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextWarningWhite
+    ><i-feather class="me-2 text-white-50" name="alert-circle"></i-feather><strong class="me-auto">Warning Background Toast</strong><small class="text-muted ms-2 text-white-50">just now</small><button class="ms-2 mb-1 btn-close text-white" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastTextDangerWhite
+    ><i-feather class="me-2 text-white-50" name="alert-circle"></i-feather><strong class="me-auto">Danger Background Toast</strong><small class="text-muted ms-2 text-white-50">just now</small><button class="ms-2 mb-1 btn-close text-white" type="button" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button></ng-template
+>

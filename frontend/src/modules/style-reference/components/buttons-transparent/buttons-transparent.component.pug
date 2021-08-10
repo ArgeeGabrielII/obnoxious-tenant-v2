@@ -1,0 +1,23 @@
+sbpro-card
+    .card-header Custom Transparent Buttons
+    .card-body
+        .sbp-preview
+            .sbp-preview-content.p-0
+                .p-4.border-bottom
+                    button.my-1.me-2.btn.btn-transparent-dark.me-2(type='button') Hover Me!
+                    button.my-1.me-2.btn.btn-transparent-dark.btn-icon(type='button')
+                        i-feather(name='feather')
+                .bg-dark.p-4.border-bottom
+                    button.my-1.me-2.btn.btn-transparent-light.me-2(type='button') Hover Me!
+                    button.my-1.me-2.btn.btn-transparent-light.btn-icon(type='button')
+                        i-feather(name='feather')
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Our transparent button component is available to use in place of a button color.
+                This color styling works with all of the other customization options available,
+                including icon buttons.

@@ -1,0 +1,10 @@
+ol.breadcrumb.mt-4.mb-0.px-3.py-2.rounded
+    li.breadcrumb-item(
+        *ngFor='let breadcrumb of breadcrumbs',
+        [ngClass]='{active: breadcrumb.active}'
+    )
+        a(
+            *ngIf='breadcrumb.link',
+            [routerLink]='breadcrumb.link',
+        ) {{breadcrumb.text}}
+        span(*ngIf='!breadcrumb.link') {{breadcrumb.text}}

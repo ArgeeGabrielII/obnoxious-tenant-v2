@@ -1,0 +1,39 @@
+sbpro-card
+    .card-header Background Image Utilities
+    .card-body
+        h6.small.text-muted.fw-500#defaultSolid Background Image (Cover):
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                
+                .bg-img-cover(
+                    style='background-image: url("https://source.unsplash.com/cfR-V1QuEKw/1000x600")'
+                )
+                    div(style='height: 20rem;')
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Use the <code>.bg-img-cover</code> utility along with a background image set using
+                inline CSS and the background image will cover the element it is used on.
+
+        h6.small.text-muted.fw-500#defaultOutline Background Image (Repeat):
+        .sbp-preview
+            .sbp-preview-content
+
+                .bg-img-repeat.bg-primary(
+                    style='background-image: url("assets/img/pattern-shapes.png")'
+                )
+                    div(style='height: 20rem;')
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesRepeat',
+                )
+
+            .sbp-preview-text.
+                Use the <code>.bg-img-repeat</code> utility along with a background pattern set using
+                inline CSS and the background image will repeat across the element it is used on.
+                Use a background color utility along with it to add a background color to accompany the pattern.

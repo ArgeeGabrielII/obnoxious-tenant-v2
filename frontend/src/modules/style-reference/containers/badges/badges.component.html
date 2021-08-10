@@ -1,0 +1,17 @@
+<sbpro-dashboard-head icon="award" title="Badges" description="A small component to add labels to text within your project"></sbpro-dashboard-head>
+<div class="container-xl px-4 mt-n10">
+    <div class="row gx-4">
+        <div class="col-lg-9">
+            <sbpro-badges-default sbproTocItem="Default"></sbpro-badges-default><sbpro-badges-extended sbproTocItem="Extended"></sbpro-badges-extended><sbpro-badges-sizing sbproTocItem="Sizing"></sbpro-badges-sizing
+            ><sbpro-card-icon iconBackground="bg-secondary"
+                ><div class="card-icon"><fa-icon class="text-white-50" [icon]='["fab", "bootstrap"]'></fa-icon></div>
+                <div class="card-body">
+                    <h5 class="card-title">Bootstrap Documentation Available</h5>
+                    <p class="card-text">Badges are a default component included with the Bootstrap framework. For more information on implementing, modifying, and extending the usage of badges within your project, visit the official Bootstrap badges documentation page.</p>
+                    <a class="btn btn-secondary btn-sm" href="https://getbootstrap.com/docs/4.4/components/badge/" target="_blank"><i-feather class="me-1" name="external-link"></i-feather>Visit Bootstrap Badge Docs</a>
+                </div></sbpro-card-icon
+            >
+        </div>
+        <div class="col-lg-3"><sbpro-toc-nav [tocIndex]="tocIndex"></sbpro-toc-nav></div>
+    </div>
+</div>

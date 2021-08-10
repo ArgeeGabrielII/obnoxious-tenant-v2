@@ -1,0 +1,10 @@
+<sbpro-card
+    ><div class="card-header">Step Component Items</div>
+    <div class="card-body">
+        <div class="sbp-preview">
+            <div class="sbp-preview-content"><sbpro-step [active]="1" [steps]="steps.slice(0,2)" color="red" (stepClicked)="onClicked($event)"></sbpro-step><sbpro-step [active]="1" [steps]="steps.slice(0,3)" color="orange" (stepClicked)="onClicked($event)"></sbpro-step><sbpro-step [active]="2" [steps]="steps.slice(0,4)" color="green" (stepClicked)="onClicked($event)"></sbpro-step><sbpro-step [active]="2" [steps]="steps" color="blue" (stepClicked)="onClicked($event)"></sbpro-step></div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">The number of steps is equal to the legth of the <code>steps</code> array</div>
+        </div>
+    </div></sbpro-card
+>

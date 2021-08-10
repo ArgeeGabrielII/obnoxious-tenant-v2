@@ -1,0 +1,75 @@
+<sb-layout-auth
+    ><div class="container-xl px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header justify-content-center"><h3 class="fw-light my-4">Create Account</h3></div>
+                    <div class="card-body">
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputFirstName">First Name</label><input class="form-control" id="inputFirstName" data-cy="firstNameInput" type="text" placeholder="Enter first name" formControlName="firstName" [class.is-valid]="firstNameControlValid" [class.is-invalid]="firstNameControlInvalid" />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback" *ngIf='firstNameControl.hasError("required")'>First name required.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputLastName">Last Name</label><input class="form-control" id="inputLastName" data-cy="lastNameInput" type="text" placeholder="Enter last name" formControlName="lastName" [class.is-valid]="lastNameControlValid" [class.is-invalid]="lastNameControlInvalid" />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback" *ngIf='lastNameControl.hasError("required")'>Last name required.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control" id="inputEmailAddress" data-cy="emailInput" type="email" placeholder="Enter email address" aria-describedby="emailHelp" formControlName="email" [class.is-valid]="emailControlValid" [class.is-invalid]="emailControlInvalid" />
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback" *ngIf='emailControl.hasError("required")'>Email required.</div>
+                                <div class="invalid-feedback" *ngIf='emailControl.hasError("email")'>Email is not valid.</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputPassword">Password</label><input class="form-control" id="inputPassword" data-cy="passwordInput" type="password" placeholder="Enter password" formControlName="password" [class.is-valid]="passwordControlValid" [class.is-invalid]="passwordControlInvalid" />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback" *ngIf='passwordControl.hasError("required")'>Password required.</div>
+                                        <div class="invalid-feedback" *ngIf='passwordControl.hasError("minlength")'>Password must be at least 8 characters.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label><input class="form-control" id="inputConfirmPassword" data-cy="confirmPasswordInput" type="password" placeholder="Confirm password" formControlName="confirmPassword" [class.is-valid]="confirmPasswordControlValid" [class.is-invalid]="confirmPasswordControlInvalid" />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback" *ngIf='confirmPasswordControl.hasError("required")'>Confirm Password required.</div>
+                                        <div class="invalid-feedback" *ngIf='registerForm.hasError("passwordMismatch")'>Passwords do not match.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid"><button class="btn btn-primary" data-cy="registerButton" type="submit" [disabled]="registerForm.invalid">Create Account</button></div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="small"><a routerLink="/auth/login">Have an account? Go to login</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></sb-layout-auth
+><ng-template #confirmationModal let-modal
+    ><div class="modal-header">
+        <h5 class="modal-title">Create Account Form Data</h5>
+        <button class="btn-close" type="button" aria-label="Close" (click)='modal.dismiss("Cross click")'><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="modal-body">
+        Wired up and ready to go. Just add a backend. <br /><br />
+        firstName: <code>{{registerForm.value.firstName}}</code>
+        <br />
+        lastName: <code>{{registerForm.value.lastName}}</code>
+        <br />
+        email: <code>{{registerForm.value.email}}</code>
+        <br />
+        password: <code>{{registerForm.value.password}}</code>
+    </div>
+    <div class="modal-footer"><button class="btn btn-secondary" type="button" (click)="modal.close()">Close</button><button class="btn btn-primary" type="button" (click)='modal.close("DASHBOARD")'>Proceed back to Dashboard</button></div></ng-template
+>

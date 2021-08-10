@@ -1,0 +1,7 @@
+<li class="nav-item dropdown no-caret me-3 dropdown-notifications" *ngIf="messagesService.messages$ | async as messages" ngbDropdown [placement]="placement" display="dynamic">
+    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownMessages" ngbDropdownToggle data-cy="messagesMenu" role="button" aria-haspopup="true" aria-expanded="false"><i-feather name="mail"></i-feather></a>
+    <div class="dropdown-menu border-0 shadow animated--fade-in-up" ngbDropdownMenu aria-labelledby="navbarDropdownMessages">
+        <h6 class="dropdown-header dropdown-notifications-header"><i-feather class="me-2" name="mail"></i-feather>Message Center</h6>
+        <sbpro-top-nav-messages-item *ngFor="let message of messages" [message]="message"></sbpro-top-nav-messages-item>
+    </div>
+</li>

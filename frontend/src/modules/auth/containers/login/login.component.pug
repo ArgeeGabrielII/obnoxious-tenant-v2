@@ -1,0 +1,88 @@
+sb-layout-auth
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
+            .col-lg-5
+                .card.shadow-lg.border-0.rounded-lg.mt-5
+                    .card-header.justify-content-center
+                        h3.fw-light.my-4 Login
+                    .card-body
+                        form([formGroup]='loginForm', (ngSubmit)='onSubmit()')
+                            .mb-3
+                                label.small.mb-1(for='inputEmailAddress') Email
+                                input#inputEmailAddress.form-control(
+                                    data-cy='emailInput',
+                                    type='email',
+                                    placeholder='Enter email address',
+                                    aria-describedby='emailHelp',
+                                    formControlName='email',
+                                    [class.is-valid]='emailControlValid',
+                                    [class.is-invalid]='emailControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='emailControl.hasError("required")')
+                                    | Email required.
+                                .invalid-feedback(*ngIf='emailControl.hasError("email")')
+                                    | Email is not valid.
+
+                            .mb-3
+                                label.small.mb-1(for='inputPassword') Password
+                                input#inputPassword.form-control(
+                                    data-cy='passwordInput',
+                                    type='password',
+                                    placeholder='Enter password',
+                                    formControlName='password',
+                                    [class.is-valid]='passwordControlValid',
+                                    [class.is-invalid]='passwordControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='passwordControl.hasError("required")')
+                                    | Password required.
+                                .invalid-feedback(*ngIf='passwordControl.hasError("minlength")')
+                                    | Password must be at least 8 characters.
+
+                            .mb-3
+                                .form-check
+                                    input#rememberPasswordCheck.form-check-input(
+                                        data-cy='rememberPasswordCheck',
+                                        type='checkbox',
+                                        formControlName='checkbox'
+                                    )
+                                    label.form-check-label(for='rememberPasswordCheck')
+                                        | Remember password
+
+                            .d-flex.align-items-center.justify-content-between.mt-4
+                                a.small(routerLink='/auth/forgot-password') Forgot Password?
+                                button.btn.btn-primary(
+                                    data-cy='loginButton',
+                                    type='submit',
+                                    [disabled]='loginForm.invalid'
+                                ) Login
+
+                    .card-footer.text-center
+                        .small
+                            a(routerLink='/auth/register') Need an account? Sign up!
+
+ng-template(#confirmationModal, let-modal)
+    .modal-header
+        h5.modal-title Login Form Data
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Wired up and ready to go. Just add a backend.
+        <br><br>
+        email: <code>{{loginForm.value.email}}</code>
+        <br>
+        password: <code>{{loginForm.value.password}}</code>
+        <br>
+        remember password: <code>{{loginForm.value.checkbox}}</code>
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("DASHBOARD")'
+        ) Proceed back to Dashboard

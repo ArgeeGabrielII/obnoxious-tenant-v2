@@ -1,0 +1,14 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "allowJs": true,
+        "baseUrl": "./",
+        "target": "es2015",
+        "types": ["cypress"],
+        "paths": {
+            "@cy/*": ["../cypress/*"],
+            "@modules/*": ["../src/modules/*"]
+        }
+    },
+    "include": ["**/*.ts"]
+}

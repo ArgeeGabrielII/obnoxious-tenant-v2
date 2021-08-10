@@ -1,0 +1,17 @@
+<sbpro-card
+    ><div class="card-header">Vertically Centered Bootstrap Modal</div>
+    <div class="card-body">
+        <div class="sbp-preview">
+            <div class="sbp-preview-content"><button class="btn btn-primary" type="button" (click)="open(modalVerticallyVentered, {centered: true})">Launch Vertically Centered Modal</button></div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">Use the <code>&#123;centered: true&#125;</code> NgbModalOptions to vertically center the modal dilog when the modal window appears.</div>
+        </div>
+    </div></sbpro-card
+><ng-template #modalVerticallyVentered let-modal
+    ><div class="modal-header">
+        <h5 class="modal-title">Vertically Centered Modal</h5>
+        <button class="btn-close" type="button" aria-label="Close" (click)='modal.dismiss("Cross click")'><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="modal-body">The vertically centered modal centers the modal dialog in the center of the page.</div>
+    <div class="modal-footer"><button class="btn btn-secondary" type="button" (click)='modal.close("Close Click")'>Close</button><button class="btn btn-primary" type="button" (click)='modal.close("Save Click")'>Save changes</button></div></ng-template
+>

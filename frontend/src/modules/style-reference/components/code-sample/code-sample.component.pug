@@ -1,0 +1,36 @@
+ul.nav.nav-tabs(role='tablist')
+    li.pointer.nav-item(*ngFor='let codeSample of codeSamples; let i = index')
+        a.nav-link.me-1(
+            [ngClass]='{active: selectedIndex === i}',
+            (click)='setSelectedIndex(i)',
+            data-toggle='tab',
+            role='tab',
+            [attr.aria-selected]='selectedIndex === i'
+        )
+            ng-container(*ngIf='codeSample.language === "ts"')
+                | TS
+            ng-container(*ngIf='codeSample.language === "pug"')
+                img.img-pug.me-1(src='assets/img/pug.svg')
+                | PUG
+            ng-container(*ngIf='codeSample.language === "html"')
+                fa-icon.text-orange.me-1([icon]='["fab", "html5"]')
+                | HTML
+
+.tab-content
+    .tab-pane.show.active(
+        role='tabpanel',
+        aria-labelledby='overview-tab'
+    )
+
+        ng-container(
+            *ngFor='let codeSample of codeSamples; let i = index'
+        )
+            .position-relative(*ngIf='selectedIndex === i')
+                pre([ngClass]='"language-" + codeSample.language')
+                    code([ngClass]='"language-" + codeSample.language', [innerHTML]='codeSample.code')
+                i-feather(
+                    name='copy',
+                    ngbTooltip='Copy',
+                    (click)='copyToClipboard(i)'
+                ).copy-to-clipboard.pointer
+                

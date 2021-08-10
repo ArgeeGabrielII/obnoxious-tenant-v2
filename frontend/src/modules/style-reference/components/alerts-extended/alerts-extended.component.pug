@@ -1,0 +1,76 @@
+sbpro-card
+    .card-header Extended Alert Colors
+    .card-body
+        h6.small.text-muted.fw-500 Custom Colors with Default Alerts:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                .row.gx-4
+                    .col-6
+                        sbpro-alert(classes='alert-red', [dismissable]='false')
+                            | This is a red alert.
+                        sbpro-alert(classes='alert-orange', [dismissable]='false')
+                            | This is a orange alert.
+                        sbpro-alert(classes='alert-yellow', [dismissable]='false')
+                            | This is a yellow alert.
+                        sbpro-alert(classes='alert-green', [dismissable]='false')
+                            | This is a green alert.
+                        sbpro-alert(classes='alert-teal', [dismissable]='false')
+                            | This is a teal alert.
+                    .col-6
+                        sbpro-alert(classes='alert-cyan', [dismissable]='false')
+                            | This is a cyan alert.
+                        sbpro-alert(classes='alert-blue', [dismissable]='false')
+                            | This is a blue alert.
+                        sbpro-alert(classes='alert-indigo', [dismissable]='false')
+                            | This is a indigo alert.
+                        sbpro-alert(classes='alert-purple', [dismissable]='false')
+                            | This is a purple alert.
+                        sbpro-alert(classes='alert-pink', [dismissable]='false')
+                            | This is a pink alert.
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                SB Admin Pro's expanded color system allows you to use the non-contextual colors in
+                the same way as Bootstrap's colors.
+                <br>
+                Simply add the extended color into the <code>classes</code> attribute.
+
+        h6.small.text-muted.fw-500 Custom Colors with Solid Alerts:
+        .sbp-preview
+            .sbp-preview-content
+                .row.gx-4
+                    .col-6
+                        sbpro-alert(classes='alert-red sb-alert-solid', [dismissable]='false')
+                            | This is a red alert.
+                        sbpro-alert(classes='alert-orange sb-alert-solid', [dismissable]='false')
+                            | This is a orange alert.
+                        sbpro-alert(classes='alert-yellow sb-alert-solid', [dismissable]='false')
+                            | This is a yellow alert.
+                        sbpro-alert(classes='alert-green sb-alert-solid', [dismissable]='false')
+                            | This is a green alert.
+                        sbpro-alert(classes='alert-teal sb-alert-solid', [dismissable]='false')
+                            | This is a teal alert.
+                    .col-6
+                        sbpro-alert(classes='alert-cyan sb-alert-solid', [dismissable]='false')
+                            | This is a cyan alert.
+                        sbpro-alert(classes='alert-blue sb-alert-solid', [dismissable]='false')
+                            | This is a blue alert.
+                        sbpro-alert(classes='alert-indigo sb-alert-solid', [dismissable]='false')
+                            | This is a indigo alert.
+                        sbpro-alert(classes='alert-purple sb-alert-solid', [dismissable]='false')
+                            | This is a purple alert.
+                        sbpro-alert(classes='alert-pink sb-alert-solid', [dismissable]='false')
+                            | This is a pink alert.
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesSolid',
+                )
+
+            .sbp-preview-text.
+                Create a solid alert with the expanded color system by passing in <code>sb-alert-solid</code>
+                with the <code>classes</code> attribute. 

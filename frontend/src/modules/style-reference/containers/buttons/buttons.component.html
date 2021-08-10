@@ -1,0 +1,17 @@
+<sbpro-dashboard-head icon="mouse-pointer" title="Buttons" description="Restyled Bootstrap default buttons and custom developed button components"></sbpro-dashboard-head>
+<div class="container-xl px-4 mt-n10">
+    <div class="row gx-4">
+        <div class="col-lg-9">
+            <sbpro-buttons-default sbproTocItem="Default Colors"></sbpro-buttons-default><sbpro-buttons-custom sbproTocItem="Custom Colors"></sbpro-buttons-custom><sbpro-buttons-icon sbproTocItem="Icon"></sbpro-buttons-icon><sbpro-buttons-transparent sbproTocItem="Transparent"></sbpro-buttons-transparent><sbpro-buttons-sizing sbproTocItem="Sizing"></sbpro-buttons-sizing><sbpro-buttons-social sbproTocItem="Social"></sbpro-buttons-social><sbpro-buttons-extending sbproTocItem="Extending"></sbpro-buttons-extending
+            ><sbpro-card-icon iconBackground="bg-secondary"
+                ><div class="card-icon"><fa-icon class="text-white-50" [icon]='["fab", "bootstrap"]'></fa-icon></div>
+                <div class="card-body">
+                    <h5 class="card-title">Bootstrap Documentation Available</h5>
+                    <p class="card-text">Buttons are a default component included with the Bootstrap framework. For more information on implementing, modifying, and extending the usage of buttons within your project, visit the official Bootstrap buttons documentation page.</p>
+                    <a class="btn btn-secondary btn-sm" href="https://getbootstrap.com/docs/4.4/components/buttons/" target="_blank"><i-feather class="me-1" name="external-link"></i-feather>Visit Bootstrap Buttons Docs</a>
+                </div></sbpro-card-icon
+            >
+        </div>
+        <div class="col-lg-3"><sbpro-toc-nav [tocIndex]="tocIndex"></sbpro-toc-nav></div>
+    </div>
+</div>

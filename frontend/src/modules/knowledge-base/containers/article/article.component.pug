@@ -1,0 +1,47 @@
+sbpro-dashboard-head(
+    icon='life-buoy',
+    title='Knowledge Base',
+    description='What are you looking for? Our knowledge base is here to help.',
+    [simplified]='true',
+    [showSearch]='true'
+)
+
+.container-xl.px-4.mt-4
+
+    // Knowledge base article
+    .card.mb-4
+        .card-header.d-flex.align-items-center
+            a.btn.btn-transparent-dark.btn-icon(href='knowledge-base-category.html')
+                i-feather(name='arrow-left')
+            .ms-3
+                h2.my-3 Knowledge base article example
+        .card-body
+            p.lead Here's an example of what an article in your knowledge base will look like.
+            p.lead You can use the paragraph element along with other typography elements and text tools to create articles within your knowledge base. This is a great way to display support information to your users.
+            p.lead The knowledge base page examples are a great starting point for creating FAQ's, documentation, and more. In this section, we're using the lead paragraph class to make the text a bit larger so it's more legible since it's meant to be read in sentences.
+            p.lead.mb-5 You can also use step-by-step examples in this section:
+            h4 Step 1: Start the process
+            p.lead.mb-4 Here is some example text of a longer version of a first step. This format is great when you need to explain things more, not just using a ordered list.
+            h4 Step 2: Continue doing something
+            p.lead.mb-4 We're using built-in elements and text utilities to make this list more legible and understandable. This is a great starting point for a step by step guide within your knowledge base article.
+            h4 Step 3: Finish the process
+            p.lead.mb-5 We've used spacing utilities, text utilities, and other components within this article example. This is just an example layout of a few things you can do within an article page. Thanks for reading!
+            .alert.alert-primary.alert-icon.mb-0(role='alert')
+                .alert-icon-aside
+                    i-feather(name='alert-triangle')
+                .alert-icon-content
+                    h5.alert-heading Article Alert
+                    | If there is something in your article that you really want to emphasize, use the alert component, or our custom icon alert component like this one here!
+
+    // Knowledge base rating
+    .text-center.mt-5
+        h4.mb-3 Was this page helpful?
+        .mb-3
+            button.btn.btn-primary.mx-2.px-3(role='button')
+                i-feather.me-2(name='thumbs-up')
+                | Yes
+            button.btn.btn-primary.mx-2.px-3(role='button')
+                i-feather.me-2(name='thumbs-down')
+                | No
+        .text-small.text-muted
+            em 29 people found this page helpful so far!

@@ -1,0 +1,15 @@
+<div class="page-header page-header-compact mb-4" [ngClass]='{"page-header-dark bg-gradient-primary-to-secondary": !light, "page-header-light border-bottom bg-white": light}'>
+    <div class="container-fluid px-4">
+        <div class="page-header-content">
+            <div class="row gx-4 align-items-center justify-content-between pt-3">
+                <div class="col-auto mb-3">
+                    <h1 class="page-header-title">
+                        <div class="page-header-icon" *ngIf="icon"><i-feather [name]="icon"></i-feather></div>
+                        <span>{{title}}</span>
+                    </h1>
+                </div>
+                <div class="col-12 col-xl-auto mb-3"><ng-content></ng-content></div>
+            </div>
+        </div>
+    </div>
+</div>

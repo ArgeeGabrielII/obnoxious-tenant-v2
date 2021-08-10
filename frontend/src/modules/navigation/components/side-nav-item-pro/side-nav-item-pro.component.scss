@@ -1,0 +1,14 @@
+@import 'styles/core/variables.scss';
+
+.nav {
+    // height: 96px;
+    overflow: hidden;
+    transition: height 0.2s ease-out;
+    &.collapsed {
+        height: 0px;
+    }
+}
+
+.nav-link {
+    cursor: pointer;
+}

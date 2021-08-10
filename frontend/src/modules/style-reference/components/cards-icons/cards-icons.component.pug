@@ -1,0 +1,22 @@
+sbpro-card
+    .card-header Icon Card
+    .card-body
+        .sbp-preview
+            .sbp-preview-content.bg-light
+
+                sbpro-card-icon
+                    .card-icon
+                        i-feather.text-white-50(name='layers')
+                    .card-body
+                        h5.card-title Custom Icon Card
+                        p.card-text.
+                            The icon card is an extension of the Bootstrap card component that uses Bootstrap layout classes in
+                            unison with custom styling to create a new card layout that you can use to add emphasis to certain content.
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Feather Icons, Font Awesome icons, or a custom SVG can be used for the icon.

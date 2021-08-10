@@ -1,0 +1,35 @@
+.row.gx-4
+    .col-xl-6.mb-4
+        sbpro-card([headerActions]='true')
+            .card-header Area Chart Example
+                sbpro-dropdown(
+                    placement='bottom-end',
+                    animation='animated--fade-in-up',
+                    [classes]='["no-caret"]'
+                )
+                    .dropdown-trigger
+                        i-feather.text-gray-500(name='more-vertical')
+                    .dropdown-items
+                        a.dropdown-item((click)='changeAreaChartRange("monthly")') Monthly
+                        a.dropdown-item((click)='changeAreaChartRange("quarterly")') Quarterly
+                        a.dropdown-item((click)='changeAreaChartRange("yearly")') Yearly
+
+            .card-body
+                sb-charts-area([duration]='areaChartDuration')
+                            
+    .col-xl-6.mb-4
+        sbpro-card([headerActions]='true')
+            .card-header Bar Chart Example
+                sbpro-dropdown(
+                    placement='bottom-end',
+                    animation='animated--fade-in-up',
+                    [classes]='["no-caret"]'
+                )
+                    .dropdown-trigger
+                        i-feather.text-gray-500(name='more-vertical')
+                    .dropdown-items
+                        a.dropdown-item((click)='changeBarChartRange("monthly")') Monthly
+                        a.dropdown-item((click)='changeBarChartRange("quarterly")') Quarterly
+                        a.dropdown-item((click)='changeBarChartRange("yearly")') Yearly
+            .card-body
+                sb-charts-bar([duration]='barChartDuration')

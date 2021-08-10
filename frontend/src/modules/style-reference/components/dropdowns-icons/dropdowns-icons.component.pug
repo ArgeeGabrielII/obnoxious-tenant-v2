@@ -1,0 +1,28 @@
+sbpro-card
+    .card-header Menu Item Icons
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                .sbp-dropdown-example
+                    .dropdown-menu
+                        a.dropdown-item
+                            .dropdown-item-icon
+                                i-feather(name='user')
+                            | Profile
+                        a.dropdown-item
+                            .dropdown-item-icon
+                                i-feather(name='settings')
+                            | Settings
+                        .dropdown-divider
+                        a.dropdown-item
+                            .dropdown-item-icon
+                                i-feather(name='log-out')
+                            | Logout
+                            
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Use the <code>.dropdown-item-icon</code> wrapper around any icon within any <code>.dropdown-item</code> to see a pre-styled icon to accompany the dropdown item content.

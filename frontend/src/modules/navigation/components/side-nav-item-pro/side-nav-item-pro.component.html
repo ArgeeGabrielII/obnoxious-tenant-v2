@@ -1,0 +1,9 @@
+<a class="nav-link" (click)="toggle()" [ngClass]="{active: isActive, collapsed: collapsed}"
+    ><div class="nav-link-icon" *ngIf="sideNavItem.icon"><i-feather [name]="sideNavItem.icon"></i-feather></div>
+    {{sideNavItem.text}}
+    <div class="badge bg-primary ms-2" *ngIf="sideNavItem.new">New!</div>
+    <div class="badge bg-primary-soft text-primary ms-auto" *ngIf="sideNavItem.updated">Updated</div>
+    <div class="sidenav-collapse-arrow" *ngIf="sideNavItem.submenu"><fa-icon class="ms-auto" [icon]="['fas', 'angle-down']"></fa-icon></div
+></a>
+<nav class="sidenav-menu-nested nav" #collapsibleSection [ngClass]="{collapsed: collapsed}"><sbpro-side-nav-item class="submenu" *ngFor="let submenuItem of sideNavItem.submenu" [sideNavItem]="submenuItem" [ngClass]="{collapsed: collapsed}" [hierarchy]="hierarchyExtension"></sbpro-side-nav-item></nav>
+<!-- [routerLink]='sideNavItem.link', -->

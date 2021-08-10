@@ -1,0 +1,18 @@
+@import 'styles/core/variables.scss';
+
+thead>tr>th {
+    cursor: pointer;
+}
+
+.spinner-border-sm {
+    height: $font-size-sm;
+    width: $font-size-sm;
+}
+
+.table-search {
+    max-width: 20rem;
+}
+
+::ng-deep ngb-pagination ul {
+    margin-bottom: 0 !important;
+}

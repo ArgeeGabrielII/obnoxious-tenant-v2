@@ -1,0 +1,132 @@
+sb-layout-auth
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
+            .col-lg-7
+                .card.shadow-lg.border-0.rounded-lg.mt-5
+                    .card-header.justify-content-center
+                        h3.fw-light.my-4 Create Account
+                    .card-body
+                        form([formGroup]='registerForm', (ngSubmit)='onSubmit()')
+                            .row
+                                .col-md-6
+                                    .mb-3
+                                        label.small.mb-1(for='inputFirstName') First Name
+                                        input#inputFirstName.form-control(
+                                            data-cy='firstNameInput',
+                                            type='text',
+                                            placeholder='Enter first name',
+                                            formControlName='firstName',
+                                            [class.is-valid]='firstNameControlValid',
+                                            [class.is-invalid]='firstNameControlInvalid'
+                                        )
+                                        .valid-feedback Looks good!
+                                        .invalid-feedback(*ngIf='firstNameControl.hasError("required")')
+                                            | First name required.
+
+                                .col-md-6
+                                    .mb-3
+                                        label.small.mb-1(for='inputLastName') Last Name
+                                        input#inputLastName.form-control(
+                                            data-cy='lastNameInput',
+                                            type='text',
+                                            placeholder='Enter last name',
+                                            formControlName='lastName',
+                                            [class.is-valid]='lastNameControlValid',
+                                            [class.is-invalid]='lastNameControlInvalid'
+                                        )
+                                        .valid-feedback Looks good!
+                                        .invalid-feedback(*ngIf='lastNameControl.hasError("required")')
+                                            | Last name required.
+
+                            .mb-3
+                                label.small.mb-1(for='inputEmailAddress') Email
+                                input#inputEmailAddress.form-control(
+                                    data-cy='emailInput',
+                                    type='email',
+                                    placeholder='Enter email address',
+                                    aria-describedby='emailHelp',
+                                    formControlName='email',
+                                    [class.is-valid]='emailControlValid',
+                                    [class.is-invalid]='emailControlInvalid'
+                                )
+                                .valid-feedback Looks good!
+                                .invalid-feedback(*ngIf='emailControl.hasError("required")')
+                                    | Email required.
+                                .invalid-feedback(*ngIf='emailControl.hasError("email")')
+                                    | Email is not valid.
+
+
+                            .row
+                                .col-md-6
+                                    .mb-3
+                                        label.small.mb-1(for='inputPassword') Password
+                                        input#inputPassword.form-control(
+                                            data-cy='passwordInput',
+                                            type='password',
+                                            placeholder='Enter password',
+                                            formControlName='password',
+                                            [class.is-valid]='passwordControlValid',
+                                            [class.is-invalid]='passwordControlInvalid'
+                                        )
+                                        .valid-feedback Looks good!
+                                        .invalid-feedback(*ngIf='passwordControl.hasError("required")')
+                                            | Password required.
+                                        .invalid-feedback(*ngIf='passwordControl.hasError("minlength")')
+                                            | Password must be at least 8 characters.
+
+                                .col-md-6
+                                    .mb-3
+                                        label.small.mb-1(for='inputConfirmPassword') Confirm Password
+                                        input#inputConfirmPassword.form-control(
+                                            data-cy='confirmPasswordInput',
+                                            type='password',
+                                            placeholder='Confirm password',
+                                            formControlName='confirmPassword',
+                                            [class.is-valid]='confirmPasswordControlValid',
+                                            [class.is-invalid]='confirmPasswordControlInvalid'
+                                        )
+                                        .valid-feedback Looks good!
+                                        .invalid-feedback(*ngIf='confirmPasswordControl.hasError("required")')
+                                            | Confirm Password required.
+                                        .invalid-feedback(*ngIf='registerForm.hasError("passwordMismatch")')
+                                            | Passwords do not match.
+
+                            .d-grid
+                                button.btn.btn-primary(
+                                    data-cy='registerButton',
+                                    type='submit',
+                                    [disabled]='registerForm.invalid'
+                                ) Create Account
+
+                    .card-footer.text-center
+                        .small
+                            a(routerLink='/auth/login') Have an account? Go to login
+
+ng-template(#confirmationModal, let-modal)
+    .modal-header
+        h5.modal-title Create Account Form Data
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Wired up and ready to go. Just add a backend.
+        <br><br>
+        firstName: <code>{{registerForm.value.firstName}}</code>
+        <br>
+        lastName: <code>{{registerForm.value.lastName}}</code>
+        <br>
+        email: <code>{{registerForm.value.email}}</code>
+        <br>
+        password: <code>{{registerForm.value.password}}</code>
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("DASHBOARD")'
+        ) Proceed back to Dashboard

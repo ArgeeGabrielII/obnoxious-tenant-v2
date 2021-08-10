@@ -1,0 +1,15 @@
+sbpro-layout-dashboard([light]='true', [rtl]='true')
+    sbpro-dashboard-head(
+        icon='layout',
+        title='Right to Left Layout',
+        description='An alternate layout going from left to right'
+    )
+
+    .container-xl.px-4.mt-n10
+        
+        .card.mb-4
+            .card-header Enabling RTL site wide
+            .card-body
+                p.card-text.
+                    To enable RTL site wide, simply add the <code>[rtl]='true'</code> attribute to the <code>&lt;sbpro-layout-dashboard&gt;</code>
+                    element in <code>src/modules/dashboard/containers/dashboard/dashboard.component.pug</code>

@@ -1,0 +1,16 @@
+<nav class="sidenav shadow-right" id="sidenavAccordion" [ngClass]="sidenavStyle" data-cy="sideNav">
+    <div class="sidenav-menu">
+        <div class="nav">
+            <ng-container *ngFor="let section of sideNavSections"
+                ><div class="sidenav-menu-heading" *ngIf="section.text">{{ section.text }}</div>
+                <ng-container *ngFor="let item of section.items"><sbpro-side-nav-item [sideNavItem]="sideNavItems[item]"></sbpro-side-nav-item></ng-container
+            ></ng-container>
+        </div>
+    </div>
+    <div class="sidenav-footer">
+        <div class="sidenav-footer-content" *ngIf="userService.user$ | async as user">
+            <div class="sidenav-footer-subtitle">Logged in as:</div>
+            <div class="sidenav-footer-title">{{user.firstName}} {{user.lastName}}</div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,25 @@
+<sbpro-card
+    ><div class="card-header">Bootstrap Toasts Demo</div>
+    <div class="card-body">
+        <h6 class="small text-muted fw-500">Basic Toast with Auto Hide:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content">
+                <button class="btn btn-primary mb-3" (click)="showToast(toastHeader, toastBody)">Toast Demo</button>
+                <div class="small">The toast alert will appear in the top right of the screen when the above button is clicked.</div>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+        </div>
+        <h6 class="small text-muted fw-500">Basic Toast with Manual Dismissal:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content">
+                <button class="btn btn-primary mb-3" (click)='showToast(toastHeaderManual, "This is an example toast alert, you must close this toast alert manually.", {autohide: false})'>Toast Demo</button>
+                <div class="small">The toast alert will appear in the top right of the screen when the above button is clicked.</div>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesManual"></sbpro-code-sample></div>
+        </div></div></sbpro-card
+><!-- Templates for toast--><ng-template #toastHeader let-toastService="toastService" let-toastID="toastID"
+    ><i-feather class="me-2" name="bell"></i-feather><strong class="me-auto">Toast with Autohide</strong><small class="text-muted ms-2">just now</small><button class="ms-2 mb-1 btn-close" type="button" aria-label="Close" (click)="toastService.remove(toastID)"><span aria-hidden="true">×</span></button></ng-template
+><ng-template #toastBody>This is an example toast alert, it will dismiss automatically, or you can dismiss it manually. </ng-template
+><ng-template #toastHeaderManual let-toastService="toastService" let-toastID="toastID"
+    ><i-feather class="me-2" name="bell"></i-feather><strong class="me-auto">Toast with Manual Dismissal</strong><small class="text-muted ms-2">just now</small><button class="ms-2 mb-1 btn-close" type="button" aria-label="Close" (click)="toastService.remove(toastID)"><span aria-hidden="true">×</span></button></ng-template
+>

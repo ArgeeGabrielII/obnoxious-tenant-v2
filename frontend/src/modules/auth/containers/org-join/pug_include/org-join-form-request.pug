@@ -1,0 +1,23 @@
+form([formGroup]='organizationJoinFormRequest', (ngSubmit)='onSubmitRequest()')
+    h5.fw-500.mb-3 Request access
+    .mb-3
+        input#joinNameInput.form-control.form-control-solid(
+            data-cy='joinNameInput',
+            type='text',
+            placeholder='Existing organization name',
+            aria-label='Organization Name',
+            formControlName='name',
+            [class.is-valid]='nameControlValid',
+            [class.is-invalid]='nameControlInvalid'
+        )
+        .invalid-feedback(*ngIf='nameControl.hasError("required")')
+            | Name required
+        .invalid-feedback(*ngIf='nameControl.hasError("name")')
+            | Organization not recognized
+
+    .d-grid
+        button.btn.btn-secondary(
+            data-cy='joinOrgNamedButton',
+            type='submit',
+            [disabled]='organizationJoinFormRequest.invalid'
+        ) Join

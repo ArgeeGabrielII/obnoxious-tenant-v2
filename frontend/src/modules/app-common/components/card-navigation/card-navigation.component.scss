@@ -1,0 +1,17 @@
+@import 'styles/core/variables.scss';
+
+:host {
+    display: contents;
+}
+
+a.nav-link {
+    cursor: pointer;
+}
+
+.card-deck :host {
+    -webkit-box-flex: 1;
+            flex: 1 0 0%;
+    margin-right: 0.75rem;
+    margin-bottom: 0;
+    margin-left: 0.75rem;
+  }

@@ -1,0 +1,38 @@
+sbpro-card
+    .card-header Default Bootstrap Tooltips
+    .card-body
+        .sbp-preview
+            .sbp-preview-content.py-3
+                .row.gx-4
+                    .col-auto.my-2
+                        button.btn.btn-primary(
+                            type='button',
+                            placement='top',
+                            ngbTooltip='Tooltip on top'
+                        ) Tooltip on top
+                    .col-auto.my-2
+                        button.btn.btn-primary(
+                            type='button',
+                            placement='end',
+                            ngbTooltip='Tooltip on end'
+                        ) Tooltip on end
+                    .col-auto.my-2
+                        button.btn.btn-primary(
+                            type='button',
+                            placement='bottom',
+                            ngbTooltip='Tooltip on bottom'
+                        ) Tooltip on bottom
+                    .col-auto.my-2
+                        button.btn.btn-primary(
+                            type='button',
+                            placement='start',
+                            ngbTooltip='Tooltip on start'
+                        ) Tooltip on start
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Tooltips are visible when an element is hovered over.

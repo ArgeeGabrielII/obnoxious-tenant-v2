@@ -1,0 +1,45 @@
+.card.mb-4(
+    [ngClass]='cardClasses'
+)
+    ng-container(
+        *ngIf='placement === "top"'
+    )
+        img.card-img-top([src]='src', alt='alt')
+        ng-container(*ngTemplateOutlet='cardBody')
+    
+    ng-container(
+        *ngIf='placement === "bottom"'
+    )
+        ng-container(*ngTemplateOutlet='cardBody')
+        img.card-img-bottom([src]='src', alt='alt')
+
+    ng-container(
+        *ngIf='placement === "left"'
+    )
+        .row.gx-0
+            .col-md-4
+                img.img-fluid([src]='src', alt='alt')
+            .col-md-8
+                ng-container(*ngTemplateOutlet='cardBody')
+
+    ng-container(
+        *ngIf='placement === "right"'
+    )
+        .row.gx-0
+            .col-md-8
+                ng-container(*ngTemplateOutlet='cardBody')
+            .col-md-4
+                img.img-fluid([src]='src', alt='alt')
+
+    ng-container(
+        *ngIf='placement === "overlay"'
+    )
+        img.card-img([src]='src', alt='alt')
+        ng-content(select='.card-img-overlay')
+
+    
+    
+    ng-content(select='.card-footer')
+
+ng-template(#cardBody)
+    ng-content(select='.card-body')

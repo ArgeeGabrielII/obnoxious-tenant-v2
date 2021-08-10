@@ -1,0 +1,53 @@
+sbpro-card
+    .card-header Styled Timeline Component Example
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+
+                sbpro-timeline(
+                    *ngIf='timeline',
+                    [timeline]='timeline'
+                )
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                You can pass in <code>TemplateRef</code> instead of a <code>string</code>
+
+ng-template(#itemTemplate1)
+    .card.shadow-sm
+        .card-body
+            h5.text-primary Beginning
+            p.
+                This is the content for the first timeline item. 
+                In this styled example, we're styling the timeline marker with background 
+                and typography utility classes. 
+                We've also shown that you can use the card component within the timeline item content.
+
+ng-template(#itemTemplate2)
+    .card.shadow-sm
+        .card-body
+            h5.text-success Second Item
+            p.
+                This is the content for the second timeline item. 
+                In this timeline example, we're also using some spacing utilities on the timeline 
+                item content to remove the padding from the top of that element.                
+ng-template(#itemTemplate3)
+    .card.shadow-sm
+        .card-body
+            h5.text-secondary Third Item
+            p.
+                This is the content for the third timeline item. 
+                Keep in mind this is just an example of what you can put within the 
+                timeline item content. 
+                There are many other ways you can use this timeline, and it's fully responsive too!
+ng-template(#itemTemplate4)
+    .card.shadow-sm
+        .card-body
+            h5.text-warning Last Item
+            p.
+                You can use different icons in the icon markers, letters, 
+                or no icons at all if you just want a blank circle.                      

@@ -1,0 +1,24 @@
+.timeline(
+    [ngClass]='timelineClasses'
+)
+    .timeline-item(
+        *ngFor='let item of timeline'
+    )
+        .timeline-item-marker
+            .timeline-item-marker-text
+                | {{item.markerText}}
+            .timeline-item-marker-indicator(
+                [ngClass]='(item.markerColor ? "bg-" + item.markerColor: " ") + " " + (item.markerIndicatorTextColor ? "text-" + item.markerIndicatorTextColor: " ")'
+            )
+                i-feather(
+                    *ngIf='item.markerFeatherIcon',
+                    [name]='item.markerFeatherIcon'
+                )
+        .timeline-item-content(
+            *ngIf='item.itemContent'
+        )
+            | {{item.itemContent}}
+        .timeline-item-content.pt-0(
+            *ngIf='item.itemTemplate'
+        )
+            ng-template(*ngTemplateOutlet='item.itemTemplate')

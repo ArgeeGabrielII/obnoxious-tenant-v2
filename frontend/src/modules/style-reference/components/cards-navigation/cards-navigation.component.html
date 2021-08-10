@@ -1,0 +1,53 @@
+<sbpro-card class="mb-4"
+    ><div class="card-header">Navigation Cards</div>
+    <div class="card-body">
+        <h6 class="small text-muted fw-500">Card with Tabbed Navigation:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content">
+                <sbpro-card-navigation sbproTocItem="Tabs" [navNames]='["Overview", "Example"]' [templates]="[overviewTabbed, exampleTabbed]"
+                    ><ng-template #overviewTabbed
+                        ><h5 class="card-title">Tabbed Navigation Card</h5>
+                        <p class="card-text">The is a custom tab navigation component.</p>
+                        <sbpro-lorem-ipsum class="card-text"></sbpro-lorem-ipsum></ng-template
+                    ><ng-template #exampleTabbed
+                        ><h5 class="card-title">Example Pane</h5>
+                        <p class="card-text">This is an example of another tab pane that you could use within a card with navigation in the header.</p>
+                        <sbpro-lorem-ipsum class="card-text"></sbpro-lorem-ipsum></ng-template
+                ></sbpro-card-navigation>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesTabs"></sbpro-code-sample></div>
+        </div>
+        <h6 class="small text-muted fw-500">Card with Pill Navigation:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content bg-light">
+                <sbpro-card-navigation sbproTocItem="Pills" [navNames]='["Overview", "Example"]' [templates]="[overviewPill, examplePill]" navType="pill"
+                    ><ng-template #overviewPill
+                        ><h5 class="card-title">Pill Navigation Card</h5>
+                        <p class="card-text">The is a custom pill navigation component.</p>
+                        <sbpro-lorem-ipsum class="card-text"></sbpro-lorem-ipsum></ng-template
+                    ><ng-template #examplePill
+                        ><h5 class="card-title">Example Pane</h5>
+                        <p class="card-text">This is an example of another tab pane that you could use within a card with navigation in the header.</p>
+                        <sbpro-lorem-ipsum class="card-text"></sbpro-lorem-ipsum></ng-template
+                ></sbpro-card-navigation>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesPills"></sbpro-code-sample></div>
+        </div>
+        <h6 class="small text-muted fw-500">Card with Vertically Stacked Pill Navigation::</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content bg-light">
+                <sbpro-card-navigation sbproTocItem="Pills (Vertical)" [navNames]='["Overview", "Example"]' [templates]="[overviewVerticalPill, exampleVerticalPill]" navType="vertical"
+                    ><div class="card-header">Vertical Pill Navigation</div>
+                    <ng-template #overviewVerticalPill
+                        ><h5 class="card-title">Vertical Pill Navigation Card</h5>
+                        <p class="card-text">The is a custom vertical pill navigation component.</p>
+                        <sbpro-lorem-ipsum class="card-text"></sbpro-lorem-ipsum></ng-template
+                    ><ng-template #exampleVerticalPill
+                        ><h5 class="card-title">Example Pane</h5>
+                        <p class="card-text">This is an example of another tab pane that you could use within a card with navigation in the header.</p>
+                        <sbpro-lorem-ipsum class="card-text"></sbpro-lorem-ipsum></ng-template
+                ></sbpro-card-navigation>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesPillsVertical"></sbpro-code-sample></div>
+        </div></div
+></sbpro-card>

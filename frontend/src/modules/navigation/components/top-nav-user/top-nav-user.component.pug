@@ -1,0 +1,33 @@
+li.nav-item.dropdown.no-caret.me-3.me-lg-0.dropdown-user(
+    *ngIf='userService.user$ | async as user',
+    ngbDropdown,
+    [placement]='placement',
+    display='dynamic'
+)
+    a#navbarDropdownUserImage.btn.btn-icon.btn-transparent-dark.dropdown-toggle(
+        ngbDropdownToggle,
+        data-cy='userMenu',
+        role='button',
+        aria-haspopup='true',
+        aria-expanded='false'
+    )
+        img.img-fluid([src]='user.image')
+
+    .dropdown-menu.border-0.shadow.animated--fade-in-up(
+        ngbDropdownMenu,
+        aria-labelledby='dropdownUser'
+    )
+        h6.dropdown-header.d-flex.align-items-center
+            img.dropdown-user-img([src]='user.image')
+            .dropdown-user-details
+                .dropdown-user-details-name {{ user.firstName }} {{ user.lastName }}
+                .dropdown-user-details-email {{ user.email }}
+        .dropdown-divider
+        a.dropdown-item(routerLink='/dashboard')
+            .dropdown-item-icon
+                i-feather(name='settings')
+            | Account
+        a.dropdown-item(routerLink='/dashboard')
+            .dropdown-item-icon
+                i-feather(name='log-out')
+            | Logout

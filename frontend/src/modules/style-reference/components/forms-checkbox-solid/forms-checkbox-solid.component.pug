@@ -1,0 +1,42 @@
+sbpro-card
+    .card-header Solid Checkboxes &amp; Radio
+    .card-body
+        h6.small.text-muted.fw-500 Custom Solid Checkboxes:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                .form-check.form-check-solid
+                    input#customSolidCheck1.form-check-input(type='checkbox')
+                    label.form-check-label(for='customSolidCheck1') Custom Solid Checkbox 1
+                .form-check.form-check-solid
+                    input#customSolidCheck2.form-check-input(type='checkbox')
+                    label.form-check-label(for='customSolidCheck2') Custom Solid Checkbox 2
+                .form-check.form-check-solid
+                    input#customSolidCheck3.form-check-input(type='checkbox', disabled)
+                    label.form-check-label(for='customSolidCheck3') Custom Solid Checkbox (Disabled)
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Bootstrap's custom checkbox and radio styling have been modified for the
+                SB Admin Pro theme.
+        
+        h6.small.text-muted.fw-500 Custom Solid Radio:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                .form-check.form-check-solid
+                    input#customSolidRadio1.form-check-input(type='radio', name='customSolidRadio')
+                    label.form-check-label(for='customSolidRadio1') Toggle this custom radio
+                .form-check.form-check-solid
+                    input#customSolidRadio2.form-check-input(type='radio', name='customSolidRadio')
+                    label.form-check-label(for='customSolidRadio2') Or toggle this other custom radio
+                .form-check.form-check-solid
+                    input#customSolidRadio3.form-check-input(type='radio', name='customSolidRadio', disabled)
+                    label.form-check-label(for='customSolidRadio3') This radio is disabled
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesRadio',
+                )

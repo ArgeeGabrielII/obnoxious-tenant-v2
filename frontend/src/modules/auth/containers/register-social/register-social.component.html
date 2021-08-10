@@ -1,0 +1,91 @@
+<sb-layout-auth
+    ><div class="container-xl px-4">
+        <div class="row gx-4 justify-content-center">
+            <!-- Register Form-->
+            <div class="col-xl-8 col-lg-9">
+                <div class="card my-5">
+                    <div class="card-body p-5 text-center">
+                        <div class="h3 fw-light mb-3">Create an Account</div>
+                        <div class="small text-muted mb-2">Sign in using...</div>
+                        <button class="btn btn-icon btn-facebook mx-1"><fa-icon [icon]='["fab", "facebook-f"]'></fa-icon></button><button class="btn btn-icon btn-github mx-1"><fa-icon [icon]='["fab", "github"]'></fa-icon></button><button class="btn btn-icon btn-google mx-1"><fa-icon [icon]='["fab", "google"]'></fa-icon></button><button class="btn btn-icon btn-twitter mx-1"><fa-icon [icon]='["fab", "twitter"]'></fa-icon></button>
+                    </div>
+                    <hr class="my-0" />
+                    <div class="card-body p-5">
+                        <div class="text-center small text-muted mb-4">...or enter your information below.</div>
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="text-gray-600 small" for="inputFirstName">First name</label><input class="form-control form-control-solid" id="inputFirstName" data-cy="firstNameInput" type="text" formControlName="firstName" [class.is-valid]="firstNameControlValid" [class.is-invalid]="firstNameControlInvalid" />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback" *ngIf='firstNameControl.hasError("required")'>First name required.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="text-gray-600 small" for="inputLastName">Last name </label><input class="form-control form-control-solid" id="inputLastName" data-cy="lastNameInput" type="text" formControlName="lastName" [class.is-valid]="lastNameControlValid" [class.is-invalid]="lastNameControlInvalid" />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback" *ngIf='lastNameControl.hasError("required")'>Last name required.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-gray-600 small" for="inputEmailAddress">Email address</label><input class="form-control form-control-solid" id="inputEmailAddress" data-cy="emailInput" type="email" aria-describedby="emailHelp" formControlName="email" [class.is-valid]="emailControlValid" [class.is-invalid]="emailControlInvalid" />
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback" *ngIf='emailControl.hasError("required")'>Email required.</div>
+                                <div class="invalid-feedback" *ngIf='emailControl.hasError("email")'>Email is not valid.</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="text-gray-600 small" for="inputPassword">Password</label><input class="form-control form-control-solid" id="inputPassword" data-cy="passwordInput" type="password" formControlName="password" [class.is-valid]="passwordControlValid" [class.is-invalid]="passwordControlInvalid" />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback" *ngIf='passwordControl.hasError("required")'>Password required.</div>
+                                        <div class="invalid-feedback" *ngIf='passwordControl.hasError("minlength")'>Password must be at least 8 characters.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="text-gray-600 small" for="inputConfirmPassword">Confirm Password</label><input class="form-control form-control-solid" id="inputConfirmPassword" data-cy="confirmPasswordInput" type="password" formControlName="confirmPassword" [class.is-valid]="confirmPasswordControlValid" [class.is-invalid]="confirmPasswordControlInvalid" />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback" *ngIf='confirmPasswordControl.hasError("required")'>Confirm Password required.</div>
+                                        <div class="invalid-feedback" *ngIf='registerForm.hasError("passwordMismatch")'>Passwords do not match.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="form-check form-check-solid">
+                                    <input class="form-check-input small" id="termsAndConditionsInput" data-cy="termsAndConditionsInput" type="checkbox" formControlName="termsAndConditions" [class.is-valid]="termsAndConditionsControlValid" [class.is-invalid]="termsAndConditionsControlInvalid" /><label class="form-check-label" for="termsAndConditionsInput">I accept the terms & conditions</label>
+                                    <div class="invalid-feedback" *ngIf='termsAndConditionsControl.hasError("required")'>You must accept the terms & conditions.</div>
+                                </div>
+                                <button class="btn btn-primary" data-cy="registerButton" type="submit" [disabled]="registerForm.invalid">Create Account</button>
+                            </div>
+                        </form>
+                    </div>
+                    <hr class="my-0" />
+                    <div class="card-body px-5 py-4">
+                        <div class="small text-center">Have an account? <a routerLink="/auth/login-social">Sign in!</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></sb-layout-auth
+><ng-template #confirmationModal let-modal
+    ><div class="modal-header">
+        <h5 class="modal-title">Create Account Form Data</h5>
+        <button class="btn-close" type="button" aria-label="Close" (click)='modal.dismiss("Cross click")'><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="modal-body">
+        Wired up and ready to go. Just add a backend. <br /><br />
+        firstName: <code>{{registerForm.value.firstName}}</code>
+        <br />
+        lastName: <code>{{registerForm.value.lastName}}</code>
+        <br />
+        email: <code>{{registerForm.value.email}}</code>
+        <br />
+        password: <code>{{registerForm.value.password}}</code>
+        <br />
+        termsAndConditions: <code>{{registerForm.value.termsAndConditions}}</code>
+    </div>
+    <div class="modal-footer"><button class="btn btn-secondary" type="button" (click)="modal.close()">Close</button><button class="btn btn-primary" type="button" (click)='modal.close("DASHBOARD")'>Proceed back to Dashboard</button></div></ng-template
+>

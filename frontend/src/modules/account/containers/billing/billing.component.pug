@@ -1,0 +1,118 @@
+sbpro-dashboard-head-compact(
+    title='Account Settings - Billing',
+    icon='user'
+)
+
+// Main page content
+.container-xl.px-4.mt-4
+    // Account page navigation
+    nav.nav.nav-borders
+        a.nav-link.ms-0(routerLink='/dashboard/account/profile') Profile
+        a.nav-link.active(routerLink='/dashboard/account/billing') Billing
+        a.nav-link(routerLink='/dashboard/account/security') Security
+        a.nav-link(routerLink='/dashboard/account/notifications') Notifications
+    hr.mt-0.mb-4
+    .row.gx-4
+        .col-lg-4.mb-4
+            // Billing card 1
+            .card.h-100.border-start-lg.border-start-primary
+                .card-body
+                    .small.text-muted Current monthly bill
+                    .h3 $20.00
+                    a.text-arrow-icon.small(href='javascript:void(0);')
+                        | Switch to yearly billing
+                        i-feather(name='arrow-right')
+        .col-lg-4.mb-4
+            // Billing card 2
+            .card.h-100.border-start-lg.border-start-secondary
+                .card-body
+                    .small.text-muted Next payment due
+                    .h3 July 15
+                    a.text-arrow-icon.small.text-secondary(href='javascript:void(0);')
+                        | View payment history
+                        i-feather(name='arrow-right')
+        .col-lg-4.mb-4
+            // Billing card 3
+            .card.h-100.border-start-lg.border-start-success
+                .card-body
+                    .small.text-muted Current plan
+                    .h3.d-flex.align-items-center Freelancer
+                    a.text-arrow-icon.small.text-success(href='javascript:void(0);')
+                        | Upgrade plan
+                        i-feather(name='arrow-right')
+    // Payment methods card
+    .card.card-header-actions.mb-4
+        .card-header
+            | Payment Methods
+            button.btn.btn-sm.btn-primary(type='button') Add Payment Method
+        .card-body
+            // Payment method 1
+            .d-flex.align-items-center.justify-content-between
+                .d-flex.align-items-center
+                    fa-icon.fa-cc-visa.fa-2x([icon]='["fab", "cc-visa"]')
+                    .ms-4
+                        .small Visa ending in 1234
+                        .text-xs.text-muted Expires 04/2024
+                .ms-4.small
+                    .badge.bg-light.text-dark.me-3 Default
+                    a(href='javascript:void(0);') Edit
+            hr
+            // Payment method 2
+            .d-flex.align-items-center.justify-content-between
+                .d-flex.align-items-center
+                    fa-icon.fa-cc-visa.fa-2x([icon]='["fab", "cc-mastercard"]')
+                    .ms-4
+                        .small Mastercard ending in 5678
+                        .text-xs.text-muted Expires 05/2022
+                .ms-4.small
+                    a.text-muted.me-3(href='javascript:void(0);') Make Default
+                    a(href='javascript:void(0);') Edit
+            hr
+            // Payment method 3
+            .d-flex.align-items-center.justify-content-between
+                .d-flex.align-items-center
+                    fa-icon.fa-cc-visa.fa-2x([icon]='["fab", "cc-amex"]')
+                    .ms-4
+                        .small American Express ending in 9012
+                        .text-xs.text-muted Expires 01/2026
+                .ms-4.small
+                    a.text-muted.me-3(href='javascript:void(0);') Make Default
+                    a(href='javascript:void(0);') Edit
+    // Billing history card
+    .card.mb-4
+        .card-header Billing History
+        .card-body.p-0
+            // Billing history table
+            .table-responsive.table-billing-history
+                table.table.mb-0
+                    thead
+                        tr
+                            th(scope='col') Transaction ID
+                            th(scope='col') Date
+                            th(scope='col') Amount
+                            th(scope='col') Status
+                    tbody
+                        tr
+                            td #39201
+                            td 06/15/2020
+                            td $29.99
+                            td
+                                span.badge.bg-light.text-dark Pending
+                        tr
+                            td #38594
+                            td 05/15/2020
+                            td $29.99
+                            td
+                                span.badge.bg-success Paid
+                        tr
+                            td #38223
+                            td 04/15/2020
+                            td $29.99
+                            td
+                                span.badge.bg-success Paid
+                        tr
+                            td #38125
+                            td 03/15/2020
+                            td $29.99
+                            td
+                                span.badge.bg-success Paid

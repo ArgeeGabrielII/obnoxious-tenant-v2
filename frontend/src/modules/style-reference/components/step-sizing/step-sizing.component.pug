@@ -1,0 +1,20 @@
+sbpro-card
+    .card-header Step Component Sizing
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+
+                sbpro-step(
+                    [active]='2',
+                    [steps]='steps',
+                    [large]='true',
+                    (stepClicked)='onClicked($event)'
+                )
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Add attribute <code>[large]='true'</code> to make the steps larger

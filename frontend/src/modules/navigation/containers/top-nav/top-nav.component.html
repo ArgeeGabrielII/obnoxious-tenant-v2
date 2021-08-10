@@ -1,0 +1,20 @@
+<ng-container *ngIf="!rtl"
+    ><nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white">
+        <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle" data-cy="topNavToggleSideNav" (click)="toggleSideNav()"><i-feather name="menu"></i-feather></button><a class="navbar-brand pe-3 ps-4 ps-lg-2" routerLink="/dashboard">SB Admin Pro</a><sbpro-top-nav-search></sbpro-top-nav-search>
+        <ul class="navbar-nav align-items-center ms-auto me-lg-4">
+            <sbpro-top-nav-docs></sbpro-top-nav-docs
+            ><sbpro-top-nav-alerts></sbpro-top-nav-alerts
+            ><sbpro-top-nav-messages></sbpro-top-nav-messages
+            ><sbpro-top-nav-user></sbpro-top-nav-user>
+        </ul></nav></ng-container
+><ng-container *ngIf="rtl"
+    ><nav class="pe-3 pe-lg-0 ps-3 topnav navbar navbar-expand shadow navbar-light bg-white">
+        <ul class="navbar-nav align-items-center me-auto">
+            <sbpro-top-nav-user placement="bottom-start"></sbpro-top-nav-user
+            ><sbpro-top-nav-messages placement="bottom-start"></sbpro-top-nav-messages
+            ><sbpro-top-nav-alerts placement="bottom-start"></sbpro-top-nav-alerts
+            ><sbpro-top-nav-docs placement="bottom-start"></sbpro-top-nav-docs>
+        </ul>
+        <sbpro-top-nav-search class="ms-auto d-none d-lg-block"></sbpro-top-nav-search><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 ms-lg-2 ms-2" id="sidebarToggle" data-cy="topNavToggleSideNav" (click)="toggleSideNav()"><i-feather name="menu"></i-feather></button><a class="navbar-brand text-end d-none d-sm-block" routerLink="/dashboard">SB Admin Pro </a>
+    </nav></ng-container
+>

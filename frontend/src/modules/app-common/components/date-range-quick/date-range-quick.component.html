@@ -1,0 +1,11 @@
+<sbpro-dropdown #calendarDropdown [classes]='["btn" ,"btn-sm", "font-weight-500", "line-height-normal"]' dropdownStyle="text" background="btn-white" animation="animated--fade-in-up" [placement]="placement" *ngIf="endDate &amp;&amp; startDate &amp;&amp; selectedRange"
+    ><div class="dropdown-trigger"><i-feather class="text-primary me-2" name="calendar"></i-feather>{{startDate | date:'longDate'}} - {{endDate | date:'longDate'}}</div>
+    <div class="dropdown-items d-inline-flex">
+        <div class="items">
+            <a class="dropdown-item" (click)='setRange("TODAY")' [ngClass]='{active: selectedRange === "TODAY"}'>Today</a><a class="dropdown-item" (click)='setRange("YESTERDAY")' [ngClass]='{active: selectedRange === "YESTERDAY"}'>Yesterday</a><a class="dropdown-item" (click)='setRange("LAST_7_DAYS")' [ngClass]='{active: selectedRange === "LAST_7_DAYS"}'>Last 7 Days</a><a class="dropdown-item" (click)='setRange("LAST_30_DAYS")' [ngClass]='{active: selectedRange === "LAST_30_DAYS"}'>Last 30 Days</a><a class="dropdown-item" (click)='setRange("THIS_MONTH")' [ngClass]='{active: selectedRange === "THIS_MONTH"}'>This Month</a><a class="dropdown-item" (click)='setRange("LAST_MONTH")' [ngClass]='{active: selectedRange === "LAST_MONTH"}'>Last Month</a><a class="dropdown-item" (click)='setRange("THIS_YEAR")' [ngClass]='{active: selectedRange === "THIS_YEAR"}'>This Year</a><a class="dropdown-item" (click)='setRange("LAST_YEAR")' [ngClass]='{active: selectedRange === "LAST_YEAR"}'>Last Year</a>
+        </div>
+        <div class="range-picker">
+            <ngb-datepicker name="datepicker" ngbDatepicker #datepicker="ngbDatepicker" (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden" [startDate]="fromDate!" tabindex="-1"></ngb-datepicker><ng-template #t let-date let-focused="focused"><span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">{{ date.day }}</span></ng-template>
+        </div>
+    </div></sbpro-dropdown
+>

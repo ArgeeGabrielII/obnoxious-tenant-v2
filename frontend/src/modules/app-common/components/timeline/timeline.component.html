@@ -1,0 +1,10 @@
+<div class="timeline" [ngClass]="timelineClasses">
+    <div class="timeline-item" *ngFor="let item of timeline">
+        <div class="timeline-item-marker">
+            <div class="timeline-item-marker-text">{{item.markerText}}</div>
+            <div class="timeline-item-marker-indicator" [ngClass]='(item.markerColor ? "bg-" + item.markerColor: " ") + " " + (item.markerIndicatorTextColor ? "text-" + item.markerIndicatorTextColor: " ")'><i-feather *ngIf="item.markerFeatherIcon" [name]="item.markerFeatherIcon"></i-feather></div>
+        </div>
+        <div class="timeline-item-content" *ngIf="item.itemContent">{{item.itemContent}}</div>
+        <div class="timeline-item-content pt-0" *ngIf="item.itemTemplate"><ng-template *ngTemplateOutlet="item.itemTemplate"></ng-template></div>
+    </div>
+</div>

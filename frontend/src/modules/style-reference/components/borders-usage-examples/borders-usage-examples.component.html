@@ -1,0 +1,48 @@
+<sbpro-card
+    ><div class="card-header">Combining Border Utilities</div>
+    <div class="card-body">
+        <h6 class="small text-muted fw-500">Basic Combinations:</h6>
+        <div class="border border-lg rounded mb-4">
+            <div class="p-4 border-bottom">
+                <div class="row gx-4">
+                    <div class="col-6">
+                        <div class="bg-light border-start border-lg rounded border-primary p-3 mb-3">Combine border position, radius, color, and thickness utilities!</div>
+                        <div class="bg-light border-top border-lg rounded border-warning p-3">Combine border position, radius, color, and thickness utilities!</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="bg-light border-end border-lg rounded border-secondary p-3 mb-3">Combine border position, radius, color, and thickness utilities!</div>
+                        <div class="bg-light border-bottom border-lg rounded border-danger p-3">Combine border position, radius, color, and thickness utilities!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-4 small">By combining utility classes, you can avoid creating your own custom components, saving time and decresing CSS bloat throughout your project!</div>
+        </div>
+        <h6 class="small text-muted fw-500">Modified Cards:</h6>
+        <div class="border border-lg rounded mb-4">
+            <div class="p-4 border-bottom">
+                <div class="row gx-4">
+                    <div class="col-6">
+                        <sbpro-card [classes]='["sb-border-left-lg", "border-primary"]'><div class="card-body">This is a custom card with a thick, colored border.</div></sbpro-card><sbpro-card [classes]='["sb-border-top-lg", "border-warning"]'><div class="card-body">This is a custom card with a thick, colored border.</div></sbpro-card>
+                    </div>
+                    <div class="col-6">
+                        <sbpro-card [classes]='["sb-border-right-lg", "border-secondary"]'><div class="card-body">This is a custom card with a thick, colored border.</div></sbpro-card><sbpro-card [classes]='["sb-border-bottom-lg", "border-danger"]'><div class="card-body">This is a custom card with a thick, colored border.</div></sbpro-card>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-4 small">Use utility classes to modify the style of components on the fly! You don't need to use the default border utility classes if the component already has a border by default.</div>
+        </div>
+        <h6 class="small text-muted fw-500">Modified Alerts:</h6>
+        <div class="border border-lg rounded">
+            <div class="p-4 border-bottom">
+                <sbpro-alert [icon]="true" [classes]='["alert-primary", "sb-border-left-lg"]' heading="Primary Icon Alert"
+                    ><div class="alert-icon-aside"><fa-icon [icon]='["far", "bell"]'></fa-icon></div>
+                    This alert has a thick left border!</sbpro-alert
+                ><sbpro-alert [icon]="true" [classes]='["alert-secondary", "sb-border-top-lg", "mb-0"]' heading="Primary Icon Alert"
+                    ><div class="alert-icon-aside"><fa-icon [icon]='["far", "bell"]'></fa-icon></div>
+                    This alert has a thick left border!</sbpro-alert
+                >
+            </div>
+            <div class="bg-light p-4 small">Any element that already has a border defined by default doesn't need to use the Bootstrap border utilities!</div>
+        </div>
+    </div></sbpro-card
+>

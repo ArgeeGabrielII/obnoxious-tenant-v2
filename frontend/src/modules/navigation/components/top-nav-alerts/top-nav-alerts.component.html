@@ -1,0 +1,7 @@
+<li class="nav-item dropdown no-caret me-3 dropdown-notifications" *ngIf="alertsService.alerts$ | async as alerts" ngbDropdown [placement]="placement" display="dynamic">
+    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts" ngbDropdownToggle data-cy="alertsMenu" role="button" aria-haspopup="true" aria-expanded="false"><i-feather name="bell"></i-feather></a>
+    <div class="dropdown-menu border-0 shadow animated--fade-in-up" ngbDropdownMenu aria-labelledby="navbarDropdownAlerts">
+        <h6 class="dropdown-header dropdown-notifications-header"><i-feather class="me-2" name="bell"></i-feather>Alerts Center</h6>
+        <sbpro-top-nav-alerts-item *ngFor="let alert of alerts" [alert]="alert"></sbpro-top-nav-alerts-item>
+    </div>
+</li>

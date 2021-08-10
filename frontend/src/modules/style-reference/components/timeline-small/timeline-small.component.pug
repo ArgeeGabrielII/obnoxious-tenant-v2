@@ -1,0 +1,21 @@
+sbpro-card
+    .card-header Small Timeline Variant
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+
+                sbpro-timeline(
+                    [timeline]='timeline',
+                    [small]='true'
+                )
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Set the attribute <code>[small]='true'</code> to use a smaller, 
+                more condensed version of the timeline. 
+                Keep in mind also that using icons is optional!
+

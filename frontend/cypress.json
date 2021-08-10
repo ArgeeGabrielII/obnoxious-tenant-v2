@@ -1,0 +1,10 @@
+{
+    "baseUrl": "http://localhost:4200",
+    "requestTimeout": 10000,
+    "ignoreTestFiles": "**/_examples/**",
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "configFile": "cypress/reporter-config.json"
+    },
+    "video": false
+}

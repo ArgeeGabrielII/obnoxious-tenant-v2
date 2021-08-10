@@ -1,0 +1,16 @@
+<ul class="nav nav-tabs" role="tablist">
+    <li class="pointer nav-item" *ngFor="let codeSample of codeSamples; let i = index">
+        <a class="nav-link me-1" [ngClass]="{active: selectedIndex === i}" (click)="setSelectedIndex(i)" data-toggle="tab" role="tab" [attr.aria-selected]="selectedIndex === i"
+            ><ng-container *ngIf='codeSample.language === "ts"'>TS</ng-container><ng-container *ngIf='codeSample.language === "pug"'><img class="img-pug me-1" src="assets/img/pug.svg" />PUG</ng-container><ng-container *ngIf='codeSample.language === "html"'><fa-icon class="text-orange me-1" [icon]='["fab", "html5"]'></fa-icon>HTML</ng-container></a
+        >
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane show active" role="tabpanel" aria-labelledby="overview-tab">
+        <ng-container *ngFor="let codeSample of codeSamples; let i = index"
+            ><div class="position-relative" *ngIf="selectedIndex === i">
+                <pre [ngClass]='"language-" + codeSample.language'><code [ngClass]="&quot;language-&quot; + codeSample.language" [innerHTML]="codeSample.code"></code></pre>
+                <i-feather class="copy-to-clipboard pointer" name="copy" ngbTooltip="Copy" (click)="copyToClipboard(i)"></i-feather></div
+        ></ng-container>
+    </div>
+</div>

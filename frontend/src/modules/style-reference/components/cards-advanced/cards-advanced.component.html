@@ -1,0 +1,75 @@
+<sbpro-card class="mb-4"
+    ><div class="card-header">Custom Icon</div>
+    <div class="card-body">
+        <h6 class="small text-muted fw-500">Card with Dropdown in Header:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content">
+                <sbpro-card class="mx-auto" sbproTocItem="Header Dropdown" [headerActions]="true" style="width: 60%"
+                    ><div class="card-header">
+                        Header Dropdown<sbpro-dropdown placement="bottom-end" animation="animated--fade-in-up" [classes]='["no-caret"]'
+                            ><div class="dropdown-trigger"><i-feather class="text-primary" name="more-vertical"></i-feather></div>
+                            <div class="dropdown-items"><a class="dropdown-item" routerLink="/dashboard">Dashboard</a><a class="dropdown-item" (click)="action()">Action</a><a class="dropdown-item" (click)="anotherAction()">Another Action</a></div></sbpro-dropdown
+                        >
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">This is an example of a custom card with a dropdown action inside of the card header.</p>
+                        <p class="card-text">Add the <code>[headerActions]='true'</code> attribute to your <code>sbpro-card</code> in order to change the header styling.</p>
+                    </div></sbpro-card
+                >
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesDropdown"></sbpro-code-sample></div>
+        </div>
+        <h6 class="small text-muted fw-500">Card with Icons in Header:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content bg-light">
+                <sbpro-card class="mx-auto" sbproTocItem="Header Icons" [headerActions]="true" style="width: 60%"
+                    ><div class="card-header">
+                        Header Icons
+                        <div>
+                            <button class="btn btn-pink btn-icon me-2"><i-feather name="heart"></i-feather></button><button class="btn btn-teal btn-icon me-2"><i-feather name="bookmark"></i-feather></button><button class="btn btn-blue btn-icon"><i-feather name="share"></i-feather></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">This is an example of a custom card with a dropdown action inside of the card header.</p>
+                        <p class="card-text">Add the <code>[headerActions]='true'</code> attribute to your <code>sbpro-card</code> in order to change the header styling.</p>
+                    </div></sbpro-card
+                >
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesIcons"></sbpro-code-sample></div>
+        </div>
+        <h6 class="small text-muted fw-500">Card with Button in Header:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content bg-light">
+                <sbpro-card class="mx-auto" sbproTocItem="Header Button" [headerActions]="true" style="width: 60%"
+                    ><div class="card-header">Header Button<button class="btn btn-primary btn-sm">Action</button></div>
+                    <div class="card-body">
+                        <p class="card-text">This is an example of a custom card with a dropdown action inside of the card header.</p>
+                        <p class="card-text">Add the <code>[headerActions]='true'</code> attribute to your <code>sbpro-card</code> in order to change the header styling.</p>
+                    </div></sbpro-card
+                >
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesButton"></sbpro-code-sample></div>
+        </div>
+        <h6 class="small text-muted fw-500">Card with Input in Header:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content bg-light">
+                <sbpro-card class="mx-auto" sbproTocItem="Header Input" [headerActions]="true" style="width: 60%"
+                    ><div class="card-header">
+                        Header Input
+                        <div class="form"><input class="form-control" placeholder="Search" /></div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">This is an example of a custom card with a dropdown action inside of the card header.</p>
+                        <p class="card-text">Add the <code>[headerActions]='true'</code> attribute to your <code>sbpro-card</code> in order to change the header styling.</p>
+                    </div></sbpro-card
+                >
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesInput"></sbpro-code-sample></div>
+        </div></div></sbpro-card
+><sbpro-card-icon
+    ><div class="card-icon"><i-feather class="text-white-50" name="alert-triangle"></i-feather></div>
+    <div class="card-body">
+        <h5 class="card-title">Extending Advanced Cards</h5>
+        <p class="card-text">The <code>[headerActions]='true'</code> attribute allows you to extend the content of the hard header significantly. The above examples are just a few of many ways you can add more actionable items to your card headers.</p>
+    </div></sbpro-card-icon
+>

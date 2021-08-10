@@ -1,0 +1,154 @@
+sb-layout-auth
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
+            // Register Form
+            .col-xl-8.col-lg-9
+                .card.my-5
+                    .card-body.p-5.text-center
+                        .h3.fw-light.mb-3 Create an Account
+                        .small.text-muted.mb-2 Sign in using...
+                        button.btn.btn-icon.btn-facebook.mx-1
+                            fa-icon([icon]='["fab", "facebook-f"]')
+                        button.btn.btn-icon.btn-github.mx-1
+                            fa-icon([icon]='["fab", "github"]')
+                        button.btn.btn-icon.btn-google.mx-1
+                            fa-icon([icon]='["fab", "google"]')
+                        button.btn.btn-icon.btn-twitter.mx-1
+                            fa-icon([icon]='["fab", "twitter"]')
+                    hr.my-0
+                    .card-body.p-5
+                        .text-center.small.text-muted.mb-4 ...or enter your information below.
+                        form([formGroup]='registerForm', (ngSubmit)='onSubmit()')
+                            .row
+                                .col-md-6
+                                    .mb-3
+                                        label.text-gray-600.small(for='inputFirstName') First name
+                                        input#inputFirstName.form-control.form-control-solid(
+                                            data-cy='firstNameInput',
+                                            type='text',
+                                            formControlName='firstName',
+                                            [class.is-valid]='firstNameControlValid',
+                                            [class.is-invalid]='firstNameControlInvalid'
+                                        )
+                                        .valid-feedback Looks good!
+                                        .invalid-feedback(*ngIf='firstNameControl.hasError("required")')
+                                            | First name required.
+                                
+                                .col-md-6
+                                    .mb-3
+                                        label.text-gray-600.small(for='inputLastName') Last name                            
+                                        input#inputLastName.form-control.form-control-solid(
+                                            data-cy='lastNameInput',
+                                            type='text',
+                                            formControlName='lastName',
+                                            [class.is-valid]='lastNameControlValid',
+                                            [class.is-invalid]='lastNameControlInvalid'
+                                        )
+                                        .valid-feedback Looks good!
+                                        .invalid-feedback(*ngIf='lastNameControl.hasError("required")')
+                                            | Last name required.
+
+                            .mb-3
+                                label.text-gray-600.small(for='inputEmailAddress') Email address
+                                input#inputEmailAddress.form-control.form-control-solid(
+                                    data-cy='emailInput',
+                                    type='email',
+                                    aria-describedby='emailHelp',
+                                    formControlName='email',
+                                    [class.is-valid]='emailControlValid',
+                                    [class.is-invalid]='emailControlInvalid'
+                                )
+                                .valid-feedback Looks good!
+                                .invalid-feedback(*ngIf='emailControl.hasError("required")')
+                                    | Email required.
+                                .invalid-feedback(*ngIf='emailControl.hasError("email")')
+                                    | Email is not valid.
+
+                            .row
+                                .col-md-6
+                                    .mb-3
+                                        label.text-gray-600.small(for='inputPassword') Password
+                                        input#inputPassword.form-control.form-control-solid(
+                                            data-cy='passwordInput',
+                                            type='password',
+                                            formControlName='password',
+                                            [class.is-valid]='passwordControlValid',
+                                            [class.is-invalid]='passwordControlInvalid'
+                                        )
+                                        .valid-feedback Looks good!
+                                        .invalid-feedback(*ngIf='passwordControl.hasError("required")')
+                                            | Password required.
+                                        .invalid-feedback(*ngIf='passwordControl.hasError("minlength")')
+                                            | Password must be at least 8 characters.
+
+                                .col-md-6
+                                    .mb-3
+                                        label.text-gray-600.small(for='inputConfirmPassword') Confirm Password
+                                        input#inputConfirmPassword.form-control.form-control-solid(
+                                            data-cy='confirmPasswordInput',
+                                            type='password',
+                                            formControlName='confirmPassword',
+                                            [class.is-valid]='confirmPasswordControlValid',
+                                            [class.is-invalid]='confirmPasswordControlInvalid'
+                                        )
+                                        .valid-feedback Looks good!
+                                        .invalid-feedback(*ngIf='confirmPasswordControl.hasError("required")')
+                                            | Confirm Password required.
+                                        .invalid-feedback(*ngIf='registerForm.hasError("passwordMismatch")')
+                                            | Passwords do not match.
+
+                            .d-flex.align-items-center.justify-content-between
+                                .form-check.form-check-solid
+                                    input#termsAndConditionsInput.form-check-input.small(
+                                        data-cy='termsAndConditionsInput',
+                                        type='checkbox',
+                                        formControlName='termsAndConditions',
+                                        [class.is-valid]='termsAndConditionsControlValid',
+                                        [class.is-invalid]='termsAndConditionsControlInvalid'
+                                    )
+                                    label.form-check-label(for='termsAndConditionsInput')
+                                        | I accept the terms & conditions
+                                    .invalid-feedback(*ngIf='termsAndConditionsControl.hasError("required")')
+                                        | You must accept the terms & conditions.
+
+                                button.btn.btn-primary(
+                                    data-cy='registerButton',
+                                    type='submit',
+                                    [disabled]='registerForm.invalid'
+                                ) Create Account
+                    hr.my-0
+                    .card-body.px-5.py-4
+                        .small.text-center
+                            | Have an account? 
+                            a(routerLink='/auth/login-social') Sign in!
+
+ng-template(#confirmationModal, let-modal)
+    .modal-header
+        h5.modal-title Create Account Form Data
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Wired up and ready to go. Just add a backend.
+        <br><br>
+        firstName: <code>{{registerForm.value.firstName}}</code>
+        <br>
+        lastName: <code>{{registerForm.value.lastName}}</code>
+        <br>
+        email: <code>{{registerForm.value.email}}</code>
+        <br>
+        password: <code>{{registerForm.value.password}}</code>
+        <br>
+        termsAndConditions: <code>{{registerForm.value.termsAndConditions}}</code>
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("DASHBOARD")'
+        ) Proceed back to Dashboard

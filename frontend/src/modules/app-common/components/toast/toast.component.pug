@@ -1,0 +1,22 @@
+.toast.show.mb-1(
+    [ngClass]='classes',
+    role='alert',
+    aria-live='assertive',
+    aria-atomic='true',
+    data-delay='5000'
+)
+    .toast-header(
+        [ngClass]='headerClasses'
+    )
+        ng-container(*ngIf='headerIsTemplate')
+            ng-template(*ngTemplateOutlet='header; context:toastContext')
+        ng-container(*ngIf='!headerIsTemplate && header')
+            | {{header}}
+
+    .toast-body(
+        [ngClass]='bodyClasses'
+    )
+        ng-container(*ngIf='bodyIsTemplate')
+            ng-template(*ngTemplateOutlet='body; context:toastContext')
+        ng-container(*ngIf='!bodyIsTemplate && body')
+            | {{body}}

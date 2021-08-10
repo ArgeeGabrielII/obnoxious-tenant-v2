@@ -1,0 +1,39 @@
+<form>
+    <div class="mb-3">
+        <div class="input-group table-search">
+            <input class="form-control" type="text" name="searchTerm" placeholder="Full text search..." [(ngModel)]="activitiesService.searchTerm" /><span class="input-group-text" *ngIf="activitiesService.loading$ | async"
+                ><div class="spinner-border spinner-border-sm text-primary" role="status"><div class="visually-hidden">Loading...</div></div></span
+            >
+        </div>
+    </div>
+    <div class="table-responsive table-activities">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" sbSortable="date" (sort)="onSort($event)"><span>Date</span><sb-sort-icon *ngIf='sortedColumn === "date"' [direction]="sortedDirection"></sb-sort-icon></th>
+                    <th scope="col" sbSortable="event" (sort)="onSort($event)"><span>Event</span><sb-sort-icon *ngIf='sortedColumn === "event"' [direction]="sortedDirection"></sb-sort-icon></th>
+                    <th scope="col" sbSortable="time" (sort)="onSort($event)"><span>Time</span><sb-sort-icon *ngIf='sortedColumn === "time"' [direction]="sortedDirection"></sb-sort-icon></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let activity of activities$ | async">
+                    <td><ngb-highlight [result]="activity.date" [term]="activitiesService.searchTerm"></ngb-highlight></td>
+                    <td>
+                        <div class="d-inline-flex align-items-center">
+                            <i-feather class="me-2" [name]="activity.eventIcon" [class]="activity.colorUtility"></i-feather><ngb-highlight class="me-1" [result]='activity.eventText + " "' [term]="activitiesService.searchTerm"></ngb-highlight><ng-container *ngIf="activity.eventLinkUrl"><a [routerLink]="">{{activity.eventLinkText}}</a></ng-container>
+                        </div>
+                    </td>
+                    <td><ngb-highlight [result]="activity.time" [term]="activitiesService.searchTerm"></ngb-highlight></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-between align-items-center p-2">
+        <ngb-pagination [collectionSize]="total$ | async" [(page)]="activitiesService.page" [pageSize]="activitiesService.pageSize"></ngb-pagination
+        ><select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="activitiesService.pageSize">
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="8">8 items per page</option>
+            <option [ngValue]="16">16 items per page</option>
+        </select>
+    </div>
+</form>

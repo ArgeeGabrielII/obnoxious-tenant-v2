@@ -1,0 +1,15 @@
+<sbpro-card
+    ><div class="card-header">Lift Base Behavior</div>
+    <div class="card-body">
+        <div class="sbp-preview">
+            <div class="sbp-preview-content">
+                <h6 class="small text-muted fw-500">Card Link Lift Example:</h6>
+                <sbpro-card class="pointer" [classes]='["lift"]'><div class="card-body">Card with the lift utility applied. Hover over me, and then click on me!</div></sbpro-card>
+                <h6 class="small text-muted fw-500 mt-4">Button Lift Example:</h6>
+                <a class="btn btn-primary lift" [routerLink]="">Hover me!</a>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">The lift utility can be used by adding the <code>.lift</code> class to any element. In the above example, it is being used along with a Bootstrap card and a Bootstrap button. Since the lift utility is a hover effect, it should mostly be used with links! When a lifted item is clicked, an active styling will be applied bringing the element back to its base position.</div>
+        </div>
+    </div></sbpro-card
+>

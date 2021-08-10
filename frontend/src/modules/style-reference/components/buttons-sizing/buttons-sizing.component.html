@@ -1,0 +1,23 @@
+<sbpro-card
+    ><div class="card-header">Button Sizing</div>
+    <div class="card-body">
+        <div class="sbp-btn-example mb-4">
+            <h6 class="small text-muted fw-500">Extended Button Sizing:</h6>
+            <div class="sbp-preview mb-4">
+                <div class="sbp-preview-content"><button class="my-1 me-2 btn btn-primary btn-xs">Extra Small</button><button class="my-1 me-2 btn btn-primary btn-sm">Small</button><button class="my-1 me-2 btn btn-primary">Default</button><button class="my-1 me-2 btn btn-primary btn-lg">Large</button><button class="my-1 me-2 btn btn-primary btn-xl">Extra Large</button></div>
+                <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+                <div class="sbp-preview-text">Button sizes have been extended from Bootstrap defaults to include extra small and extra large buttons.</div>
+            </div>
+        </div>
+        <div class="sbp-btn-example">
+            <h6 class="small text-muted fw-500">Usage with Icon Buttons:</h6>
+            <div class="sbp-preview mb-4">
+                <div class="sbp-preview-content">
+                    <button class="my-1 me-2 btn btn-primary btn-xs btn-icon"><fa-icon [icon]='["fas", "flag"]'></fa-icon></button><button class="my-1 me-2 btn btn-primary btn-sm btn-icon"><fa-icon [icon]='["fas", "flag"]'></fa-icon></button><button class="my-1 me-2 btn btn-primary btn-icon"><fa-icon [icon]='["fas", "flag"]'></fa-icon></button><button class="my-1 me-2 btn btn-primary btn-lg btn-icon"><fa-icon [icon]='["fas", "flag"]'></fa-icon></button><button class="my-1 me-2 btn btn-primary btn-xl btn-icon"><fa-icon [icon]='["fas", "flag"]'></fa-icon></button>
+                </div>
+                <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesIcon"></sbpro-code-sample></div>
+                <div class="sbp-preview-text">The custom icon button component is compatible with all of the button sizing options available.</div>
+            </div>
+        </div>
+    </div></sbpro-card
+>

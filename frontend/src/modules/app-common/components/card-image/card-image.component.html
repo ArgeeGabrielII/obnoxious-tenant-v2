@@ -1,0 +1,13 @@
+<div class="card mb-4" [ngClass]="cardClasses">
+    <ng-container *ngIf='placement === "top"'><img class="card-img-top" [src]="src" alt="alt" /><ng-container *ngTemplateOutlet="cardBody"></ng-container></ng-container><ng-container *ngIf='placement === "bottom"'><ng-container *ngTemplateOutlet="cardBody"></ng-container><img class="card-img-bottom" [src]="src" alt="alt" /></ng-container
+    ><ng-container *ngIf='placement === "left"'
+        ><div class="row gx-0">
+            <div class="col-md-4"><img class="img-fluid" [src]="src" alt="alt" /></div>
+            <div class="col-md-8"><ng-container *ngTemplateOutlet="cardBody"></ng-container></div></div></ng-container
+    ><ng-container *ngIf='placement === "right"'
+        ><div class="row gx-0">
+            <div class="col-md-8"><ng-container *ngTemplateOutlet="cardBody"></ng-container></div>
+            <div class="col-md-4"><img class="img-fluid" [src]="src" alt="alt" /></div></div></ng-container
+    ><ng-container *ngIf='placement === "overlay"'><img class="card-img" [src]="src" alt="alt" /><ng-content select=".card-img-overlay"></ng-content></ng-container><ng-content select=".card-footer"></ng-content>
+</div>
+<ng-template #cardBody><ng-content select=".card-body"></ng-content></ng-template>

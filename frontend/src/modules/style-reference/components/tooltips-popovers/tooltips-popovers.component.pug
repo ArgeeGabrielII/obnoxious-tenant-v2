@@ -1,0 +1,38 @@
+sbpro-card
+    .card-header Default Bootstrap Popovers
+    .card-body
+        .sbp-preview
+            .sbp-preview-content.py-3
+                .row.gx-4
+                    .col-auto.my-2
+                        button.btn.btn-primary(
+                            placement='top',
+                            ngbPopover='This popover is on the top!',
+                            popoverTitle='Popover Title'
+                        ) Popover on top
+                    .col-auto.my-2
+                        button.btn.btn-primary(
+                            placement='end',
+                            ngbPopover='This popover is on the end!',
+                            popoverTitle='Popover Title'
+                        ) Popover on end
+                    .col-auto.my-2
+                        button.btn.btn-primary(
+                            placement='bottom',
+                            ngbPopover='This popover is on the bottom!',
+                            popoverTitle='Popover Title'
+                        ) Popover on bottom
+                    .col-auto.my-2
+                        button.btn.btn-primary(
+                            placement='start',
+                            ngbPopover='This popover is on the start!',
+                            popoverTitle='Popover Title'
+                        ) Popover on start
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Popovers are visible when an element is clicked, or focused.

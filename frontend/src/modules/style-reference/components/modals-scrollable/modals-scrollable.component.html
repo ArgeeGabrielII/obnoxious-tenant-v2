@@ -1,0 +1,24 @@
+<sbpro-card
+    ><div class="card-header">Scrollable Bootstrap Modals</div>
+    <div class="card-body">
+        <h6 class="small text-muted fw-500">Page Scrolling Long Modal:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content"><button class="btn btn-primary" type="button" (click)="open(modalScrollable)">Launch Scrollable Modal</button></div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">By default, the content within a modal will scroll independently of the page if the content is too long If you don't want the page to scroll, use the next option.</div>
+        </div>
+        <h6 class="small text-muted fw-500">Modal Dialog Scrolling Long Modal:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content"><button class="btn btn-primary" type="button" (click)="open(modalScrollable, {scrollable: true})">Launch Scrollable Modal</button></div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesModalScroll"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">Use the <code>&#123;scrollable: true&#125;</code> NgbModalOptions to make longer modal content scroll within the modal body if the contents is longer than the viewport height.</div>
+        </div>
+    </div></sbpro-card
+><ng-template #modalScrollable let-modal
+    ><div class="modal-header">
+        <h5 class="modal-title">Long Modal with Page Scrolling</h5>
+        <button class="btn-close" type="button" aria-label="Close" (click)='modal.dismiss("Cross click")'><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="modal-body"><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum></sbpro-lorem-ipsum><sbpro-lorem-ipsum class="mb-0"></sbpro-lorem-ipsum></div>
+    <div class="modal-footer"><button class="btn btn-secondary" type="button" (click)='modal.close("Close Click")'>Close</button><button class="btn btn-primary" type="button" (click)='modal.close("Save Click")'>Save changes</button></div></ng-template
+>

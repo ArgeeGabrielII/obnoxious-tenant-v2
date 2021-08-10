@@ -1,0 +1,71 @@
+.card.mb-4(
+    [ngClass]='cardClasses'
+)
+    ng-container(
+        *ngIf='navType !== "vertical"'
+    )
+        .card-header.border-bottom
+            ng-container(
+                *ngIf='navType === "tabbed"'
+            )
+                ul.nav.nav-tabs.card-header-tabs(role='tablist')
+                    li.nav-item(*ngFor='let name of navNames; let i = index')
+                        a.nav-link(
+                            [ngClass]='{active: selectedIndex === i}',
+                            (click)='setSelectedIndex(i)',
+                            data-toggle='tab',
+                            role='tab',
+                            [attr.aria-selected]='selectedIndex === i'
+                        ) {{name}}
+
+            ng-container(
+                *ngIf='navType === "pill"'
+            )
+                ul.nav.nav-pills.card-header-pills(role='tablist')
+                    li.nav-item(*ngFor='let name of navNames; let i = index')
+                        a.nav-link(
+                            [ngClass]='{active: selectedIndex === i}',
+                            (click)='setSelectedIndex(i)',
+                            data-toggle='tab',
+                            role='tab',
+                            [attr.aria-selected]='selectedIndex === i'
+                        ) {{name}}
+
+        .card-body
+            .tab-content
+                .tab-pane.fade.show.active(
+                    #fadeableSection,
+                    role='tabpanel',
+                    aria-labelledby='overview-tab'
+                )
+                    ng-container(*ngTemplateOutlet='templates[selectedIndexForFade]')
+
+    ng-container(
+        *ngIf='navType === "vertical"'
+    )
+        ng-content(select='.card-header')
+        
+        .card-body
+            .row.gx-4
+                .col-md-3
+                    ul.nav.nav-pills.flex-column(role='tablist')
+                        li.nav-item(*ngFor='let name of navNames; let i = index')
+                            a.nav-link(
+                                [ngClass]='{active: selectedIndex === i}',
+                                (click)='setSelectedIndex(i)',
+                                data-toggle='tab',
+                                role='tab',
+                                [attr.aria-selected]='selectedIndex === i'
+                            ) {{name}}
+
+                .col-md-9
+                    .tab-content
+                        .tab-pane.fade.show.active(
+                            #fadeableSection,
+                            role='tabpanel',
+                            aria-labelledby='overview-tab'
+                        )
+                            ng-container(*ngTemplateOutlet='templates[selectedIndexForFade]')
+
+
+    ng-content(select='.card-footer')

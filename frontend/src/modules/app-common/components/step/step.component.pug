@@ -1,0 +1,15 @@
+
+.step.mb-5(
+    [ngClass]='stepClasses'
+)
+    .step-item(
+        [ngClass]='{active: i === active}',
+       *ngFor='let step of steps; let i = index'
+    )
+        a.step-item-link.pointer(
+            [ngClass]='{disabled: i > active}',
+            (click)='stepClicked.emit(i)'
+        ) {{step}}
+
+
+//- [attr.tabindex]='i > active ? -1 : 0',

@@ -1,0 +1,39 @@
+sb-layout-auth
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
+            // Create Organization
+            .col-xl-5.col-lg-6.col-md-8.col-sm-11.mt-4
+                .card.text-center.h-100
+                    .card-body.px-5.pt-5.d-flex.flex-column
+                        div
+                            .h3.text-primary.fw-300 Create
+                            p.text-muted.mb-4 Create an organization and invite new members
+                        .icons-org-create.align-items-center.mx-auto.mt-auto
+                            i-feather(name='users').icon-users
+                            fa-icon([icon]='["fas", "plus"]').icon-plus
+
+                    .card-footer.bg-transparent.px-5.py-4
+                        .small.text-center
+                            .d-grid
+                                a.btn.btn-primary(
+                                    data-cy='createNewOrganization',
+                                    routerLink='/auth/org-create'
+                                ) Create new organization
+            // Join Organization
+            .col-xl-5.col-lg-6.col-md-8.col-sm-11.mt-4
+                .card.text-center.h-100
+                    .card-body.px-5.pt-5.d-flex.flex-column.align-items-between
+                        div
+                            .h3.text-secondary.fw-300 Join
+                            p.text-muted.mb-4 Enter an access code or request access to an existing organization
+                        .icons-org-join.align-items-center.mx-auto
+                            i-feather(name='user').icon-user
+                            fa-icon([icon]='["fas", "long-arrow-alt-right"]').icon-arrow.d-inline-flex
+                            i-feather(name='users').icon-users
+                    .card-footer.bg-transparent.px-5.py-4
+                        .small.text-center
+                            .d-grid
+                                a.btn.btn-secondary(
+                                    data-cy='joinOrganization',
+                                    routerLink='/auth/org-join'
+                                ) Join an organization

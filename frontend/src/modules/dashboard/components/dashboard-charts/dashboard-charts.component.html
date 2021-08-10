@@ -1,0 +1,24 @@
+<div class="row gx-4">
+    <div class="col-xl-6 mb-4">
+        <sbpro-card [headerActions]="true"
+            ><div class="card-header">
+                Area Chart Example<sbpro-dropdown placement="bottom-end" animation="animated--fade-in-up" [classes]='["no-caret"]'
+                    ><div class="dropdown-trigger"><i-feather class="text-gray-500" name="more-vertical"></i-feather></div>
+                    <div class="dropdown-items"><a class="dropdown-item" (click)='changeAreaChartRange("monthly")'>Monthly</a><a class="dropdown-item" (click)='changeAreaChartRange("quarterly")'>Quarterly</a><a class="dropdown-item" (click)='changeAreaChartRange("yearly")'>Yearly</a></div></sbpro-dropdown
+                >
+            </div>
+            <div class="card-body"><sb-charts-area [duration]="areaChartDuration"></sb-charts-area></div
+        ></sbpro-card>
+    </div>
+    <div class="col-xl-6 mb-4">
+        <sbpro-card [headerActions]="true"
+            ><div class="card-header">
+                Bar Chart Example<sbpro-dropdown placement="bottom-end" animation="animated--fade-in-up" [classes]='["no-caret"]'
+                    ><div class="dropdown-trigger"><i-feather class="text-gray-500" name="more-vertical"></i-feather></div>
+                    <div class="dropdown-items"><a class="dropdown-item" (click)='changeBarChartRange("monthly")'>Monthly</a><a class="dropdown-item" (click)='changeBarChartRange("quarterly")'>Quarterly</a><a class="dropdown-item" (click)='changeBarChartRange("yearly")'>Yearly</a></div></sbpro-dropdown
+                >
+            </div>
+            <div class="card-body"><sb-charts-bar [duration]="barChartDuration"></sb-charts-bar></div
+        ></sbpro-card>
+    </div>
+</div>

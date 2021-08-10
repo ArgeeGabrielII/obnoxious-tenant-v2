@@ -1,0 +1,25 @@
+sbpro-card
+    .card-header Social Buttons
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                button.my-1.me-2.btn.btn-facebook
+                    fa-icon.me-2([icon]='["fab", "facebook"]')
+                    | Facebook
+                button.my-1.me-2.btn.btn-github
+                    fa-icon.me-2([icon]='["fab", "github"]')
+                    | GitHub
+                button.my-1.me-2.btn.btn-google
+                    fa-icon.me-2([icon]='["fab", "google"]')
+                    | Google
+                button.my-1.me-2.btn.btn-twitter
+                    fa-icon.me-2([icon]='["fab", "twitter"]')
+                    | Twitter
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                A select group of popular brands have had custom buttons styles added. The example above uses the Font Awesome brand icons in unison with the custom brand button styling.

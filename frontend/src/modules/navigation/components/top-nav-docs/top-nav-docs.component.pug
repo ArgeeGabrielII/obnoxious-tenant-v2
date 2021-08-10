@@ -1,0 +1,39 @@
+li.nav-item.dropdown.no-caret.d-none.d-md-block.me-3(
+    ngbDropdown,
+    [placement]='placement',
+    display='dynamic'
+)
+    a#navbarDropdownDocs.nav-link.dropdown-toggle.pointer(
+        ngbDropdownToggle,
+        data-cy='docsMenu',
+        role='button',
+        aria-haspopup='true',
+        aria-expanded='false'
+    )
+        .fw-500
+            | Documentation
+        fa-icon.dropdown-arrow([icon]='["fas", "chevron-right"]')
+    .dropdown-menu.dropdown-menu-end.py-0.o-hidden.animated--fade-in-up(
+        ngbDropdownMenu,
+        aria-labelledby='navbarDropdownDocs'
+    )
+        a.dropdown-item.py-3(href='https://docs.startbootstrap.com/sb-admin-pro-angular', target='_blank')
+            .icon-stack.bg-primary-soft.text-primary.me-4
+                i-feather(name='book')
+            div
+                .small.text-gray-500 Documentation
+                | Usage instructions and reference
+        .dropdown-divider.m-0
+        a.dropdown-item.py-3(href='https://docs.startbootstrap.com/sb-admin-pro-angular/development-create', target='_blank')
+            .icon-stack.bg-primary-soft.text-primary.me-4
+                i-feather(name='code')
+            div
+                .small.text-gray-500 Tutorial
+                | Create a Module
+        .dropdown-divider.m-0
+        a.dropdown-item.py-3(href='https://docs.startbootstrap.com/sb-admin-pro-angular/changelog', target='_blank')
+            .icon-stack.bg-primary-soft.text-primary.me-4
+                i-feather(name='file-text')
+            div
+                .small.text-gray-500 Changelog
+                | Updates and changes

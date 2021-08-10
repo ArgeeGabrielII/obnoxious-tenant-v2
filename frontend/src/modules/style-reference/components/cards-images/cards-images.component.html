@@ -1,0 +1,64 @@
+<sbpro-card class="mb-4"
+    ><div class="card-header">Image Cards</div>
+    <div class="card-body">
+        <h6 class="small text-muted fw-500">Card Image Caps:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content">
+                <div class="row gx-4">
+                    <div class="col-6">
+                        <sbpro-card-image src="https://source.unsplash.com/tz87qQK9n58/900x500" alt="..." placement="top"
+                            ><div class="card-body">
+                                <h5 class="card-title">Card Image Cap (Top)</h5>
+                                <p class="card-text">This is am example of a default Bootstrap image card with an image above the card body content.</p>
+                            </div></sbpro-card-image
+                        >
+                    </div>
+                    <div class="col-6">
+                        <sbpro-card-image src="https://source.unsplash.com/9fMmgBEd2bw/900x500" alt="..." placement="bottom"
+                            ><div class="card-body">
+                                <h5 class="card-title">Card Image Cap (Bottom)</h5>
+                                <p class="card-text">This is am example of a default Bootstrap image card with an image below the card body content.</p>
+                            </div></sbpro-card-image
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesCaps"></sbpro-code-sample></div>
+        </div>
+        <h6 class="small text-muted fw-500">Card Image Overlay:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content bg-light">
+                <sbpro-card-image src="https://source.unsplash.com/wSb8d-ke5-4/900x500" alt="..." placement="overlay" background="bg-light" color="text-dark"
+                    ><div class="card-img-overlay">
+                        <h5 class="card-title">Card Image (Overlay)</h5>
+                        <p class="card-text">This card variant uses a background image as the card image with a text overlay. You can use text utility classes to style the text color.</p>
+                    </div></sbpro-card-image
+                >
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesOverlay"></sbpro-code-sample></div>
+        </div>
+        <h6 class="small text-muted fw-500">Card Image Sides:</h6>
+        <div class="sbp-preview mb-4">
+            <div class="sbp-preview-content bg-light">
+                <div class="row gx-4">
+                    <div class="col-6">
+                        <sbpro-card-image src="https://source.unsplash.com/Il-ErBsaH4c/300x450" alt="..." placement="left"
+                            ><div class="card-body">
+                                <h5 class="card-title">Card Image (Left)</h5>
+                                <p class="card-text">Use the Bootstrap grid with utility classes to create this card variant.</p>
+                            </div></sbpro-card-image
+                        >
+                    </div>
+                    <div class="col-6">
+                        <sbpro-card-image src="https://source.unsplash.com/_vWY1UKRvNk/300x450" alt="..." placement="right"
+                            ><div class="card-body">
+                                <h5 class="card-title">Card Image (Right)</h5>
+                                <p class="card-text">Use the Bootstrap grid with utility classes to create this card variant.</p>
+                            </div></sbpro-card-image
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamplesSides"></sbpro-code-sample></div>
+        </div></div
+></sbpro-card>

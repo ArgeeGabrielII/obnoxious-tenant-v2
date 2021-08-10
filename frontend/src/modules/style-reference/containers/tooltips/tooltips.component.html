@@ -1,0 +1,17 @@
+<sbpro-dashboard-head icon="help-circle" title="Tooltips" description="Animted tooltips to provide annotation on content when hovered over"></sbpro-dashboard-head>
+<div class="container-xl px-4 mt-n10">
+    <div class="row gx-4">
+        <div class="col-lg-9">
+            <sbpro-tooltips-default sbproTocItem="Tooltips"></sbpro-tooltips-default><sbpro-tooltips-popovers sbproTocItem="Popovers"></sbpro-tooltips-popovers
+            ><sbpro-card-icon iconBackground="bg-secondary"
+                ><div class="card-icon"><fa-icon class="text-white-50" [icon]='["fab", "bootstrap"]'></fa-icon></div>
+                <div class="card-body">
+                    <h5 class="card-title">NG Bootstrap Documentation Available</h5>
+                    <p class="card-text">Tooltips and popovers are default components included with NG Bootstrap. For more information on implementing, modifying, and extending the usage of tooltips and popovers within your project, visit the official NG Bootstrap modal documentation page.</p>
+                    <a class="btn btn-secondary btn-sm me-2 my-1" href="https://ng-bootstrap.github.io/#/components/tooltip/examples/" target="_blank"><i-feather class="me-1" name="external-link"></i-feather>Visit NG Bootstrap Tooltip Docs</a><a class="btn btn-secondary btn-sm my-1" href="https://ng-bootstrap.github.io/#/components/popover/examples/" target="_blank"><i-feather class="me-1" name="external-link"></i-feather>Visit NG Bootstrap Popover Docs</a>
+                </div></sbpro-card-icon
+            >
+        </div>
+        <div class="col-lg-3"><sbpro-toc-nav [tocIndex]="tocIndex"></sbpro-toc-nav></div>
+    </div>
+</div>

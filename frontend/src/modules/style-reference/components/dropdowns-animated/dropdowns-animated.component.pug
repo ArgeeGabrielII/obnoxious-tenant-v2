@@ -1,0 +1,51 @@
+sbpro-card
+    .card-header Animated Dropdown Menu
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                .d-flex.flex-column.flex-sm-row
+                    sbpro-dropdown(
+                        [classes]='["me-2", "mb-4", "mb-sm-0"]',
+                        dropdownStyle='text',
+                        background='btn-primary'
+                    )
+                        .dropdown-trigger
+                            | No Animation
+                        .dropdown-items
+                            a.dropdown-item Action
+                            a.dropdown-item Another action
+                            a.dropdown-item Something else here
+                    sbpro-dropdown(
+                        [classes]='["me-2", "mb-4", "mb-sm-0"]',
+                        dropdownStyle='text',
+                        background='btn-secondary',
+                        animation='animated--fade-in'
+                    )
+                        .dropdown-trigger
+                            | Fade In
+                        .dropdown-items
+                            a.dropdown-item Action
+                            a.dropdown-item Another action
+                            a.dropdown-item Something else here
+                    sbpro-dropdown(
+                        dropdownStyle='text',
+                        background='btn-teal',
+                        animation='animated--fade-in-up'
+                    )
+                        .dropdown-trigger
+                            | Fade In Up
+                        .dropdown-items
+                            a.dropdown-item Action
+                            a.dropdown-item Another action
+                            a.dropdown-item Something else here
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                You can animate any <code>sbpro-dropdown</code> by adding either 
+                <code>animated--fade-in</code> and <code>animated--fade-in-up</code> 
+                to the <code>animation</code> attribute
+                

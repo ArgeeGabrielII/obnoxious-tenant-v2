@@ -1,0 +1,64 @@
+sb-layout-auth
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
+            .col-xl-5.col-lg-6.col-md-8.col-sm-11
+                .card.border-0.shadow-lg.mt-5
+                    .card-body.p-5.text-center
+                        .icons-org-join
+                            i-feather(name='user').icon-user
+                            fa-icon([icon]='["fas", "long-arrow-alt-right"]').icon-arrow
+                            i-feather(name='users').icon-users
+                        .h3.text-secondary.fw-300.mb-0 Join an Organization
+                    hr.m-0
+                    .card-body.p-5
+                        include ./pug_include/org-join-form-code.pug
+                    .org-or-divider
+                        .org-or or
+                    .card-body.p-5
+                        include ./pug_include/org-join-form-request.pug
+
+ng-template(#confirmationModalAccessCode, let-modal)
+    .modal-header
+        h5.modal-title Access Code
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Wired up and ready to go. Just add a backend.
+        <br><br>
+        code: <code>{{organizationJoinFormCode.value.code}}</code>
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("DASHBOARD")'
+        ) Proceed back to Dashboard
+
+ng-template(#confirmationModalRequest, let-modal)
+    .modal-header
+        h5.modal-title Request Access
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Wired up and ready to go. Just add a backend.
+        <br><br>
+        name: <code>{{organizationJoinFormRequest.value.name}}</code>
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("DASHBOARD")'
+        ) Proceed back to Dashboard

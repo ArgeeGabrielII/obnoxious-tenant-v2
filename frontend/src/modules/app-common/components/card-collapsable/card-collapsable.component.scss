@@ -1,0 +1,22 @@
+@import 'styles/core/variables.scss';
+
+:host {
+    display: contents;
+}
+
+.card-collapsable-arrow {
+    cursor: pointer;
+}
+
+.collapse {
+    overflow: hidden;
+    transition: height 0.2s ease-out;
+}
+
+.card-deck :host {
+    -webkit-box-flex: 1;
+            flex: 1 0 0%;
+    margin-right: 0.75rem;
+    margin-bottom: 0;
+    margin-left: 0.75rem;
+  }

@@ -1,0 +1,49 @@
+sbpro-card
+    .card-header Bootstrap Toasts Demo
+    .card-body
+        h6.small.text-muted.fw-500 Basic Toast with Auto Hide:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+
+                button.btn.btn-primary.mb-3(
+                    (click)='showToast(toastHeader, toastBody)'
+                ) Toast Demo
+                .small The toast alert will appear in the top right of the screen when the above button is clicked.
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+        h6.small.text-muted.fw-500 Basic Toast with Manual Dismissal:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+
+                button.btn.btn-primary.mb-3(
+                    (click)='showToast(toastHeaderManual, "This is an example toast alert, you must close this toast alert manually.", {autohide: false})'
+                ) Toast Demo
+                .small The toast alert will appear in the top right of the screen when the above button is clicked.
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesManual',
+                )
+
+// Templates for toast
+
+ng-template(#toastHeader, let-toastService='toastService', let-toastID='toastID')
+    i-feather(name='bell').me-2
+    strong.me-auto Toast with Autohide
+    small.text-muted.ms-2 just now
+    button.ms-2.mb-1.btn-close(type='button', aria-label='Close', (click)='toastService.remove(toastID)')
+        span(aria-hidden='true') ×
+
+ng-template(#toastBody).
+    This is an example toast alert, it will dismiss automatically, or you can dismiss it manually.
+
+ng-template(#toastHeaderManual, let-toastService='toastService', let-toastID='toastID')
+    i-feather(name='bell').me-2
+    strong.me-auto Toast with Manual Dismissal
+    small.text-muted.ms-2 just now
+    button.ms-2.mb-1.btn-close(type='button', aria-label='Close', (click)='toastService.remove(toastID)')
+        span(aria-hidden='true') ×

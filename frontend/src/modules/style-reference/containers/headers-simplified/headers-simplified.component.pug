@@ -1,0 +1,17 @@
+sbpro-dashboard-head(
+    icon='layout',
+    title='Simplified Header',
+    description='A simplified page header for use with the dashboard layout',
+    [simplified]='true'
+)
+.container-fluid.px-4.mt-4
+    sbpro-card
+        .card-header Simplified Page Header Option
+        .card-body
+            p.card-text.
+                The simplified page header options allows you to remove the negative offset of the default page header.
+            p.card-text.
+                Just add <code>[simplified]='true'</code> to the <code>&lt;sbpro-dashboard-head&gt;</code> element
+                and add a top margin to the initial container within the main element.
+                This will result in a simplified page header, that still includes the option for an icon and breadcrumbs.
+

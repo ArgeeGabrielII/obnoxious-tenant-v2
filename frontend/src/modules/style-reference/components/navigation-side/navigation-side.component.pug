@@ -1,0 +1,39 @@
+sbpro-card
+    .card-header Custom Side Navigation Component
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                nav.sidenav.sidenav-light
+                    .sidenav-menu
+                        .nav
+                            .sidenav-menu-heading Heading
+                            a.nav-link([routerLink]='')
+                                .nav-link-icon
+                                    i-feather(name='feather')
+                                | Link
+                            a.nav-link([routerLink]='')
+                                .nav-link-icon
+                                    i-feather(name='feather')
+                                | Another Link
+                            a.nav-link.disabled([routerLink]='')
+                                .nav-link-icon
+                                    i-feather(name='feather')
+                                | Another Link
+                    .sidenav-footer
+                        | SB Sidenav Footer
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                The <code>.sidenav</code> component extends the default Bootstrap nav component. 
+                A working example of the custom sidenav can be seen on the dashboard layout of the SB Admin Pro theme.
+                The sidenav being used in the dashboard layout has a container with certain responsive behaviors,
+                but the component itself can be used on a standalone basis.
+                <br><br>
+                SB Admin Pro Angular takes this even further and implements a full layout and navigation system.
+                Fore more details, see the
+                <a href='https://docs.startbootstrap.com/sb-admin-pro-angular/deep-dive-navigation#side-nav'>Navigation Deep Dive</a>
+                Documentation

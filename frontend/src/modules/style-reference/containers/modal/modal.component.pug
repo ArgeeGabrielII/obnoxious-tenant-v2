@@ -1,0 +1,36 @@
+sbpro-dashboard-head(
+    icon='external-link',
+    title='Modals',
+    description='Dialog boxes to display lightbox, notifications, or other custom content'
+)
+.container-xl.px-4.mt-n10
+    .row.gx-4
+        .col-lg-9
+            sbpro-modals-default(
+                sbproTocItem='Default'
+            )
+            sbpro-modals-scrollable(
+                sbproTocItem='Scrollable'
+            )
+            sbpro-modals-vertically-centered(
+                sbproTocItem='Vertically Centered'
+            )
+            sbpro-modals-sizing(
+                sbproTocItem='Sizing'
+            )
+
+            sbpro-card-icon(iconBackground='bg-secondary')
+                .card-icon
+                    fa-icon.text-white-50([icon]='["fab", "bootstrap"]')
+                .card-body
+                    h5.card-title NG Bootstrap Documentation Available
+                    p.card-text.
+                        Modals are a default component included with NG Bootstrap.
+                        For more information on implementing, modifying, and extending the usage of modals within your project,
+                        visit the official NG Bootstrap modal documentation page.
+                    a.btn.btn-secondary.btn-sm(href='https://ng-bootstrap.github.io/#/components/modal/examples/', target='_blank')
+                        i-feather.me-1(name='external-link')
+                        | Visit NG Bootstrap Modal Docs
+
+        .col-lg-3
+            sbpro-toc-nav([tocIndex]='tocIndex')

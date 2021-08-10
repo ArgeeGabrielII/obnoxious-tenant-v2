@@ -1,0 +1,23 @@
+.dropdown(
+    #dropdown='ngbDropdown',
+    [ngClass]='customClasses',
+    ngbDropdown,
+    [placement]='placement',
+    display='dynamic'
+)
+    button.btn.dropdown-toggle(
+        [ngClass]='dropdownButtonClasses',
+        ngbDropdownToggle,
+        data-cy='dropdown',
+        role='button',
+        aria-haspopup='true',
+        aria-expanded='false'
+    )
+        ng-content(select='.dropdown-trigger')
+
+    .dropdown-menu.border-0.shadow(
+        [ngClass]='dropdownMenuClasses',
+        ngbDropdownMenu,
+        aria-labelledby='dropdownMenuButton'
+    )
+        ng-content(select='.dropdown-items')

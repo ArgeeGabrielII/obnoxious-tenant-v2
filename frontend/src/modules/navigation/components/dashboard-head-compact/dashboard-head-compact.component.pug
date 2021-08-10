@@ -1,0 +1,17 @@
+.page-header.page-header-compact.mb-4(
+    [ngClass]='{"page-header-dark bg-gradient-primary-to-secondary": !light, "page-header-light border-bottom bg-white": light}'
+)
+    .container-fluid.px-4
+        .page-header-content
+            .row.gx-4.align-items-center.justify-content-between.pt-3
+                .col-auto.mb-3
+                    h1.page-header-title
+                        .page-header-icon(
+                            *ngIf='icon'
+                        )
+                            i-feather(
+                                [name]='icon'
+                            )
+                        span {{title}}
+                .col-12.col-xl-auto.mb-3
+                    ng-content

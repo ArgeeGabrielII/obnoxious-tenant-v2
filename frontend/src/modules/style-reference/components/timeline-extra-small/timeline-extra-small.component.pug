@@ -1,0 +1,22 @@
+sbpro-card
+    .card-header Extra Small Timeline Variant
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+
+                sbpro-timeline(
+                    [timeline]='timeline',
+                    [xs]='true'
+                )
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Set the attribute <code>[xs]='true'</code> for an even smaller timeline component variation. 
+                At this size, we do not recommend adding content to the timeline item marker, 
+                and have not include any content within that element in the examples above. 
+                Instead, you can add <code>markerColor: SBThemeColors,</code> to change 
+                the background color of each marker element.

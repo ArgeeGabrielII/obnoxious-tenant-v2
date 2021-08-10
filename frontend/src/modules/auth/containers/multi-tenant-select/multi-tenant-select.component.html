@@ -1,0 +1,40 @@
+<sb-layout-auth
+    ><div class="container-xl px-4">
+        <div class="row gx-4 justify-content-center">
+            <!-- Create Organization-->
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11 mt-4">
+                <div class="card text-center h-100">
+                    <div class="card-body px-5 pt-5 d-flex flex-column">
+                        <div>
+                            <div class="h3 text-primary fw-300">Create</div>
+                            <p class="text-muted mb-4">Create an organization and invite new members</p>
+                        </div>
+                        <div class="icons-org-create align-items-center mx-auto mt-auto"><i-feather class="icon-users" name="users"></i-feather><fa-icon class="icon-plus" [icon]='["fas", "plus"]'></fa-icon></div>
+                    </div>
+                    <div class="card-footer bg-transparent px-5 py-4">
+                        <div class="small text-center">
+                            <div class="d-grid"><a class="btn btn-primary" data-cy="createNewOrganization" routerLink="/auth/org-create">Create new organization</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Join Organization-->
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11 mt-4">
+                <div class="card text-center h-100">
+                    <div class="card-body px-5 pt-5 d-flex flex-column align-items-between">
+                        <div>
+                            <div class="h3 text-secondary fw-300">Join</div>
+                            <p class="text-muted mb-4">Enter an access code or request access to an existing organization</p>
+                        </div>
+                        <div class="icons-org-join align-items-center mx-auto"><i-feather class="icon-user" name="user"></i-feather><fa-icon class="icon-arrow d-inline-flex" [icon]='["fas", "long-arrow-alt-right"]'></fa-icon><i-feather class="icon-users" name="users"></i-feather></div>
+                    </div>
+                    <div class="card-footer bg-transparent px-5 py-4">
+                        <div class="small text-center">
+                            <div class="d-grid"><a class="btn btn-secondary" data-cy="joinOrganization" routerLink="/auth/org-join">Join an organization</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></sb-layout-auth
+>

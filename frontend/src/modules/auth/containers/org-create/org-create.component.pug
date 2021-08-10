@@ -1,0 +1,35 @@
+sb-layout-auth
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
+            .col-xl-5.col-lg-6.col-md-8.col-sm-11
+                .card.mt-5
+                    .card-body.p-5.text-center
+                        .icons-org-create.align-items-center.mx-auto
+                            i-feather(name='users').icon-users
+                            fa-icon([icon]='["fas", "plus"]').icon-plus
+                        .h3.text-primary.fw-300.mb-0 Create an Organization
+                    hr.m-0
+                    .card-body.p-5
+                        form([formGroup]='organizationNewForm', (ngSubmit)='onSubmit()')
+                            .mb-3
+                                input.form-control.form-control-solid(
+                                    data-cy='nameInput',
+                                    type='text',
+                                    placeholder='Enter new organization name',
+                                    aria-describedby='nameHelp',
+                                    formControlName='name',
+                                    [class.is-valid]='nameControlValid',
+                                    [class.is-invalid]='nameControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='nameControl.hasError("required")')
+                                    | Name required
+                                .invalid-feedback(*ngIf='nameControl.hasError("name")')
+                                    | Name is not available
+
+                            .d-grid
+                                button.btn.btn-primary(
+                                    data-cy='organizationNewButton',
+                                    type='submit',
+                                    [disabled]='organizationNewForm.invalid'
+                                ) Create Organization
+

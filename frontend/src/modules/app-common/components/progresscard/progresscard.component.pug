@@ -1,0 +1,14 @@
+.card.card-progress.mb-4(
+    [ngClass]='cardClasses'
+)
+    ng-content(select='.card-header')
+    ng-content(select='.card-body')
+    .progress.rounded-0
+        .progress-bar(
+            [ngClass]='progressBarClasses',
+            role='progressbar',
+            [ngStyle]='{width: value + "%"}',
+            aria-valuenow='value/100',
+            aria-valuemin='0',
+            aria-valuemax='100'
+        )

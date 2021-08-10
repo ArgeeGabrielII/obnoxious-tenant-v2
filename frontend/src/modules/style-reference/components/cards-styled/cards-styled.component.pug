@@ -1,0 +1,28 @@
+sbpro-card.mb-4
+    .card-header Styled Cards 
+    .card-body
+        h6.small.text-muted.fw-500 Waves:
+        .sbp-preview.mb-4
+            .sbp-preview-content(sbproTocItem='Waves')
+                sbpro-card(styled='waves')
+                    .card-header Waves Styled Card
+                    .card-body
+                        .py-10
+                            | This is an example of a card with the waves styling applied. Use <code>.card-waves</code> to set the background image to the waved styling. This works best with default white cards, and with cards that do not have a card footer.
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesWaves',
+                )
+
+        h6.small.text-muted.fw-500 Angles:
+        .sbp-preview.mb-4
+            .sbp-preview-content(sbproTocItem='Angles')
+                sbpro-card(styled='angles')
+                    .card-header Angles Styled Card
+                    .card-body
+                        .py-10
+                            | This is an example of a card with the angles styling applied. Use <code>.card-angles</code> to set the background image to the angled styling. This works best with default white cards, and with cards that do not have a card footer.
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesAngles',
+                )

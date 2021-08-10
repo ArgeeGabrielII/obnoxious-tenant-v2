@@ -1,0 +1,7 @@
+<sbpro-card-navigation class="mb-4" [navNames]='["Overview", "Activities"]' [templates]="[overviewPill, activitiesPill]" navType="tabbed"
+    ><ng-template #overviewPill
+        ><div class="row gx-4">
+            <div class="col-lg-8"><sb-charts-area height="20rem"></sb-charts-area></div>
+            <div class="col-lg-4"><sbpro-dashboard-projects-overview></sbpro-dashboard-projects-overview></div></div></ng-template
+    ><ng-template #activitiesPill><sbpro-activities-table></sbpro-activities-table></ng-template
+></sbpro-card-navigation>

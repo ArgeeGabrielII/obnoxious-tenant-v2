@@ -1,0 +1,82 @@
+sbpro-card
+    .card-header Default Bootstrap Modal
+    .card-body
+        h6.small.text-muted.fw-500 Modal Default:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+
+                button.btn.btn-primary(
+                    type='button',
+                    (click)='open(modalDefault)'
+                ) Launch Demo Modal
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                The default Bootstrap modal has been restyled for the SB Admin Pro theme.
+
+        h6.small.text-muted.fw-500 Static Backdrop:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+
+                button.btn.btn-primary(
+                    type='button',
+                    (click)='open(modalDefaultStatic, {backdrop: "static"})'
+                ) Launch Static Backdrop Modal
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesStatic',
+                )
+
+            .sbp-preview-text.
+                The static backdrop modal option cannot be dismissed by clicking outside of the modal pane.
+                Instead, the user must dismiss the modal by using the close button within the modal pane.
+                
+
+ng-template(#modalDefault, let-modal)
+    .modal-header
+        h5.modal-title Default Bootstrap Modal
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        This modal window is included with the Bootstrap framework.
+        The styling has been changed for the SB Admin Pro theme.
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close("Close Click")'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("Save Click")'
+        ) Save changes
+
+ng-template(#modalDefaultStatic, let-modal)
+    .modal-header
+        h5.modal-title Static Backdrop Modal
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        When using the <code>&#123;backdrop: "static"&#125;</code> NgbModalOptions with a modal window,
+        the user cannot dismiss the modal by clicking outside of the modal pane.
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close("Close Click")'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("Save Click")'
+        ) Understood

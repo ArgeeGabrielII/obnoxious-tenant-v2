@@ -1,0 +1,133 @@
+@import 'styles/core/variables.scss';
+
+:host::ng-deep {
+    .dropdown-menu {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .btn-sm {
+        padding: 0;
+
+        i-feather .feather {
+            height: 0.875rem;
+            width: 0.875rem;
+        }
+
+        .btn {
+            padding: 1rem;
+
+            .dropdown-trigger {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    .ngb-dp-header {
+        padding-top: 0.5rem;
+    }
+
+    .ngb-dp-months {
+        flex-direction: column;
+        @media(min-width: 1200px) {
+            flex-direction: row;
+        }
+    }
+
+    .ngb-dp-navigation-select {
+        .custom-select {
+            margin: 0 0.25rem;
+            background-position: right 0.5rem center;
+        }
+    }
+
+    .ngb-dp-weekday {
+        font-size: 0.75rem;
+        color: $gray-700;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .ngb-dp-month-name {
+        color: $gray-700;
+        font-weight: 700;
+        margin-top: 0.5rem;
+        height: 1rem;
+        line-height: 1rem;
+    }
+
+    .ngb-dp-header,
+    .ngb-dp-weekdays,
+    .ngb-dp-month-name {
+        background-color: transparent;
+
+    }
+
+    .ngb-dp-month-name {
+        font-size: 0.75rem;
+    }
+}
+
+.items {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    .dropdown-item {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        color: $gray-700;
+    }
+}
+
+.calendar-container {
+    background-color: transparent;
+    padding: 0.5rem;
+}
+
+.form-group.hidden {
+    width: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.range-picker {
+    border-left: 1px solid $border-color;
+
+    ngb-datepicker {
+        border: none;
+    }
+
+    .custom-day {
+        padding: 1px;
+        font-size: 0.75rem;
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.6875rem;
+        width: 2rem;
+        white-space: nowrap;
+        border-radius: 3px;
+
+        &:hover {
+            background-color: $primary;
+            color: white;
+        }
+
+        &.range {
+            background-color: $primary;
+            color: white;
+            border-radius: 0;
+        }
+
+        &.focused {
+            background-color: $primary;
+        }
+
+        &.faded {
+            background-color: mix($white, $primary, 90%);
+            color: $gray-700;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+sbpro-card
+    .card-header Striped Progress Indicators
+    .card-body
+        h6.small.text-muted.fw-500 Basic Striped Indicators:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                sbpro-progress-bar.mb-3([value]='25', [striped]='true', bgColor='bg-success')
+                sbpro-progress-bar.mb-3([value]='50', [striped]='true', bgColor='bg-info')
+                sbpro-progress-bar.mb-3([value]='75', [striped]='true', bgColor='bg-warning')
+                sbpro-progress-bar.mb-3([value]='100', [striped]='true', bgColor='bg-danger')
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Use the <code>[striped]=true</code> attribute to use a striped style for your progress indicators.
+                
+        h6.small.text-muted.fw-500 Animated Striped Indicators:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                sbpro-progress-bar.mb-3([value]='25', [striped]='true', [animated]='true', bgColor='bg-success')
+                sbpro-progress-bar.mb-3([value]='50', [striped]='true', [animated]='true', bgColor='bg-info')
+                sbpro-progress-bar.mb-3([value]='75', [striped]='true', [animated]='true', bgColor='bg-warning')
+                sbpro-progress-bar.mb-3([value]='100', [striped]='true', [animated]='true', bgColor='bg-danger')
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesAnimated',
+                )
+
+            .sbp-preview-text.
+                Use the <code>[striped]=true</code> along with the <code>[animated]=true</code> attribute to animate the striped style for your progress indicators.

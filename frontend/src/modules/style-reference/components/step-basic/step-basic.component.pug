@@ -1,0 +1,35 @@
+sbpro-card
+    .card-header Basic Step Component
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+
+                sbpro-step(
+                    [active]='0',
+                    [steps]='steps',
+                    (stepClicked)='onClicked($event)'
+                )
+                sbpro-step(
+                    [active]='1',
+                    [steps]='steps',
+                    (stepClicked)='onClicked($event)'
+                )
+                sbpro-step(
+                    [active]='2',
+                    [steps]='steps',
+                    (stepClicked)='onClicked($event)'
+                )
+                sbpro-step(
+                    [active]='3',
+                    [steps]='steps',
+                    (stepClicked)='onClicked($event)'
+                )
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Bind to <code>(stepClicked)</code> to respond to clicks on the steps.
+                Attribute <code>[active]</code> sets the active step, zero-based index.

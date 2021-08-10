@@ -1,0 +1,17 @@
+<sbpro-dashboard-head icon="external-link" title="Modals" description="Dialog boxes to display lightbox, notifications, or other custom content"></sbpro-dashboard-head>
+<div class="container-xl px-4 mt-n10">
+    <div class="row gx-4">
+        <div class="col-lg-9">
+            <sbpro-modals-default sbproTocItem="Default"></sbpro-modals-default><sbpro-modals-scrollable sbproTocItem="Scrollable"></sbpro-modals-scrollable><sbpro-modals-vertically-centered sbproTocItem="Vertically Centered"></sbpro-modals-vertically-centered><sbpro-modals-sizing sbproTocItem="Sizing"></sbpro-modals-sizing
+            ><sbpro-card-icon iconBackground="bg-secondary"
+                ><div class="card-icon"><fa-icon class="text-white-50" [icon]='["fab", "bootstrap"]'></fa-icon></div>
+                <div class="card-body">
+                    <h5 class="card-title">NG Bootstrap Documentation Available</h5>
+                    <p class="card-text">Modals are a default component included with NG Bootstrap. For more information on implementing, modifying, and extending the usage of modals within your project, visit the official NG Bootstrap modal documentation page.</p>
+                    <a class="btn btn-secondary btn-sm" href="https://ng-bootstrap.github.io/#/components/modal/examples/" target="_blank"><i-feather class="me-1" name="external-link"></i-feather>Visit NG Bootstrap Modal Docs</a>
+                </div></sbpro-card-icon
+            >
+        </div>
+        <div class="col-lg-3"><sbpro-toc-nav [tocIndex]="tocIndex"></sbpro-toc-nav></div>
+    </div>
+</div>

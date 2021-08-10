@@ -1,0 +1,32 @@
+sbpro-card
+    .card-header Avatar Status Indicators
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-xxl avatar-offline'
+                )
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-xl avatar-idle'
+                )
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-lg avatar-online'
+                )
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-busy'
+                )
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Use one of the four status indicator options shown above by adding the class
+                to the <code>classes</code> attribute of <code>sbpro-avatar</code>
+                The indicator is supported on all sizes of the avatar component.

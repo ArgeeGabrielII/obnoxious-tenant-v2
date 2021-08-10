@@ -1,0 +1,46 @@
+<sb-layout-auth
+    ><div class="container-xl px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header justify-content-center"><h3 class="fw-light my-4">Login</h3></div>
+                    <div class="card-body">
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control" id="inputEmailAddress" data-cy="emailInput" type="email" placeholder="Enter email address" aria-describedby="emailHelp" formControlName="email" [class.is-valid]="emailControlValid" [class.is-invalid]="emailControlInvalid" />
+                                <div class="invalid-feedback" *ngIf='emailControl.hasError("required")'>Email required.</div>
+                                <div class="invalid-feedback" *ngIf='emailControl.hasError("email")'>Email is not valid.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputPassword">Password</label><input class="form-control" id="inputPassword" data-cy="passwordInput" type="password" placeholder="Enter password" formControlName="password" [class.is-valid]="passwordControlValid" [class.is-invalid]="passwordControlInvalid" />
+                                <div class="invalid-feedback" *ngIf='passwordControl.hasError("required")'>Password required.</div>
+                                <div class="invalid-feedback" *ngIf='passwordControl.hasError("minlength")'>Password must be at least 8 characters.</div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check"><input class="form-check-input" id="rememberPasswordCheck" data-cy="rememberPasswordCheck" type="checkbox" formControlName="checkbox" /><label class="form-check-label" for="rememberPasswordCheck">Remember password</label></div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-4"><a class="small" routerLink="/auth/forgot-password">Forgot Password?</a><button class="btn btn-primary" data-cy="loginButton" type="submit" [disabled]="loginForm.invalid">Login</button></div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="small"><a routerLink="/auth/register">Need an account? Sign up!</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></sb-layout-auth
+><ng-template #confirmationModal let-modal
+    ><div class="modal-header">
+        <h5 class="modal-title">Login Form Data</h5>
+        <button class="btn-close" type="button" aria-label="Close" (click)='modal.dismiss("Cross click")'><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="modal-body">
+        Wired up and ready to go. Just add a backend. <br /><br />
+        email: <code>{{loginForm.value.email}}</code>
+        <br />
+        password: <code>{{loginForm.value.password}}</code>
+        <br />
+        remember password: <code>{{loginForm.value.checkbox}}</code>
+    </div>
+    <div class="modal-footer"><button class="btn btn-secondary" type="button" (click)="modal.close()">Close</button><button class="btn btn-primary" type="button" (click)='modal.close("DASHBOARD")'>Proceed back to Dashboard</button></div></ng-template
+>

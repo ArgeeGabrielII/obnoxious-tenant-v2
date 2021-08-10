@@ -1,0 +1,38 @@
+sbpro-card
+    .card-header Custom Solid Alerts
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                sbpro-alert([icon]='true', classes='alert-primary sb-alert-solid')
+                    | This is a solid, primary alert!
+
+                sbpro-alert([icon]='true', classes='alert-secondary sb-alert-solid')
+                    | This is a solid, secondary alert!
+
+                sbpro-alert([icon]='true', classes='alert-success sb-alert-solid')
+                    | This is a solid, success alert!
+
+                sbpro-alert([icon]='true', classes='alert-danger sb-alert-solid')
+                    | This is a solid, danger alert!
+
+                sbpro-alert([icon]='true', classes='alert-warning sb-alert-solid')
+                    | This is a solid, warning alert!
+                    
+                sbpro-alert([icon]='true', classes='alert-info sb-alert-solid')
+                    | This is a solid, info alert!
+
+                sbpro-alert([icon]='true', classes='alert-light sb-alert-solid')
+                    | This is a solid, light alert!
+
+                sbpro-alert([icon]='true', classes='alert-dark sb-alert-solid')
+                    | This is a solid, dark alert!
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Create a solid alert by passing in <code>sb-alert-solid</code>
+                with the <code>classes</code> attribute. 
+

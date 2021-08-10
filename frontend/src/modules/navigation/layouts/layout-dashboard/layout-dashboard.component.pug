@@ -1,0 +1,39 @@
+ng-container(*ngIf='!rtl')
+    span([ngClass]='{"nav-fixed": !static}')
+        sb-top-nav
+        #layoutSidenav
+            #layoutSidenav_nav
+                sb-side-nav(
+                    [sidenavStyle]='sidenavStyle',
+                    [sideNavItems]='sideNavItems',
+                    [sideNavSections]='sideNavSections'
+                )
+            #layoutSidenav_content(
+                [ngClass]='{"scrollable": !static}',
+                (click)='closeSideNavIfOpen()'
+            )
+                main    
+                    ng-container(*ngTemplateOutlet='defaultContent')
+                sb-footer
+
+ng-container(*ngIf='rtl')
+    span.layout-rtl([ngClass]='{"nav-fixed": !static}')
+        sb-top-nav([rtl]='true')
+        #layoutSidenav
+            #layoutSidenav_content(
+                [ngClass]='{"scrollable": !static}',
+                (click)='closeSideNavIfOpen()'
+            )
+                main    
+                    ng-container(*ngTemplateOutlet='defaultContent')
+                sb-footer
+            #layoutSidenav_nav
+                sb-side-nav(
+                    [sidenavStyle]='sidenavStyle',
+                    [sideNavItems]='sideNavItems',
+                    [sideNavSections]='sideNavSections'
+                )
+
+
+ng-template(#defaultContent)
+    ng-content

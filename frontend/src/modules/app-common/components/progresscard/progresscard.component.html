@@ -1,0 +1,4 @@
+<div class="card card-progress mb-4" [ngClass]="cardClasses">
+    <ng-content select=".card-header"></ng-content><ng-content select=".card-body"></ng-content>
+    <div class="progress rounded-0"><div class="progress-bar" [ngClass]="progressBarClasses" role="progressbar" [ngStyle]='{width: value + "%"}' aria-valuenow="value/100" aria-valuemin="0" aria-valuemax="100"></div></div>
+</div>

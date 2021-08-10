@@ -1,0 +1,43 @@
+sbpro-card
+    .card-header Progress Indicator Colors
+    .card-body
+        h6.small.text-muted.fw-500 Bootstrap Defaults:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-primary') .bg-primary
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-secondary') .bg-secondary
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-success') .bg-success
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-info') .bg-info
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-warning') .bg-warning
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-danger') .bg-danger
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Use the <code>bgColor</code> attribute to pass a background color utility name to 
+                <code>sbpro-progress-bar</code>
+                
+        h6.small.text-muted.fw-500 Expanded Color System:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-red') .bg-red
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-orange') .bg-orange
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-yellow') .bg-yellow
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-green') .bg-green
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-teal') .bg-teal
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-cyan') .bg-cyan
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-blue') .bg-blue
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-indigo') .bg-indigo
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-purple') .bg-purple
+                sbpro-progress-bar.mb-3([value]='75', bgColor='bg-pink') .bg-pink
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesExpanded',
+                )
+
+            .sbp-preview-text.
+                You can use the expanded color system background utilities to style a progress bar non-contextually.

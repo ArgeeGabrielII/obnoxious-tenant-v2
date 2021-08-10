@@ -1,0 +1,25 @@
+<sb-layout-auth
+    ><div class="container-xl px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+                <div class="card mt-5">
+                    <div class="card-body p-5 text-center">
+                        <div class="icons-org-create align-items-center mx-auto"><i-feather class="icon-users" name="users"></i-feather><fa-icon class="icon-plus" [icon]='["fas", "plus"]'></fa-icon></div>
+                        <div class="h3 text-primary fw-300 mb-0">Create an Organization</div>
+                    </div>
+                    <hr class="m-0" />
+                    <div class="card-body p-5">
+                        <form [formGroup]="organizationNewForm" (ngSubmit)="onSubmit()">
+                            <div class="mb-3">
+                                <input class="form-control form-control-solid" data-cy="nameInput" type="text" placeholder="Enter new organization name" aria-describedby="nameHelp" formControlName="name" [class.is-valid]="nameControlValid" [class.is-invalid]="nameControlInvalid" />
+                                <div class="invalid-feedback" *ngIf='nameControl.hasError("required")'>Name required</div>
+                                <div class="invalid-feedback" *ngIf='nameControl.hasError("name")'>Name is not available</div>
+                            </div>
+                            <div class="d-grid"><button class="btn btn-primary" data-cy="organizationNewButton" type="submit" [disabled]="organizationNewForm.invalid">Create Organization</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></sb-layout-auth
+>

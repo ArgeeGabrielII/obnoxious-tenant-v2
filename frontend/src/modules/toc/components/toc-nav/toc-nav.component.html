@@ -1,0 +1,13 @@
+<div class="nav-sticky">
+    <div class="card">
+        <div class="card-body"><ng-container *ngTemplateOutlet="tocList; context: {items: items, initial: true}"></ng-container></div>
+    </div>
+</div>
+<ng-template #tocList let-passedItems="items" let-initial="initial"
+    ><ul class="nav flex-column" [ngClass]='{"ml-3": !initial}'>
+        <li class="nav-item" *ngFor="let item of passedItems">
+            <a class="nav-link" [ngClass]='{"active": item.title === topInView || item.title === topInViewChild}' (click)="navigateToTitle(item)" [routerLink]="">
+                <div class="d-flex align-items-center justify-content-between">{{item.title}}<span class="badge bg-primary-soft text-primary" *ngIf="item.new">New</span><span class="badge bg-primary-soft text-primary" *ngIf="item.updated">Updated</span></div></a
+            ><ng-container *ngIf="item.children"><ng-container *ngTemplateOutlet="tocList; context: {items: item.children}"></ng-container></ng-container>
+        </li></ul
+></ng-template>

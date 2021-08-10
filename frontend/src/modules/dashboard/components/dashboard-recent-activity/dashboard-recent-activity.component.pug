@@ -1,0 +1,91 @@
+sbpro-card(
+    [headerActions]='true'
+)
+    .card-header Recent Activity
+        sbpro-dropdown(
+            placement='bottom-end',
+            animation='animated--fade-in-up',
+            [classes]='["no-caret"]'
+        )
+            .dropdown-trigger
+                i-feather.text-gray-500(name='more-vertical')
+            .dropdown-items
+                h6.dropdown-header Filter Activity:
+                a.dropdown-item(href='javascript:void(0);')
+                    span.badge.bg-green-soft.text-green.my-1 Commerce
+                a.dropdown-item(href='javascript:void(0);')
+                    span.badge.bg-blue-soft.text-blue.my-1 Reporting
+                a.dropdown-item(href='javascript:void(0);')
+                    span.badge.bg-yellow-soft.text-yellow.my-1 Server
+                a.dropdown-item(href='javascript:void(0);')
+                    span.badge.bg-purple-soft.text-purple.my-1 Users
+    .card-body
+        .timeline.timeline-xs
+            // Timeline Item 1
+            .timeline-item
+                .timeline-item-marker
+                    .timeline-item-marker-text
+                        | 27 min
+                    .timeline-item-marker-indicator.bg-green
+                .timeline-item-content
+                    | New order placed! 
+                    a.fw-bold.text-dark(href='javascript:void(0);') Order #2912 
+                    | has been successfully placed.
+            // Timeline Item 2
+            .timeline-item
+                .timeline-item-marker
+                    .timeline-item-marker-text
+                        | 58 min
+                    .timeline-item-marker-indicator.bg-blue
+                .timeline-item-content
+                    | Your 
+                    a.fw-bold.text-dark(href='javascript:void(0);') weekly report 
+                    | has been generated and is ready to view.
+            // Timeline Item 3
+            .timeline-item
+                .timeline-item-marker
+                    .timeline-item-marker-text
+                        | 2 hrs
+                    .timeline-item-marker-indicator.bg-purple
+                .timeline-item-content
+                    | New user 
+                    a.fw-bold.text-dark(href='javascript:void(0);') Valerie Luna 
+                    | has registered
+            // Timeline Item 4
+            .timeline-item
+                .timeline-item-marker
+                    .timeline-item-marker-text
+                        | 1 day
+                    .timeline-item-marker-indicator.bg-yellow
+                .timeline-item-content
+                    | Server activity monitor alert
+            // Timeline Item 5
+            .timeline-item
+                .timeline-item-marker
+                    .timeline-item-marker-text
+                        | 1 day
+                    .timeline-item-marker-indicator.bg-green
+                .timeline-item-content
+                    | New order placed! 
+                    a.fw-bold.text-dark(href='javascript:void(0);') Order #2911 
+                    | has been successfully placed.
+            // Timeline Item 6
+            .timeline-item
+                .timeline-item-marker
+                    .timeline-item-marker-text
+                        | 1 day
+                    .timeline-item-marker-indicator.bg-purple
+                .timeline-item-content
+                    | Details for 
+                    a.fw-bold.text-dark(href='javascript:void(0);') Marketing and Planning Meeting 
+                    | have been updated.
+            // Timeline Item 7
+            .timeline-item
+                .timeline-item-marker
+                    .timeline-item-marker-text
+                        | 2 days
+                    .timeline-item-marker-indicator.bg-green
+                .timeline-item-content
+                    | New order placed! 
+                    a.fw-bold.text-dark(href='javascript:void(0);') Order #2910 
+                    | has been successfully placed.

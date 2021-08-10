@@ -1,0 +1,22 @@
+<sbpro-card
+    ><div class="card-header">Custom Icon Alerts</div>
+    <div class="card-body">
+        <div class="sbp-preview">
+            <div class="sbp-preview-content">
+                <sbpro-alert [icon]="true" classes="alert-primary" heading="Primary Icon Alert"
+                    ><div class="alert-icon-aside"><fa-icon [icon]='["far", "flag"]'></fa-icon></div>
+                    This alert uses an icon from Font Awesome!</sbpro-alert
+                ><sbpro-alert [icon]="true" classes="alert-secondary" heading="Secondary Icon Alert"
+                    ><div class="alert-icon-aside"><i-feather name="feather"></i-feather></div>
+                    This alert uses an icon from Feather Icons!</sbpro-alert
+                >
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">
+                Custom icon alerts allow you to add an icon to the alert to provide more context, and more of a focal point to the alert itself. Use icons from Font Awesome, Feather Icons, or a custom SVG! <br /><br />
+                To learn more about how icons are used in SB Admin Pro Angular, visit the
+                <a href="https://docs.startbootstrap.com/sb-admin-pro-angular/deep-dive-icons">Icons Deep Dive</a> Documentation
+            </div>
+        </div>
+    </div></sbpro-card
+>

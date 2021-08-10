@@ -1,0 +1,256 @@
+sbpro-dashboard-head(
+    icon='arrow-right-circle',
+    title='Wizard',
+    description='Wizard examples for step-by-step form submission content to use as part of an application'
+)
+
+.container-xl.px-4.mt-n10
+    // Wizard card example with navigation
+    .card
+        .card-header.border-bottom        
+            // Wizard navigation
+            .nav.nav-pills.nav-justified.flex-column.flex-xl-row.nav-wizard#cardTab(role='tablist')
+                // Wizard navigation item 1
+                a.nav-item.nav-link#wizard1-tab(
+                    [ngClass]='{active: step === "account"}',
+                    routerLink='/dashboard/auth/wizard',
+                    [queryParams]='{step: "account"}',
+                    data-toggle='tab',
+                    role='tab',
+                    aria-controls='wizard1',
+                    aria-selected='true'
+                )
+                    .wizard-step-icon
+                        | 1
+                    .wizard-step-text
+                        .wizard-step-text-name Account Setup
+                        .wizard-step-text-details Basic details and information
+                // Wizard navigation item 2
+                a.nav-item.nav-link#wizard2-tab(
+                    [ngClass]='{active: step === "billing"}',
+                    routerLink='/dashboard/auth/wizard',
+                    [queryParams]='{step: "billing"}',
+                    data-toggle='tab',
+                    role='tab',
+                    aria-controls='wizard2',
+                    aria-selected='true'
+                )
+                    .wizard-step-icon
+                        | 2
+                    .wizard-step-text
+                        .wizard-step-text-name Billing Details
+                        .wizard-step-text-details Credit card information
+                // Wizard navigation item 3
+                a.nav-item.nav-link#wizard3-tab(
+                    [ngClass]='{active: step === "preferences"}',
+                    routerLink='/dashboard/auth/wizard',
+                    [queryParams]='{step: "preferences"}',
+                    data-toggle='tab',
+                    role='tab',
+                    aria-controls='wizard3',
+                    aria-selected='true'
+                )
+                    .wizard-step-icon
+                        | 3
+                    .wizard-step-text
+                        .wizard-step-text-name Preferences
+                        .wizard-step-text-details Notification and account options
+                // Wizard navigation item 4
+                a.nav-item.nav-link#wizard4-tab(
+                    [ngClass]='{active: step === "review"}',
+                    routerLink='/dashboard/auth/wizard',
+                    [queryParams]='{step: "review"}',
+                    data-toggle='tab',
+                    role='tab',
+                    aria-controls='wizard4',
+                    aria-selected='true'
+                )
+                    .wizard-step-icon
+                        | 4
+                    .wizard-step-text
+                        .wizard-step-text-name Review &amp; Submit
+                        .wizard-step-text-details Review and submit changes
+        .card-body
+            .tab-content#cardTabContent
+                // Wizard tab pane item 1
+                .tab-pane.py-5.py-xl-10.fade#wizard1(
+                    [ngClass]='{active: step === "account", show: step === "account"}',
+                    role='tabpanel',
+                    aria-labelledby='wizard1-tab'
+                )
+                    .row.gx-4.justify-content-center
+                        .col-xxl-6.col-xl-8
+                            h3.text-primary Step 1
+                            h5.card-title Enter your account information
+                            form
+                                .mb-3
+                                    label.small.mb-1(for='inputUsername') Username (how your name will appear to other users on the site)
+                                    input#inputUsername.form-control(type='text', placeholder='Enter your username', value='username')
+                                .row
+                                    .mb-3.col-md-6
+                                        label.small.mb-1(for='inputFirstName') First name
+                                        input#inputFirstName.form-control(type='text', placeholder='Enter your first name', value='Valerie')
+                                    .mb-3.col-md-6
+                                        label.small.mb-1(for='inputLastName') Last name
+                                        input#inputLastName.form-control(type='text', placeholder='Enter your last name', value='Luna')
+                                .row
+                                    .mb-3.col-md-6
+                                        label.small.mb-1(for='inputOrgName') Organization name
+                                        input#inputOrgName.form-control(type='text', placeholder='Enter your organization name', value='Start Bootstrap')
+                                    .mb-3.col-md-6
+                                        label.small.mb-1(for='inputLocation') Location
+                                        input#inputLocation.form-control(type='text', placeholder='Enter your location', value='San Francisco, CA')
+                                .mb-3
+                                    label.small.mb-1(for='inputEmailAddress') Email address
+                                    input#inputEmailAddress.form-control(type='email', placeholder='Enter your email address', value='name@example.com')
+                                .row
+                                    .col-md-6.mb-3.mb-md-0
+                                        label.small.mb-1(for='inputPhone') Phone number
+                                        input#inputPhone.form-control(type='tel', placeholder='Enter your phone number', value='555-123-4567')
+                                    .col-md-6
+                                        label.small.mb-1(for='inputBirthday') Birthday
+                                        input#inputBirthday.form-control(type='text', name='birthday', placeholder='Enter your birthday', value='06/10/1988')
+                                hr.my-4
+                                .d-flex.justify-content-between
+                                    button.btn.btn-light.disabled(type='button', disabled) Previous
+                                    button.btn.btn-primary(
+                                        routerLink='/dashboard/auth/wizard',
+                                        [queryParams]='{step: "billing"}',
+                                        type='button'
+                                    ) Next
+                // Wizard tab pane item 2
+                .tab-pane.py-5.py-xl-10.fade#wizard2(
+                    [ngClass]='{active: step === "billing", show: step === "billing"}',
+                    role='tabpanel',
+                    aria-labelledby='wizard2-tab'
+                )
+                    .row.gx-4.justify-content-center
+                        .col-xxl-6.col-xl-8
+                            h3.text-primary Step 2
+                            h5.card-title Enter your billing details
+                            form
+                                .row
+                                    .mb-3.col-md-6
+                                        label.small.mb-1(for='inputBillingName') Name on card
+                                        input#inputBillingName.form-control(type='text', placeholder='Enter the name as it appears on your card', value='Valerie Luna')
+                                    .mb-3.col-md-6
+                                        label.small.mb-1(for='inputBillingCCNumber') Card number
+                                        input#inputBillingCCNumber.form-control(type='text', placeholder='Enter your credit card number', value='4444 3333 2222 1111')
+                                .row
+                                    .col-md-4.mb-4.mb-md-0
+                                        label.small.mb-1(for='inputOrgName') Card expiry month
+                                        input#inputOrgName.form-control(type='text', placeholder='Enter expiry month', value='06')
+                                    .col-md-4.mb-4.mb-md-0
+                                        label.small.mb-1(for='inputLocation') Card expiry year
+                                        input#inputLocation.form-control(type='text', placeholder='Enter expiry year', value='2024')
+                                    .col-md-4.mb-0
+                                        label.small.mb-1(for='inputLocation') CVV Number
+                                        input#inputLocation.form-control(type='password', placeholder='Enter CVV number', value='111')
+                                hr.my-4
+                                .d-flex.justify-content-between
+                                    button.btn.btn-light(
+                                        routerLink='/dashboard/auth/wizard',
+                                        [queryParams]='{step: "account"}',
+                                        type='button'
+                                    ) Previous
+                                    button.btn.btn-primary(
+                                        routerLink='/dashboard/auth/wizard',
+                                        [queryParams]='{step: "preferences"}',
+                                        type='button'
+                                    ) Next
+                // Wizard tab pane item 3
+                .tab-pane.py-5.py-xl-10.fade#wizard3(
+                    [ngClass]='{active: step === "preferences", show: step === "preferences"}',
+                    role='tabpanel',
+                    aria-labelledby='wizard3-tab'
+                )
+                    .row.gx-4.justify-content-center
+                        .col-xxl-6.col-xl-8
+                            h3.text-primary Step 3
+                            h5.card-title Choose when you want to receive email notifications
+                            form
+                                .form-check
+                                    input#checkAccountChanges.form-check-input(type='checkbox', checked)
+                                    label.form-check-label(for='checkAccountChanges') Changes made to your account
+                                .form-check
+                                    input#checkAccountGroups.form-check-input(type='checkbox', checked)
+                                    label.form-check-label(for='checkAccountGroups') Changes are made to groups you're part of
+                                .form-check
+                                    input#checkProductUpdates.form-check-input(type='checkbox', checked)
+                                    label.form-check-label(for='checkProductUpdates') Product updates for products you've purchased or starred
+                                .form-check
+                                    input#checkProductNew.form-check-input(type='checkbox', checked)
+                                    label.form-check-label(for='checkProductNew') Information on new products and services
+                                .form-check
+                                    input#checkPromotional.form-check-input(type='checkbox')
+                                    label.form-check-label(for='checkPromotional') Marketing and promotional offers
+                                .form-check
+                                    input#checkSecurity.form-check-input(type='checkbox', checked, disabled)
+                                    label.form-check-label(for='checkSecurity') Security alerts
+                                hr.my-4
+                                .d-flex.justify-content-between
+                                    button.btn.btn-light(
+                                        routerLink='/dashboard/auth/wizard',
+                                        [queryParams]='{step: "billing"}',
+                                        type='button'
+                                    ) Previous
+                                    button.btn.btn-primary(
+                                        routerLink='/dashboard/auth/wizard',
+                                        [queryParams]='{step: "review"}',
+                                        type='button'
+                                    ) Next
+                // Wizard tab pane item 4
+                .tab-pane.py-5.py-xl-10.fade#wizard4(
+                    [ngClass]='{active: step === "review", show: step === "review"}',
+                    role='tabpanel',
+                    aria-labelledby='wizard4-tab'
+                )
+                    .row.gx-4.justify-content-center
+                        .col-xxl-6.col-xl-8
+                            h3.text-primary Step 4
+                            h5.card-title Review the following information and submit
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Username:
+                                .col username
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Name:
+                                .col Valerie Luna
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Organization Name:
+                                .col Start Bootstrap
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Location:
+                                .col San Francisco, CA
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Email Address:
+                                .col name@example.com
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Phone Number:
+                                .col 555-123-4567
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Birthday:
+                                .col 06/10/1988
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Credit Card Number:
+                                .col **** **** **** 1111
+                            .row.gx-4.small.text-muted
+                                .col-sm-3.text-truncate
+                                    em Credit Card Expiration:
+                                .col 06/2024
+
+                            hr.my-4
+                            .d-flex.justify-content-between
+                                button.btn.btn-light(
+                                    routerLink='/dashboard/auth/wizard',
+                                    [queryParams]='{step: "preferences"}',
+                                    type='button'
+                                ) Previous
+                                button.btn.btn-primary(type='button') Submit

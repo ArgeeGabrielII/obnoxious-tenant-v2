@@ -1,0 +1,57 @@
+sbpro-layout-dashboard([light]='true')
+    sbpro-dashboard-head(icon='bar-chart', title='Charts', description='Charts powered by Chart.js to display data within your app')
+    .container-xl.px-4.mt-n10
+                
+        sbpro-card([headerActions]='true')
+            .card-header Area Chart Example
+                sbpro-dropdown(
+                    placement='bottom-end',
+                    animation='animated--fade-in-up',
+                    [classes]='["no-caret"]'
+                )
+                    .dropdown-trigger
+                        i-feather.text-gray-500(name='more-vertical')
+                    .dropdown-items
+                        a.dropdown-item((click)='changeAreaChartRange("monthly")') Monthly
+                        a.dropdown-item((click)='changeAreaChartRange("quarterly")') Quarterly
+                        a.dropdown-item((click)='changeAreaChartRange("yearly")') Yearly
+
+            .card-body
+                sb-charts-area([duration]='areaChartDuration')
+
+        .row.gx-4
+            .col-lg-6.mb-4
+                sbpro-card([headerActions]='true')
+                    .card-header Bar Chart Example
+                        sbpro-dropdown(
+                            placement='bottom-end',
+                            animation='animated--fade-in-up',
+                            [classes]='["no-caret"]'
+                        )
+                            .dropdown-trigger
+                                i-feather.text-gray-500(name='more-vertical')
+                            .dropdown-items
+                                a.dropdown-item((click)='changeBarChartRange("monthly")') Monthly
+                                a.dropdown-item((click)='changeBarChartRange("quarterly")') Quarterly
+                                a.dropdown-item((click)='changeBarChartRange("yearly")') Yearly
+                    .card-body
+                        sb-charts-bar([duration]='barChartDuration')
+            .col-lg-6.mb-4
+                sbpro-card([headerActions]='true')
+                    .card-header Pie Chart Example
+                    .card-body
+                        sb-charts-pie
+                    
+        sbpro-card-icon
+            .card-icon
+                i-feather.text-white-50(name='alert-triangle')
+            .card-body
+                h5.card-title Third-Party Documentation Available
+                p.card-text.
+                    Chart.js is a third party plugin that is used to generate the charts in this template.
+                    This template comes with several custom angular component examples for bar, area, and pie charts.
+                    This template also comes with chart service that can provide the chart object to any component.
+                    The charts above have been customized - for further customization options, please visit the official Chart.js documentation.
+                a.btn.btn-primary.btn-sm(href='https://www.chartjs.org/docs/latest/', target='_blank')
+                    i-feather(name='external-link').me-1
+                    | View Chart.js Docs

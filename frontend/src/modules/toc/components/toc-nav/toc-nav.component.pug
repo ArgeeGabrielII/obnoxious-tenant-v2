@@ -1,0 +1,25 @@
+.nav-sticky
+    .card
+        .card-body
+            ng-container(*ngTemplateOutlet='tocList; context: {items: items, initial: true}')
+
+ng-template(#tocList, let-passedItems='items', let-initial='initial')
+    ul.nav.flex-column(
+        [ngClass]='{"ml-3": !initial}'
+    )
+        li.nav-item(
+            *ngFor="let item of passedItems"
+        )
+            a.nav-link(
+                [ngClass]='{"active": item.title === topInView || item.title === topInViewChild}',
+                (click)='navigateToTitle(item)',
+                [routerLink]=''
+            ) 
+                .d-flex.align-items-center.justify-content-between 
+                    | {{item.title}}
+                    span.badge.bg-primary-soft.text-primary(*ngIf='item.new') New
+                    span.badge.bg-primary-soft.text-primary(*ngIf='item.updated') Updated
+            ng-container(
+                *ngIf='item.children'
+            )
+                ng-container(*ngTemplateOutlet='tocList; context: {items: item.children}')

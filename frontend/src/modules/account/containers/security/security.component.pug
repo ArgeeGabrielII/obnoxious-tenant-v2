@@ -1,0 +1,82 @@
+sbpro-dashboard-head-compact(
+    title='Account Settings - Security',
+    icon='user'
+)
+
+// Main page content
+.container-xl.px-4.mt-4
+    // Account page navigation
+    nav.nav.nav-borders
+        a.nav-link.ms-0(routerLink='/dashboard/account/profile') Profile
+        a.nav-link(routerLink='/dashboard/account/billing') Billing
+        a.nav-link.active(routerLink='/dashboard/account/security') Security
+        a.nav-link(routerLink='/dashboard/account/notifications') Notifications
+    hr.mt-0.mb-4
+    .row.gx-4
+        .col-lg-8
+            // Change password card
+            .card.mb-4
+                .card-header Change Password
+                .card-body
+                    form
+                        // Form Group (current password)
+                        .mb-3
+                            label(for='currentPassword').small.mb-1 Current Password
+                            input.form-control#currentPassword(type='password', placeholder='Enter current password')
+                        // Form Group (new password)
+                        .mb-3
+                            label(for='newPassword').small.mb-1 New Password
+                            input.form-control#newPassword(type='password', placeholder='Enter new password')
+                        // Form Group (confirm password)
+                        .mb-3
+                            label(for='confirmPassword').small.mb-1 Confirm Password
+                            input.form-control#confirmPassword(type='password', placeholder='Confirm new password')
+                        button.btn.btn-primary(type='button') Save
+            // Security preferences card
+            .card.mb-4
+                .card-header Security Preferences
+                .card-body
+                    // Account privacy optinos
+                    h5.mb-1 Account Privacy
+                    p.small.text-muted By setting your account to private, your profile information and posts will not be visible to users outside of your user groups.
+                    form
+                        .form-check
+                            input#radioPublic.form-check-input(type='radio', name='radioPrivacy', checked)
+                            label.form-check-label(for='radioPublic') Public (posts are available to all users)
+                        .form-check
+                            input#radioPrivate.form-check-input(type='radio', name='radioPrivacy')
+                            label.form-check-label(for='radioPrivate') Private (posts are available to only users in your groups)
+                    hr.my-4
+                    // Data sharing options
+                    h5.mb-1 Data Sharing
+                    p.small.text-muted Sharing usage data can help us to improve our products and better serve our users as they navigation through our application. When you agree to share usage data with us, crash reports and usage analytics will be automatically sent to our development team for investigation.
+                    form
+                        .form-check
+                            input#radioUsageYes.form-check-input(type='radio', name='radioUsage', checked)
+                            label.form-check-label(for='radioUsageYes') Yes, share data and crash reports with app developers
+                        .form-check
+                            input#radioUsageNo.form-check-input(type='radio', name='radioUsage')
+                            label.form-check-label(for='radioUsageNo') No, limit my data sharing with app developers
+        .col-lg-4
+            // Two factor authentication card
+            .card.mb-4
+                .card-header Two-Factor Authentication
+                .card-body
+                    p Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.
+                    form
+                        .mb-3
+                            .form-check
+                                input#twoFactorOn.form-check-input(type='radio', name='radioUsage', checked)
+                                label.form-check-label(for='twoFactorOn') On
+                            .form-check
+                                input#twoFactorOff.form-check-input(type='radio', name='radioUsage')
+                                label.form-check-label(for='twoFactorOff') Off
+                        .mb-3.mb-0
+                            label(for='twoFactorSMS').small.mb-1 SMS Number
+                            input.form-control#twoFactorSMS(type='tel', placeholder='Enter a phone number', value='555-123-4567')
+            // Delete account card
+            .card.mb-4
+                .card-header Delete Account
+                .card-body
+                    p Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.
+                    button.btn.btn-danger-soft.text-danger(type='button') I understand, delete my account

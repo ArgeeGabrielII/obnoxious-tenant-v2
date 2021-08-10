@@ -1,0 +1,42 @@
+sbpro-card
+    .card-header Custom Checkboxes &amp; Radio
+    .card-body
+        h6.small.text-muted.fw-500 Bootstrap Custom Checkboxes:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                .form-check
+                    input#customCheck1.form-check-input(type='checkbox')
+                    label.form-check-label(for='customCheck1') Custom Checkbox 1
+                .form-check
+                    input#customCheck2.form-check-input(type='checkbox')
+                    label.form-check-label(for='customCheck2') Custom Checkbox 2
+                .form-check
+                    input#customCheck3.form-check-input(type='checkbox', disabled)
+                    label.form-check-label(for='customCheck3') Custom Checkbox (Disabled)
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Bootstrap's custom checkbox and radio styling have been modified for the
+                SB Admin Pro theme.
+        
+        h6.small.text-muted.fw-500 Bootstrap Custom Radio:
+        .sbp-preview.mb-4
+            .sbp-preview-content
+                .form-check
+                    input#customRadio1.form-check-input(type='radio', name='customRadio')
+                    label.form-check-label(for='customRadio1') Toggle this custom radio
+                .form-check
+                    input#customRadio2.form-check-input(type='radio', name='customRadio')
+                    label.form-check-label(for='customRadio2') Or toggle this other custom radio
+                .form-check
+                    input#customRadio3.form-check-input(type='radio', name='customRadio', disabled)
+                    label.form-check-label(for='customRadio3') This radio is disabled
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamplesRadio',
+                )

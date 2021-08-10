@@ -1,0 +1,26 @@
+sbpro-card
+    .card-header Progress Card
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+
+                sbpro-progress-card([value]='25', progressBarColor='bg-danger')
+                    .card-header.text-danger 25% Progress Card Example
+                    .card-body This is an example of a card with a 25% completed progress bar.
+                sbpro-progress-card([value]='50', progressBarColor='bg-warning')
+                    .card-header.text-warning 50% Progress Card Example
+                    .card-body This is an example of a card with a 50% completed progress bar.
+                sbpro-progress-card([value]='75', progressBarColor='bg-primary')
+                    .card-header.text-primary 75% Progress Card Example
+                    .card-body This is an example of a card with a 75% completed progress bar.
+                sbpro-progress-card([value]='100', progressBarColor='bg-success')
+                    .card-header.text-success 100% Progress Card Example
+                    .card-body This is an example of a card with a 100% completed progress bar.
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                <code>sbpro-progress-card</code> combines cards, background utilities, and striped options.

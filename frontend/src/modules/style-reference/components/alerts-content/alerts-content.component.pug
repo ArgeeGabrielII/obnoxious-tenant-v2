@@ -1,0 +1,17 @@
+sbpro-card
+    .card-header Alert Content Styling
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                sbpro-alert(classes='alert-primary', heading='Alert Heading', [dismissable]='true')
+                    | This alert example has an alert heading, an alert link, and is dismissible! 
+                    a.alert-link([routerLink]='') Example alert link!
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Pass in a heading with the <code>heading</code> attribute.
+                Make it dismissable with <code>[dismissable]='true'</code>

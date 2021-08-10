@@ -1,0 +1,19 @@
+sbpro-dashboard-head(
+    icon='activity',
+    title='Dashboard',
+    description='Example dashboard overview and content summary',
+    [showDateRange]='true'
+)
+.container-xl.px-4.mt-n10
+
+    .row.gx-4
+        .col-xxl-4.col-xl-12.mb-4
+            sbpro-dashboard-default-welcome
+        .col-xxl-4.col-xl-6.mb-4
+            sbpro-dashboard-recent-activity
+        .col-xxl-4.col-xl-6.mb-4
+            sbpro-dashboard-progress-tracker
+
+    sbpro-dashboard-colored-cards
+    sbpro-dashboard-charts
+    sbpro-dashboard-tables

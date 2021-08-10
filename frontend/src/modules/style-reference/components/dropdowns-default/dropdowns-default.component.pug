@@ -1,0 +1,24 @@
+sbpro-card
+    .card-header Default Bootstrap Dropdown
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                sbpro-dropdown(
+                    dropdownStyle='text',
+                    background='btn-primary'
+                )
+                    .dropdown-trigger
+                        | Dropdown Button
+                    .dropdown-items
+                        a.dropdown-item(routerLink='/dashboard') Dashboard
+                        a.dropdown-item((click)='action()') Action
+                        a.dropdown-item((click)='anotherAction()') Another Action
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                The default Bootstrap dropdown has been extended and modified within the SB Admin Pro theme.
+                Click on the dropdown button above to see a demo.

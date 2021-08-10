@@ -1,0 +1,23 @@
+form([formGroup]='organizationJoinFormCode', (ngSubmit)='onSubmitCode()')
+    h5.fw-500.mb-3 Have an access code?
+    .mb-3
+        input#codeInput.form-control.form-control-solid(
+            data-cy='codeInput',
+            type='text',
+            placeholder='Enter access code',
+            aria-label='Access Code',
+            formControlName='code',
+            [class.is-valid]='codeControlValid',
+            [class.is-invalid]='codeControlInvalid'
+        )
+        .invalid-feedback(*ngIf='codeControl.hasError("required")')
+            | Code required
+        .invalid-feedback(*ngIf='codeControl.hasError("code")')
+            | Code not recognized
+
+    .d-grid
+        button.btn.btn-secondary(
+            data-cy='accessCodeButton',
+            type='submit',
+            [disabled]='organizationJoinFormCode.invalid'
+        ) Request

@@ -1,0 +1,18 @@
+sbpro-card
+    .card-header Progress Labels
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                sbpro-progress-bar.mb-3([value]='0') 0%
+                sbpro-progress-bar.mb-3([value]='25') 25%
+                sbpro-progress-bar.mb-3([value]='50') 50%
+                sbpro-progress-bar.mb-3([value]='75') 75%
+                sbpro-progress-bar.mb-3([value]='100') 100%
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Add text within <code>sbpro-progress-bar</code> to label the indicator bar.

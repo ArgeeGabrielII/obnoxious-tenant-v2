@@ -1,0 +1,21 @@
+.card.h-100
+    .card-header Traffic Sources
+    .card-body
+        .chart-pie.mb-4
+            sb-charts-pie
+        .list-group.list-group-flush
+            .list-group-item.d-flex.align-items-center.justify-content-between.small.px-0.py-2
+                .me-3
+                    fa-icon.me-1.text-blue([icon]='["fas", "circle"]')
+                    | Direct
+                .fw-500.text-dark 55%
+            .list-group-item.d-flex.align-items-center.justify-content-between.small.px-0.py-2
+                .me-3
+                    fa-icon.me-1.text-purple([icon]='["fas", "circle"]')
+                    | Social
+                .fw-500.text-dark 15%
+            .list-group-item.d-flex.align-items-center.justify-content-between.small.px-0.py-2
+                .me-3
+                    fa-icon.me-1.text-green([icon]='["fas", "circle"]')
+                    | Referral
+                .fw-500.text-dark 30%

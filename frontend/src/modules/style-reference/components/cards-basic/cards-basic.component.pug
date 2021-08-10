@@ -1,0 +1,22 @@
+sbpro-card
+    .card-header Basic Card
+    .card-body
+        .sbp-preview
+            .sbp-preview-content.bg-light
+
+                sbpro-card.mx-auto(style="width: 60%;")
+                    .card-header Basic Card Example
+                    .card-body This is an example of a basic card.
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                The example above is a basic card with a card header and a card body.
+                You can extend the card using any of the features included with Bootstrap.
+                <br>
+                <span class="font-weight-bold">Note:</span> The card styling in SB Admin Pro
+                looks best with a light background color due to the background color of the
+                card header, card body, and box shadow.

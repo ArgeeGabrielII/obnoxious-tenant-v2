@@ -1,0 +1,34 @@
+sbpro-dashboard-head(
+    icon='help-circle',
+    title='Tooltips',
+    description='Animted tooltips to provide annotation on content when hovered over'
+)
+.container-xl.px-4.mt-n10
+    .row.gx-4
+        .col-lg-9
+            sbpro-tooltips-default(
+                sbproTocItem='Tooltips'
+            )
+            sbpro-tooltips-popovers(
+                sbproTocItem='Popovers'
+            )
+
+            sbpro-card-icon(iconBackground='bg-secondary')
+                .card-icon
+                    fa-icon.text-white-50([icon]='["fab", "bootstrap"]')
+                .card-body
+                    h5.card-title NG Bootstrap Documentation Available
+                    p.card-text.
+                        Tooltips and popovers are default components included with NG Bootstrap.
+                        For more information on implementing, modifying, and extending the usage
+                        of tooltips and popovers within your project,
+                        visit the official NG Bootstrap modal documentation page.
+                    a.btn.btn-secondary.btn-sm.me-2.my-1(href='https://ng-bootstrap.github.io/#/components/tooltip/examples/', target='_blank')
+                        i-feather.me-1(name='external-link')
+                        | Visit NG Bootstrap Tooltip Docs
+                    a.btn.btn-secondary.btn-sm.my-1(href='https://ng-bootstrap.github.io/#/components/popover/examples/', target='_blank')
+                        i-feather.me-1(name='external-link')
+                        | Visit NG Bootstrap Popover Docs
+
+        .col-lg-3
+            sbpro-toc-nav([tocIndex]='tocIndex')

@@ -1,0 +1,82 @@
+sb-layout-auth
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
+            // Create Organization
+            .col-xl-5.col-lg-6.col-md-8.col-sm-11
+                .card.mt-5
+                    .card-body.p-5.text-center
+                        .icons-org-create.align-items-center.mx-auto
+                            i-feather(name='users').icon-users
+                            fa-icon([icon]='["fas", "plus"]').icon-plus
+                        .h3.text-primary.fw-300.mb-0 Who else is part of this organization?
+                    hr.m-0
+                    .card-body.p-5
+                        form([formGroup]='addUsersForm', (ngSubmit)='onSubmit()')
+                            div(
+                                formArrayName='emails',
+                                *ngFor='let email of emails.controls; let i=index'
+                            )
+                                .mb-3
+                                    input.form-control.form-control-solid(
+                                        [attr.data-cy]='"emailInput_" + i',
+                                        type='text',
+                                        placeholder='name@example.com',
+                                        [formControlName]='i',
+                                        [class.is-valid]='emailControlValid(i)',
+                                        [class.is-invalid]='emailControlInvalid(i)'
+                                    )
+                                    .invalid-feedback(*ngIf='email.hasError("required")')
+                                        | Email required.
+                                    .invalid-feedback(*ngIf='email.hasError("email")')
+                                        | Email is not valid.
+
+                            .mb-3.text-end
+                                button.btn.btn-link.p-0(
+                                    data-cy='addAnotherButton',
+                                    [disabled]='addUsersForm.invalid',
+                                    (click)='addAnother()'
+                                ) 
+                                    fa-icon([icon]='["fas", "plus-circle"]').icon-plus-circle.me-1
+                                    | Add another
+
+                            .mb-3
+                                .d-grid
+                                    button.btn.btn-primary(
+                                        data-cy='addMembersButton',
+                                        type='submit',
+                                        [disabled]='addUsersForm.invalid'
+                                    ) Add Members
+
+
+                            .mb-5
+                                a([routerLink]='').d-flex.align-items-center
+                                    i-feather(name='link').me-1
+                                    | Get an invite link to share
+                            .text-center
+                                | Or, 
+                                a(routerLink='/dashboard') skip for now
+
+
+ng-template(#confirmationModal, let-modal)
+    .modal-header
+        h5.modal-title Add Members Data
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body Wired up and ready to go. Just add a backend.
+        br
+        br
+        span(*ngFor='let email of emails.controls')
+            <code>{{email.value}}</code><br>
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Close
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("DASHBOARD")'
+        ) Proceed back to Dashboard

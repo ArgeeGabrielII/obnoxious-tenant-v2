@@ -1,0 +1,28 @@
+sbpro-dashboard-head(
+    icon='maximize',
+    title='Borders',
+    description='Border utilities allow you to modify the borders of your display elements'
+)
+.container-xl.px-4.mt-n10
+    .row.gx-4
+        .col-lg-9
+            sbpro-borders-default(
+                sbproTocItem='Default'
+            )
+            sbpro-borders-colors(
+                sbproTocItem='Colors'
+            )
+            sbpro-borders-radius(
+                sbproTocItem='Radius'
+            )
+            sbpro-borders-radius-size(
+                sbproTocItem='Radius Size'
+            )
+            sbpro-borders-thickness(
+                sbproTocItem='Thickness'
+            )
+            sbpro-borders-usage-examples(
+                sbproTocItem='Usage Examples'
+            )
+        .col-lg-3
+            sbpro-toc-nav([tocIndex]='tocIndex')

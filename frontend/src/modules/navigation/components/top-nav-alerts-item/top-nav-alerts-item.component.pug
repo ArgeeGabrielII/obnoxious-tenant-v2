@@ -1,0 +1,8 @@
+a.dropdown-item.dropdown-notifications-item([routerLink]='')
+    .dropdown-notifications-item-icon.bg-warning
+        i-feather([name]='alert.icon')
+    .dropdown-notifications-item-content
+        .dropdown-notifications-item-content-details
+            | {{alert.date}}
+        .dropdown-notifications-item-content-text
+            | {{alert.text}}

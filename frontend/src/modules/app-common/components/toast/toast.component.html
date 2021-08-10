@@ -1,0 +1,8 @@
+<div class="toast show mb-1" [ngClass]="classes" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+    <div class="toast-header" [ngClass]="headerClasses">
+        <ng-container *ngIf="headerIsTemplate"><ng-template *ngTemplateOutlet="header; context:toastContext"></ng-template></ng-container><ng-container *ngIf="!headerIsTemplate &amp;&amp; header">{{header}}</ng-container>
+    </div>
+    <div class="toast-body" [ngClass]="bodyClasses">
+        <ng-container *ngIf="bodyIsTemplate"><ng-template *ngTemplateOutlet="body; context:toastContext"></ng-template></ng-container><ng-container *ngIf="!bodyIsTemplate &amp;&amp; body">{{body}}</ng-container>
+    </div>
+</div>

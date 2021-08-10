@@ -1,0 +1,17 @@
+sbpro-dashboard-head(
+    icon='users',
+    title='Avatars',
+    description='Create single and group avatars of different sizes with this custom component'
+)
+.container-xl.px-4.mt-n10
+    .row.gx-4
+        .col-lg-9
+            sbpro-avatars-sizing(
+                sbproTocItem='Sizing'
+            )
+            sbpro-avatars-status-indicators(
+                sbproTocItem='Status Indicators'
+            )
+
+        .col-lg-3
+            sbpro-toc-nav([tocIndex]='tocIndex')

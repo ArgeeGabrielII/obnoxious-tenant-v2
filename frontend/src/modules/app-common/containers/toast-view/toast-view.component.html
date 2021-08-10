@@ -1,0 +1,1 @@
+<sbpro-toast *ngFor="let toast of toastService.toasts" [header]="toast.header" [body]="toast.body" [autohide]="toast.options.autohide" [delay]="toast.options?.delay || 5000" [classes]="toast.options?.classes" [headerClasses]="toast.options?.headerClasses" [bodyClasses]="toast.options?.bodyClasses" [toastID]="toast.uuid"></sbpro-toast>

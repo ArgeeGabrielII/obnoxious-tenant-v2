@@ -1,0 +1,68 @@
+sbpro-card
+    .card-header Custom Notification Dropdown
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                .sbp-dropdown-example
+                    .dropdown-notifications
+                        .dropdown-menu.dropdown-menu-end.border-0.shadow.animated--fade-in-up(aria-labelledby='navbarDropdownAlerts')
+                            h6.dropdown-header.dropdown-notifications-header
+                                i-feather.me-2(name='bell')
+                                | Dropdown Header
+                            // Example Item 1
+                            a.dropdown-item.dropdown-notifications-item
+                                .dropdown-notifications-item-icon.bg-warning
+                                    i-feather(name='activity')
+                                .dropdown-notifications-item-content
+                                    .dropdown-notifications-item-content-details
+                                        | Dropdown Item Details
+                                    .dropdown-notifications-item-content-text
+                                        | This is the dropdown item text. It will truncate after a fixed width.
+                            // Example Item 2
+                            a.dropdown-item.dropdown-notifications-item
+                                .dropdown-notifications-item-icon.bg-info
+                                    i-feather(name='bar-chart')
+                                .dropdown-notifications-item-content
+                                    .dropdown-notifications-item-content-details
+                                        | Dropdown Item Details
+                                    .dropdown-notifications-item-content-text
+                                        | This is the dropdown item text. It will truncate after a fixed width.
+                            // Example Item 3
+                            a.dropdown-item.dropdown-notifications-item
+                                .dropdown-notifications-item-icon.bg-danger
+                                    fa-icon([icon]='["fas", "exclamation-triangle"]')
+                                .dropdown-notifications-item-content
+                                    .dropdown-notifications-item-content-details
+                                        | Dropdown Item Details
+                                    .dropdown-notifications-item-content-text
+                                        | This is the dropdown item text. It will truncate after a fixed width.
+                            // Example Item 4
+                            a.dropdown-item.dropdown-notifications-item
+                                div.dropdown-notifications-item-icon.bg-success
+                                    i-feather(name='user-plus')
+                                div.dropdown-notifications-item-content
+                                    div.dropdown-notifications-item-content-details
+                                        | Dropdown Item Details
+                                    div.dropdown-notifications-item-content-text
+                                        | This is the dropdown item text. It will truncate after a fixed width.
+                            a.dropdown-item.dropdown-notifications-footer Dropdown Footer
+            
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            
+            .sbp-preview-text
+                p.
+                    The notifications dropdown is a custom component built into SB Admin Pro.
+                    You can see two examples of the component in action on the topnav when you
+                    click on the alerts and message center icons.
+                p.
+                    A max height is set to the dropdown itself,
+                    which enables a custom scrollbar if the content within the dropdown exceeds a
+                    certain height.
+                p.mb-0.
+                    This component is well suited for dropdowns that contain large amounts of content
+                    that you wish to display in a flush format.
+                    The icons are replacable with images, or you can remove them.

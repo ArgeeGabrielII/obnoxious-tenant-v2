@@ -1,0 +1,55 @@
+.row.gx-4
+    .col-xxl-3.col-lg-6
+        sbpro-card-view-details(
+            link='/dashboard',
+            background='bg-primary',
+            linkText='View Report'
+        )
+            .card-body
+                .d-flex.justify-content-between.align-items-center
+                    .me-3
+                        .text-white-75.small Earnings (Monthly)
+                        .text-lg.fw-bold $40,000
+                    i-feather.feather-xl.text-white-50(name='calendar')
+
+    .col-xxl-3.col-lg-6
+        sbpro-card-view-details(
+            link='/dashboard',
+            background='bg-warning',
+            linkText='View Report'
+        )
+            .card-body
+                .d-flex.justify-content-between.align-items-center
+                    .me-3
+                        .text-white-75.small Earnings (Annual)
+                        .text-lg.fw-bold $215,000
+                    i-feather.feather-xl.text-white-50(name='dollar-sign')
+
+
+    .col-xxl-3.col-lg-6
+        sbpro-card-view-details(
+            link='/dashboard',
+            background='bg-success',
+            linkText='View Tasks'
+        )
+            .card-body
+                .d-flex.justify-content-between.align-items-center
+                    .me-3
+                        .text-white-75.small Task Completion
+                        .text-lg.fw-bold 24
+                    i-feather.feather-xl.text-white-50(name='check-square')
+
+
+    .col-xxl-3.col-lg-6
+        sbpro-card-view-details(
+            link='/dashboard',
+            background='bg-danger',
+            linkText='View Requests'
+        )
+            .card-body
+                .d-flex.justify-content-between.align-items-center
+                    .me-3
+                        .text-white-75.small Pending Requests
+                        .text-lg.fw-bold 17
+                    i-feather.feather-xl.text-white-50(name='message-circle')
+

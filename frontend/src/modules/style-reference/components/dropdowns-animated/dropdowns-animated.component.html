@@ -1,0 +1,23 @@
+<sbpro-card
+    ><div class="card-header">Animated Dropdown Menu</div>
+    <div class="card-body">
+        <div class="sbp-preview">
+            <div class="sbp-preview-content">
+                <div class="d-flex flex-column flex-sm-row">
+                    <sbpro-dropdown [classes]='["me-2", "mb-4", "mb-sm-0"]' dropdownStyle="text" background="btn-primary"
+                        ><div class="dropdown-trigger">No Animation</div>
+                        <div class="dropdown-items"><a class="dropdown-item">Action</a><a class="dropdown-item">Another action</a><a class="dropdown-item">Something else here</a></div></sbpro-dropdown
+                    ><sbpro-dropdown [classes]='["me-2", "mb-4", "mb-sm-0"]' dropdownStyle="text" background="btn-secondary" animation="animated--fade-in"
+                        ><div class="dropdown-trigger">Fade In</div>
+                        <div class="dropdown-items"><a class="dropdown-item">Action</a><a class="dropdown-item">Another action</a><a class="dropdown-item">Something else here</a></div></sbpro-dropdown
+                    ><sbpro-dropdown dropdownStyle="text" background="btn-teal" animation="animated--fade-in-up"
+                        ><div class="dropdown-trigger">Fade In Up</div>
+                        <div class="dropdown-items"><a class="dropdown-item">Action</a><a class="dropdown-item">Another action</a><a class="dropdown-item">Something else here</a></div></sbpro-dropdown
+                    >
+                </div>
+            </div>
+            <div class="sbp-preview-code"><sbpro-code-sample [codeSamples]="codeSamples"></sbpro-code-sample></div>
+            <div class="sbp-preview-text">You can animate any <code>sbpro-dropdown</code> by adding either <code>animated--fade-in</code> and <code>animated--fade-in-up</code> to the <code>animation</code> attribute</div>
+        </div>
+    </div></sbpro-card
+>

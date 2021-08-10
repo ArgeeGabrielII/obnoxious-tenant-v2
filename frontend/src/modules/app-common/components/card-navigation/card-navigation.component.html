@@ -1,0 +1,34 @@
+<div class="card mb-4" [ngClass]="cardClasses">
+    <ng-container *ngIf='navType !== "vertical"'
+        ><div class="card-header border-bottom">
+            <ng-container *ngIf='navType === "tabbed"'
+                ><ul class="nav nav-tabs card-header-tabs" role="tablist">
+                    <li class="nav-item" *ngFor="let name of navNames; let i = index"><a class="nav-link" [ngClass]="{active: selectedIndex === i}" (click)="setSelectedIndex(i)" data-toggle="tab" role="tab" [attr.aria-selected]="selectedIndex === i">{{name}}</a></li>
+                </ul></ng-container
+            ><ng-container *ngIf='navType === "pill"'
+                ><ul class="nav nav-pills card-header-pills" role="tablist">
+                    <li class="nav-item" *ngFor="let name of navNames; let i = index"><a class="nav-link" [ngClass]="{active: selectedIndex === i}" (click)="setSelectedIndex(i)" data-toggle="tab" role="tab" [attr.aria-selected]="selectedIndex === i">{{name}}</a></li>
+                </ul></ng-container
+            >
+        </div>
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" #fadeableSection role="tabpanel" aria-labelledby="overview-tab"><ng-container *ngTemplateOutlet="templates[selectedIndexForFade]"></ng-container></div>
+            </div></div></ng-container
+    ><ng-container *ngIf='navType === "vertical"'
+        ><ng-content select=".card-header"></ng-content>
+        <div class="card-body">
+            <div class="row gx-4">
+                <div class="col-md-3">
+                    <ul class="nav nav-pills flex-column" role="tablist">
+                        <li class="nav-item" *ngFor="let name of navNames; let i = index"><a class="nav-link" [ngClass]="{active: selectedIndex === i}" (click)="setSelectedIndex(i)" data-toggle="tab" role="tab" [attr.aria-selected]="selectedIndex === i">{{name}}</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" #fadeableSection role="tabpanel" aria-labelledby="overview-tab"><ng-container *ngTemplateOutlet="templates[selectedIndexForFade]"></ng-container></div>
+                    </div>
+                </div>
+            </div></div></ng-container
+    ><ng-content select=".card-footer"></ng-content>
+</div>

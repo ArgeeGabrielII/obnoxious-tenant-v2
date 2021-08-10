@@ -1,0 +1,39 @@
+sbpro-card
+    .card-header Avatar Sizing
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-xxl'
+                )
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-xl'
+                )
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-lg'
+                )
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png'
+                )
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-sm'
+                )
+                sbpro-avatar(
+                    imageSrc='/assets/img/illustrations/profiles/profile-1.png',
+                    classes='avatar-xs'
+                )
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Square images work best when using the <code>sbpro-avatar</code> component.
+                Using an image double the resoulution of the avatar size can improve image quality
+                on high resoulution screens.

@@ -1,0 +1,23 @@
+sbpro-card
+    .card-header Scrollable Card
+    .card-body
+        .sbp-preview
+            .sbp-preview-content.bg-light
+
+                sbpro-card([scrollable]='true')
+                    .card-header Scrollable Card Example
+                    .card-body
+                        p.card-text.
+                            The custom scrollable card allows you to set a maximum height to the <code>.card-body</code> element,
+                            and scroll the contents of the card body when the height is fixed. 
+                            You can set the max height of the card body by changing the <code>$card-scrollable-max-height</code> SCSS variable,
+                            which is set to <code>15rem</code> by default.
+                            You can also set the max height of the card body using inline CSS, or CSS overrides for different cards.
+                        sbpro-lorem-ipsum.card-text
+                        sbpro-lorem-ipsum.card-text
+                    .card-footer.small.text-muted Place cursor over card body and scroll!
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )

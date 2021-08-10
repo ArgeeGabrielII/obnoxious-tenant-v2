@@ -1,0 +1,33 @@
+<sbpro-card [headerActions]="true"
+    ><div class="card-header">
+        Progress Tracker<sbpro-dropdown placement="bottom-end" animation="animated--fade-in-up" [classes]='["no-caret"]'
+            ><div class="dropdown-trigger"><i-feather class="text-gray-500" name="more-vertical"></i-feather></div>
+            <div class="dropdown-items">
+                <a class="dropdown-item" href="javascript:void(0);"
+                    ><div class="dropdown-item-icon"><i-feather class="text-gray-500" name="list"></i-feather></div>
+                    Manage Tasks</a
+                ><a class="dropdown-item" href="javascript:void(0);"
+                    ><div class="dropdown-item-icon"><i-feather class="text-gray-500" name="plus-circle"></i-feather></div>
+                    Add New Task</a
+                ><a class="dropdown-item" href="javascript:void(0);"
+                    ><div class="dropdown-item-icon"><i-feather class="text-gray-500" name="minus-circle"></i-feather></div>
+                    Delete Tasks</a
+                >
+            </div></sbpro-dropdown
+        >
+    </div>
+    <div class="card-body">
+        <h4 class="small">Server Migration <span class="float-end fw-bold">20%</span></h4>
+        <div class="progress mb-4"><div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div></div>
+        <h4 class="small">Sales Tracking <span class="float-end fw-bold">40%</span></h4>
+        <div class="progress mb-4"><div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div></div>
+        <h4 class="small">Customer Database <span class="float-end fw-bold">60%</span></h4>
+        <div class="progress mb-4"><div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div></div>
+        <h4 class="small">Payout Details <span class="float-end fw-bold">80%</span></h4>
+        <div class="progress mb-4"><div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
+        <h4 class="small">Account Setup <span class="float-end fw-bold">Complete!</span></h4>
+        <div class="progress"><div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div></div>
+    </div>
+    <a class="card-footer" href="javascript:void(0);"
+        ><div class="d-flex align-items-center justify-content-between small text-body">Visit Task Center<i-feather name="arrow-right"></i-feather></div></a
+></sbpro-card>

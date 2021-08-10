@@ -1,0 +1,46 @@
+sbpro-card
+    .card-header Button Sizing
+    .card-body
+        .sbp-btn-example.mb-4
+            h6.small.text-muted.fw-500 Extended Button Sizing:
+            .sbp-preview.mb-4
+                .sbp-preview-content
+                    button.my-1.me-2.btn.btn-primary.btn-xs Extra Small
+                    button.my-1.me-2.btn.btn-primary.btn-sm Small
+                    button.my-1.me-2.btn.btn-primary Default
+                    button.my-1.me-2.btn.btn-primary.btn-lg Large
+                    button.my-1.me-2.btn.btn-primary.btn-xl Extra Large
+                
+                .sbp-preview-code
+                    sbpro-code-sample(
+                        [codeSamples]='codeSamples',
+                    )
+
+                .sbp-preview-text.
+                    Button sizes have been extended from Bootstrap defaults to include extra small and
+                    extra large buttons.
+
+        .sbp-btn-example
+            h6.small.text-muted.fw-500 Usage with Icon Buttons:
+            .sbp-preview.mb-4
+                .sbp-preview-content
+                    button.my-1.me-2.btn.btn-primary.btn-xs.btn-icon
+                        fa-icon([icon]='["fas", "flag"]')
+                    button.my-1.me-2.btn.btn-primary.btn-sm.btn-icon
+                        fa-icon([icon]='["fas", "flag"]')
+                    button.my-1.me-2.btn.btn-primary.btn-icon
+                        fa-icon([icon]='["fas", "flag"]')
+                    button.my-1.me-2.btn.btn-primary.btn-lg.btn-icon
+                        fa-icon([icon]='["fas", "flag"]')
+                    button.my-1.me-2.btn.btn-primary.btn-xl.btn-icon
+                        fa-icon([icon]='["fas", "flag"]')
+                
+                .sbp-preview-code
+                    sbpro-code-sample(
+                        [codeSamples]='codeSamplesIcon',
+                    )
+
+                .sbp-preview-text.
+                    The custom icon button component is compatible with all of the button sizing
+                    options available.
+

@@ -1,0 +1,29 @@
+.page-header.page-header-dark.bg-gradient-primary-to-secondary(
+    [ngClass]='{"pb-10":!simplified, "page-header-dark bg-gradient-primary-to-secondary": !light, "page-header-light bg-white shadow": light}'
+)
+    .container-xl.px-4
+        .page-header-content.pt-4
+            .row.gx-4.align-items-center.justify-content-between
+                .col-auto.mt-4
+                    h1.page-header-title
+                        .page-header-icon
+                            i-feather(
+                                *ngIf='icon',
+                                [name]='icon'
+                            )
+                        span {{title}}
+                    .page-header-subtitle
+                        | {{description}}
+
+                    sb-breadcrumbs(*ngIf='breadcrumbs')
+
+                .col-12.col-xl-auto.mt-4
+                    sbpro-date-range-quick(*ngIf='showDateRange')
+
+            .page-header-search.mt-4(
+                *ngIf='showSearch'
+            )
+                .input-group.input-group-joined
+                    input.form-control(type='text', placeholder='Search...', aria-label='Search', autofocus)
+                    .input-group-text
+                        i-feather(name='search')

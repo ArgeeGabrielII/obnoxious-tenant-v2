@@ -1,0 +1,39 @@
+sbpro-dashboard-head(
+    icon='alert-triangle',
+    title='Alerts',
+    description='Alert components to add special emphasis to select content'
+)
+.container-xl.px-4.mt-n10
+    .row.gx-4
+        .col-lg-9
+            sbpro-alerts-default(
+                sbproTocItem='Default'
+            )
+            sbpro-alerts-content(
+                sbproTocItem='Content'
+            )
+            sbpro-alerts-icon(
+                sbproTocItem='Icon'
+            )
+            sbpro-alerts-solid(
+                sbproTocItem='Solid'
+            )
+            sbpro-alerts-extended(
+                sbproTocItem='Extended'
+            )
+
+            sbpro-card-icon(iconBackground='bg-secondary')
+                .card-icon
+                    fa-icon.text-white-50([icon]='["fab", "bootstrap"]')
+                .card-body
+                    h5.card-title Bootstrap Documentation Available
+                    p.card-text.
+                        Alerts are a default component included with the Bootstrap framework.
+                        For more information on implementing, modifying, and extending the usage of alerts within your project,
+                        visit the official Bootstrap alerts documentation page.
+                    a.btn.btn-secondary.btn-sm(href='https://getbootstrap.com/docs/4.4/components/alerts/', target='_blank')
+                        i-feather.me-1(name='external-link')
+                        | Visit Bootstrap Alerts Docs
+
+        .col-lg-3
+            sbpro-toc-nav([tocIndex]='tocIndex')

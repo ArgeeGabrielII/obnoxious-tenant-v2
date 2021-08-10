@@ -1,0 +1,36 @@
+sbpro-card
+    .card-header Badge Sizing
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                h1 Example Heading
+                    span.badge.bg-primary.ms-2 New
+                h2 Example Heading
+                    span.badge.bg-primary.ms-2 New
+                h3 Example Heading
+                    span.badge.bg-primary.ms-2 New
+                h4 Example Heading
+                    span.badge.bg-primary.ms-2 New
+                h5 Example Heading
+                    span.badge.bg-primary.ms-2 New
+                h6 Example Heading
+                    span.badge.bg-primary.ms-2 New
+                p This is an example paragraph with a badge at the end!
+                    span.badge.bg-primary.ms-2 New
+                button.btn.btn-primary.me-2 Messages
+                    span.badge.bg-white.text-dark.ms-2 5
+                button.btn.btn-secondary.me-2 Notifications
+                    span.badge.bg-white.text-dark.ms-2 3
+                button.btn.btn-warning Alerts
+                    span.badge.bg-white.text-dark.ms-2 7
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Badge sizing is set using <code>em</code> units, which means they will adapt to the font size
+                of their immediate parent. 
+                The above examples show the badge size adapting to the parent,
+                including the badge used within the button element.

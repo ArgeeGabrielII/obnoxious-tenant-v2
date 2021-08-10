@@ -1,0 +1,43 @@
+sbpro-card
+    .card-header Modal Sizing
+    .card-body
+        .sbp-preview
+            .sbp-preview-content
+                button.btn.btn-primary.me-1(
+                    type='button',
+                    (click)='open(modalSizing, {size: "xl"})'
+                ) Extra Large
+
+                button.btn.btn-primary.me-1(
+                    type='button',
+                    (click)='open(modalSizing, {size: "lg"})'
+                ) Large
+                
+                button.btn.btn-primary(
+                    type='button',
+                    (click)='open(modalSizing, {size: "sm"})'
+                ) Small
+
+            .sbp-preview-code
+                sbpro-code-sample(
+                    [codeSamples]='codeSamples',
+                )
+
+            .sbp-preview-text.
+                Use the <code>&#123;size: "xl"&#125;</code> NgbModalOptions to adjust the sizing of your Bootstrap modals.
+                <br>
+                Size can be <code>"xl" | "lg" | "sm"</code>
+
+
+ng-template(#modalSizing, let-modal)
+    .modal-header
+        h5.modal-title Extra Large Modal
+        button.btn-close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+    .modal-body
+        p Sizing example modal
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close("Close Click")'
+        ) Close

@@ -1,0 +1,3 @@
+<div class="step mb-5" [ngClass]="stepClasses">
+    <div class="step-item" [ngClass]="{active: i === active}" *ngFor="let step of steps; let i = index"><a class="step-item-link pointer" [ngClass]="{disabled: i &gt; active}" (click)="stepClicked.emit(i)">{{step}}</a></div>
+</div>

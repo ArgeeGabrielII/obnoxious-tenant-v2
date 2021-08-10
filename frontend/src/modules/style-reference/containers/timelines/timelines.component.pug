@@ -1,0 +1,23 @@
+sbpro-dashboard-head(
+    icon='clock',
+    title='Timeline',
+    description='A custom component for creating timelines'
+)
+.container-xl.px-4.mt-n10
+    .row.gx-4
+        .col-lg-9
+            sbpro-timeline-basic(
+                sbproTocItem='Basic Timeline'
+            )
+            sbpro-timeline-small(
+                sbproTocItem='Small Timeline'
+            )
+            sbpro-timeline-extra-small(
+                sbproTocItem='Extra Small Timeline'
+            )
+            sbpro-timeline-styled(
+                sbproTocItem='Styled Timeline'
+            )
+
+        .col-lg-3
+            sbpro-toc-nav([tocIndex]='tocIndex')
