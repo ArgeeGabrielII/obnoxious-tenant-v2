@@ -6,9 +6,9 @@ Set the parameters in the config value below:
 */
 
 const config = {
-    newProjectName: 'my-new-project',
+    newProjectName: 'obnoxious-tenant',
     newVersion: '1.0.0',
-    newPrefix: 'mnp',
+    newPrefix: 'ot',
 }
 
 /*
