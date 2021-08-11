@@ -5,7 +5,7 @@ const upath = require('upath');
 const pjPath = upath.resolve(upath.dirname(__filename), '../package.json');
 const versionPath = upath.resolve(upath.dirname(__filename), '../version');
 const angularJSON = require('../angular.json');
-const distVersionPath = upath.resolve(upath.dirname(__filename), `../dist/${angularJSON.defaultProject}/assets/version`);
+const distVersionPath = upath.resolve(upath.dirname(__filename), `../dist/assets/version`);
 
 
 const pj = require(pjPath);

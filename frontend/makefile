@@ -2,18 +2,18 @@ serve:
 	npm start
 
 build:
-	docker build -t obnoxious-tenant:$(shell git rev-parse HEAD) .
+	npm run build
+	npm run docker:build
 
 local: build
 	docker stop obnoxious-tenant-container
 	docker rm obnoxious-tenant-container
-	docker run --name obnoxious-tenant-container -d -p 8080:80 obnoxious-tenant 
+	npm run docker:run
 
 gcp_config:
 	gcloud config set project crested-display-322005
 
-image:
-	docker build -t obnoxious-tenant:$(shell git rev-parse HEAD) .
+image: build
 	docker tag obnoxious-tenant:$(shell git rev-parse HEAD) asia.gcr.io/crested-display-322005/masashi-yamamoto/obnoxious-tenant/obnoxious-tenant:$(shell git rev-parse HEAD)
 
 image_push: image
