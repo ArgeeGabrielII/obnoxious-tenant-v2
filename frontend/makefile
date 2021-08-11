@@ -13,7 +13,7 @@ local: build
 gcp_config:
 	gcloud config set project crested-display-322005
 
-image: build
+image: build gcp_config
 	docker tag obnoxious-tenant:latest asia.gcr.io/crested-display-322005/masashi-yamamoto/obnoxious-tenant/obnoxious-tenant:$(shell git rev-parse HEAD)
 
 image_push: image
