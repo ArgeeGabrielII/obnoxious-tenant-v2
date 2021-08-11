@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from '../modules/auth/guards/auth.guard';
+
 const routes: Routes = [
     {
         path: '',
@@ -15,9 +17,7 @@ const routes: Routes = [
     {
         path: 'dashboard',
         loadChildren: () =>
-            import('modules/dashboard/dashboard-routing.module').then(
-                (m) => m.DashboardRoutingModule
-            ),
+            import('modules/dashboard/dashboard-routing.module').then((m) => m.DashboardRoutingModule),
     },
     {
         path: 'account',
@@ -37,9 +37,7 @@ const routes: Routes = [
     {
         path: 'knowledge-base',
         loadChildren: () =>
-            import('modules/knowledge-base/knowledge-base-routing.module').then(
-                (m) => m.KnowledgeBaseRoutingModule
-            ),
+            import('modules/knowledge-base/knowledge-base-routing.module').then((m) => m.KnowledgeBaseRoutingModule),
     },
     {
         path: 'shop',
@@ -54,9 +52,7 @@ const routes: Routes = [
     {
         path: 'version',
         loadChildren: () =>
-            import('modules/app-common/app-common-routing.module').then(
-                (m) => m.AppCommonRoutingModule
-            ),
+            import('modules/app-common/app-common-routing.module').then((m) => m.AppCommonRoutingModule),
     },
     {
         path: '**',

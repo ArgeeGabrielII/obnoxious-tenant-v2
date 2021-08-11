@@ -16,6 +16,12 @@ sb-layout-auth
                         .org-or or
                     .card-body.p-5
                         include ./pug_include/org-join-form-request.pug
+                    .org-or-divider
+                        .org-or or
+                    .card-body.p-5
+                        .text-center
+                            a(routerLink='/auth/multi-tenant-select') go back
+                    
 
 ng-template(#confirmationModalAccessCode, let-modal)
     .modal-header

@@ -23,11 +23,11 @@ li.nav-item.dropdown.no-caret.me-3.me-lg-0.dropdown-user(
                 .dropdown-user-details-name {{ user.firstName }} {{ user.lastName }}
                 .dropdown-user-details-email {{ user.email }}
         .dropdown-divider
-        a.dropdown-item(routerLink='/dashboard')
+        a.dropdown-item(routerLink='/dashboard/account/profile')
             .dropdown-item-icon
                 i-feather(name='settings')
             | Account
-        a.dropdown-item(routerLink='/dashboard')
+        a.dropdown-item(routerLink='/auth/login')
             .dropdown-item-icon
                 i-feather(name='log-out')
             | Logout

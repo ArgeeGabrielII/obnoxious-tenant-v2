@@ -7,8 +7,7 @@ sbpro-dashboard-head-compact(
 .container-xl.px-4.mt-4
     // Account page navigation
     nav.nav.nav-borders
-        a.nav-link.active.ms-0(routerLink='/dashboard/account/profile') Profile
-        a.nav-link(routerLink='/dashboard/account/billing') Billing
+        a.nav-link.active(routerLink='/dashboard/account/profile') Profile
         a.nav-link(routerLink='/dashboard/account/security') Security
         a.nav-link(routerLink='/dashboard/account/notifications') Notifications
     hr.mt-0.mb-4
@@ -19,9 +18,9 @@ sbpro-dashboard-head-compact(
                 .card-header Profile Picture
                 .card-body.text-center
                     // Profile picture image
-                    img.img-account-profile.rounded-circle.mb-2(src='assets/img/illustrations/profiles/profile-1.png', alt='')
+                    img.img-account-profile.rounded-circle.mb-2(src='assets/img/illustrations/profiles/profile-2.png', alt='')
                     // Profile picture help block
-                    .small.font-italic.text-muted.mb-4 JPG or PNG no larger than 5 MB
+                    .small.font-italic.text-muted.mb-4 JPG no larger than 5 MB
                     // Profile picture upload button
                     button.btn.btn-primary(type='button') Upload new image
         .col-xl-8
@@ -29,44 +28,65 @@ sbpro-dashboard-head-compact(
             .card.mb-4
                 .card-header Account Details
                 .card-body
-                    form
+                    form((ngSubmit)='submit()')
                         // Form Group (username)
                         .mb-3
                             label.small.mb-1(for='inputUsername') Username (how your name will appear to other users on the site)
-                            input#inputUsername.form-control(type='text', placeholder='Enter your username', value='username')
+                            input#inputUsername.form-control(type='text', placeholder='Enter your username', value='username', name="username", [(ngModel)]="username")
+                        
                         // Form Row
                         .row
                             // Form Group (first name)
                             .mb-3.col-md-6
                                 label.small.mb-1(for='inputFirstName') First name
-                                input#inputFirstName.form-control(type='text', placeholder='Enter your first name', value='Valerie')
+                                input#inputFirstName.form-control(type='text', placeholder='Enter your first name')
                             // Form Group (last name)
                             .mb-3.col-md-6
                                 label.small.mb-1(for='inputLastName') Last name
-                                input#inputLastName.form-control(type='text', placeholder='Enter your last name', value='Luna')
-                        // Form Row        
-                        .row
-                            // Form Group (organization name)
-                            .mb-3.col-md-6
-                                label.small.mb-1(for='inputOrgName') Organization name
-                                input#inputOrgName.form-control(type='text', placeholder='Enter your organization name', value='Start Bootstrap')
-                            // Form Group (location)
-                            .mb-3.col-md-6
-                                label.small.mb-1(for='inputLocation') Location
-                                input#inputLocation.form-control(type='text', placeholder='Enter your location', value='San Francisco, CA')
-                        // Form Group (email address)
-                        .mb-3
-                            label.small.mb-1(for='inputEmailAddress') Email address
-                            input#inputEmailAddress.form-control(type='email', placeholder='Enter your email address', value='name@example.com')
+                                input#inputLastName.form-control(type='text', placeholder='Enter your last name')
+                        
                         // Form Row
                         .row
-                            // Form Group (phone number)
+                            // Form Group (email address)
                             .mb-3.col-md-6
-                                label.small.mb-1(for='inputPhone') Phone number
-                                input#inputPhone.form-control(type='tel', placeholder='Enter your phone number', value='555-123-4567')
-                            // Form Group (birthday)
+                                label.small.mb-1(for='inputEmailAddress') Email address
+                                input#inputEmailAddress.form-control(type='email', placeholder='Enter your email address')
+                            // Form Group (date of birth)
                             .mb-3.col-md-6
-                                label.small.mb-1(for='inputBirthday') Birthday
-                                input#inputBirthday.form-control(type='text', name='birthday', placeholder='Enter your birthday', value='06/10/1988')
+                                label.small.mb-1(for='inputBirthday') Date of Birth
+                                input#inputBirthday.form-control(type='date', placeholder='Enter your birthday')
+                        
+                        // Form Row
+                        .row
+                            // Form Group (contact number)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputContactNumber') Mobile Number
+                                input#inputContactNumber.form-control(type='number', placeholder='Enter your contact number')
+                            // Form Group (nationality)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputNationality') Nationality
+                                input#inputNationality.form-control(type='text', placeholder='Enter your nationality')
+                        
+                        // Form Group (address 1)
+                        .mb-3
+                            label.small.mb-1(for='inputAddress1') Address 1
+                            input#inputAddress1.form-control(type='text', placeholder='Enter your address 1')
+                        
+                        // Form Group (address 2)
+                        .mb-3
+                            label.small.mb-1(for='inputAddress2') Address 2 (optional)
+                            input#inputAddress2.form-control(type='text', placeholder='Enter your address 2')
+                        
+                        // Form Row
+                        .row
+                            // Form Group (country)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputContactNumber') Mobile Number
+                                input#inputContactNumber.form-control(type='number', placeholder='Enter your contact number')
+                            // Form Group (nationality)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputNationality') Nationality
+                                input#inputNationality.form-control(type='text', placeholder='Enter your nationality')
+                                
                         // Save changes button
-                        button.btn.btn-primary(type='button') Save changes
+                        button.btn.btn-primary(type='submit') Save changes

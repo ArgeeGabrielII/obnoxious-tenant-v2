@@ -7,8 +7,7 @@ sbpro-dashboard-head-compact(
 .container-xl.px-4.mt-4
     // Account page navigation
     nav.nav.nav-borders
-        a.nav-link.ms-0(routerLink='/dashboard/account/profile') Profile
-        a.nav-link(routerLink='/dashboard/account/billing') Billing
+        a.nav-link(routerLink='/dashboard/account/profile') Profile
         a.nav-link.active(routerLink='/dashboard/account/security') Security
         a.nav-link(routerLink='/dashboard/account/notifications') Notifications
     hr.mt-0.mb-4
@@ -32,31 +31,7 @@ sbpro-dashboard-head-compact(
                             label(for='confirmPassword').small.mb-1 Confirm Password
                             input.form-control#confirmPassword(type='password', placeholder='Confirm new password')
                         button.btn.btn-primary(type='button') Save
-            // Security preferences card
-            .card.mb-4
-                .card-header Security Preferences
-                .card-body
-                    // Account privacy optinos
-                    h5.mb-1 Account Privacy
-                    p.small.text-muted By setting your account to private, your profile information and posts will not be visible to users outside of your user groups.
-                    form
-                        .form-check
-                            input#radioPublic.form-check-input(type='radio', name='radioPrivacy', checked)
-                            label.form-check-label(for='radioPublic') Public (posts are available to all users)
-                        .form-check
-                            input#radioPrivate.form-check-input(type='radio', name='radioPrivacy')
-                            label.form-check-label(for='radioPrivate') Private (posts are available to only users in your groups)
-                    hr.my-4
-                    // Data sharing options
-                    h5.mb-1 Data Sharing
-                    p.small.text-muted Sharing usage data can help us to improve our products and better serve our users as they navigation through our application. When you agree to share usage data with us, crash reports and usage analytics will be automatically sent to our development team for investigation.
-                    form
-                        .form-check
-                            input#radioUsageYes.form-check-input(type='radio', name='radioUsage', checked)
-                            label.form-check-label(for='radioUsageYes') Yes, share data and crash reports with app developers
-                        .form-check
-                            input#radioUsageNo.form-check-input(type='radio', name='radioUsage')
-                            label.form-check-label(for='radioUsageNo') No, limit my data sharing with app developers
+
         .col-lg-4
             // Two factor authentication card
             .card.mb-4
@@ -66,14 +41,14 @@ sbpro-dashboard-head-compact(
                     form
                         .mb-3
                             .form-check
-                                input#twoFactorOn.form-check-input(type='radio', name='radioUsage', checked)
+                                input#twoFactorOn.form-check-input(type='radio', name='radioUsage', checked disabled)
                                 label.form-check-label(for='twoFactorOn') On
                             .form-check
-                                input#twoFactorOff.form-check-input(type='radio', name='radioUsage')
+                                input#twoFactorOff.form-check-input(type='radio', name='radioUsage' disabled)
                                 label.form-check-label(for='twoFactorOff') Off
                         .mb-3.mb-0
                             label(for='twoFactorSMS').small.mb-1 SMS Number
-                            input.form-control#twoFactorSMS(type='tel', placeholder='Enter a phone number', value='555-123-4567')
+                            input.form-control#twoFactorSMS(type='tel', placeholder='Enter a phone number', value='123-456-7890')
             // Delete account card
             .card.mb-4
                 .card-header Delete Account

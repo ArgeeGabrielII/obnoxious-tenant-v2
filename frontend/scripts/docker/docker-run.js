@@ -3,7 +3,7 @@ const sh = require('shelljs');
 
 const imageName = angularJSON.defaultProject;
 const isRunning = sh.exec(`docker ps -a -q -f name=${imageName}`, {silent: true}).stdout;
-const PORT = '4400';
+const PORT = '4200';
 
 if (isRunning) {
     sh.exec(`docker rm -f ${imageName}`);
