@@ -22,39 +22,62 @@
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
                     <form (ngSubmit)="submit()">
+                        <div class="mb-3" *ngIf="alert"><div class="alert alert-danger" role="alert">{{ alert_message }}</div></div>
                         <!-- Form Group (username)-->
-                        <div class="mb-3"><label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label><input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username" name="username" [(ngModel)]="username" /></div>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">Username <span class="badge bg-red">required</span></label
+                            ><input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username" name="username" [(ngModel)]="username" />
+                        </div>
                         <!-- Form Row-->
                         <div class="row">
                             <!-- Form Group (first name)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputFirstName">First name</label><input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" /></div>
+                            <div class="mb-3 col-md-6">
+                                <label class="small mb-1" for="inputFirstName">First Name <span class="badge bg-red">required</span></label
+                                ><input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" name="first_name" [(ngModel)]="first_name" />
+                            </div>
                             <!-- Form Group (last name)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputLastName">Last name</label><input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" /></div>
+                            <div class="mb-3 col-md-6">
+                                <label class="small mb-1" for="inputLastName">Last Name <span class="badge bg-red">required</span></label
+                                ><input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" name="last_name" [(ngModel)]="last_name" />
+                            </div>
                         </div>
                         <!-- Form Row-->
                         <div class="row">
                             <!-- Form Group (email address)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputEmailAddress">Email address</label><input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" /></div>
+                            <div class="mb-3 col-md-6">
+                                <label class="small mb-1" for="inputEmailAddress">Email Address <span class="badge bg-red">required</span></label
+                                ><input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" name="email_address" [(ngModel)]="email_address" />
+                            </div>
                             <!-- Form Group (date of birth)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputBirthday">Date of Birth</label><input class="form-control" id="inputBirthday" type="date" placeholder="Enter your birthday" /></div>
+                            <div class="mb-3 col-md-6">
+                                <label class="small mb-1" for="inputBirthday">Date of Birth <span class="badge bg-red">required</span></label
+                                ><input class="form-control" id="inputBirthday" type="date" name="date_of_birth" [(ngModel)]="date_of_birth" />
+                            </div>
                         </div>
                         <!-- Form Row-->
                         <div class="row">
                             <!-- Form Group (contact number)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputContactNumber">Mobile Number</label><input class="form-control" id="inputContactNumber" type="number" placeholder="Enter your contact number" /></div>
+                            <div class="mb-3 col-md-6">
+                                <label class="small mb-1" for="inputContactNumber">Contact Number <span class="badge bg-red">required</span></label
+                                ><input class="form-control" id="inputContactNumber" type="number" placeholder="Enter your contact number" name="contact_number" [(ngModel)]="contact_number" />
+                            </div>
                             <!-- Form Group (nationality)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputNationality">Nationality</label><input class="form-control" id="inputNationality" type="text" placeholder="Enter your nationality" /></div>
+                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputNationality">Nationality </label><input class="form-control" id="inputNationality" type="text" placeholder="Enter your nationality" name="nationality" [(ngModel)]="nationality" /></div>
                         </div>
                         <!-- Form Group (address 1)-->
-                        <div class="mb-3"><label class="small mb-1" for="inputAddress1">Address 1</label><input class="form-control" id="inputAddress1" type="text" placeholder="Enter your address 1" /></div>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputAddress1">Address 1 <span class="badge bg-red">required</span></label
+                            ><input class="form-control" id="inputAddress1" type="text" placeholder="Enter your address 1" name="address_1" [(ngModel)]="address_1" />
+                        </div>
                         <!-- Form Group (address 2)-->
-                        <div class="mb-3"><label class="small mb-1" for="inputAddress2">Address 2 (optional)</label><input class="form-control" id="inputAddress2" type="text" placeholder="Enter your address 2" /></div>
-                        <!-- Form Row-->
-                        <div class="row">
-                            <!-- Form Group (country)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputContactNumber">Mobile Number</label><input class="form-control" id="inputContactNumber" type="number" placeholder="Enter your contact number" /></div>
-                            <!-- Form Group (nationality)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputNationality">Nationality</label><input class="form-control" id="inputNationality" type="text" placeholder="Enter your nationality" /></div>
+                        <div class="mb-3"><label class="small mb-1" for="inputAddress2">Address 2 </label><input class="form-control" id="inputAddress2" type="text" placeholder="Enter your address 2" name="address_2" [(ngModel)]="address_2" /></div>
+                        <!-- Form Group (country)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputCountry">Country <span class="badge bg-red">required</span></label
+                            ><select class="form-control" id="inputCountry" name="country_name" [(ngModel)]="country_name">
+                                <option value="" default>Select</option>
+                                <option *ngFor="let cList of svcUserAccount.country_list" value="{{ cList.iso_code }}">{{ cList.country_name }}</option>
+                            </select>
                         </div>
                         <!-- Save changes button--><button class="btn btn-primary" type="submit">Save changes</button>
                     </form>

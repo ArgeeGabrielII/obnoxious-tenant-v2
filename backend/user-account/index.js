@@ -9,39 +9,47 @@ exports.userAccount = async (req, res) => {
     const payload = req.body || req.query;
     console.log(`[LOG] userAccount: Payload: ${JSON.stringify(payload)}`);
 
+    const h = {
+      'content-type': 'application/json',
+      'x-hasura-admin-secret': process.env.GRAPHQL_ENDPOINT_AUTH
+    };
+
     switch (payload.action) {
       case "INSERT":
         break;
       case "UPDATE":
         break;
-      default:
-        break;
+      default: {
+        const q = `
+          query getUserAccountDetails {
+            obnoxious_tenant_user_account(where: {id: {_eq: ${payload.id}}, active: {_eq: true}}) {
+              id
+              username
+              first_name
+              last_name
+              email_address
+              date_of_birth
+              contact_number
+              nationality
+              address_1
+              address_2
+              country_code
+              user_account_identification_lists {
+                id
+                identification_list_id
+                identification_path
+              }
+            }
+          }
+        `;
+
+        const axRes = await axios.post(process.env.GRAPHQL_ENDPOINT, { query: q }, { headers: h });
+        res.status(200).send(JSON.stringify(axRes.data.data));
+
+      } break;
     }
 
-  //   const gQL = `
-  //   query getMasterList {
-  //     obnoxious_tenant_country_list {
-  //       country_name
-  //       iso_code
-  //       country_code
-  //     }
-  //     obnoxious_tenant_identification_list {
-  //       id
-  //       id_code
-  //       identification_name
-  //     }
-  //   }
-  // `;
-
-  // const gQL_headers = {
-  //   'content-type': 'application/json',
-  //   'x-hasura-admin-secret': process.env.GRAPHQL_ENDPOINT_AUTH
-  // };
-
-  const axRes = await axios.post(process.env.GRAPHQL_ENDPOINT, { query: gQL_Login }, { headers: gQL_headers });
-  const master_data = axRes.data.data;
-
-  res.status(200).send(JSON.stringify(master_data));
+  
 
   } catch (e) {
     const errorMsg = { status: 500, message: 'Error: ' + e }

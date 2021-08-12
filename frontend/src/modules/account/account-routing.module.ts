@@ -13,11 +13,11 @@ import * as accountGuards from './guards';
 
 /* Routes */
 export const ROUTES: Routes = [
-    // {
-    //     path: '',
-    //     canActivate: [],
-    //     component: accountContainers.AccountComponent,
-    // },
+    {
+        path: '',
+        canActivate: [accountGuards],
+        component: accountContainers.ProfileComponent,
+    },
 ];
 
 @NgModule({
