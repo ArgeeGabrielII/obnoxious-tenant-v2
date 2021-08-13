@@ -16,14 +16,14 @@ sbpro-dashboard-head-compact(
         .col-lg-8
             // Change password card
             .card.mb-4
-                .card-header Change Password
+                .card-header Indentification File Directory
                 .card-body
-                    sbpro-account-tables
+                    file-upload-table([pageSize]='4')
 
         .col-lg-4
             // Two factor authentication card
             .card.mb-4
-                .card-header Two-Factor Authentication
+                .card-header File Upload
                 .card-body
                     p Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.
                     form
