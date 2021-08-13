@@ -2,14 +2,14 @@ import { Component, DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { BillingComponent } from './billing.component';
+import { AccountTablesComponent } from './account-tables.component';
 
 @Component({
     template: `
-        <sbpro-billing
+        <sbpro-dashboard-tables
             [someInput]="someInput"
             (someFunction)="someFunction($event)"
-        ></sbpro-billing>
+        ></sbpro-dashboard-tables>
     `,
 })
 class TestHostComponent {
@@ -17,19 +17,19 @@ class TestHostComponent {
     // someFunction(event: Event) {}
 }
 
-describe('BillingComponent', () => {
+describe('AccountTablesComponent', () => {
     let fixture: ComponentFixture<TestHostComponent>;
     let hostComponent: TestHostComponent;
     let hostComponentDE: DebugElement;
     let hostComponentNE: Element;
 
-    let component: BillingComponent;
+    let component: AccountTablesComponent;
     let componentDE: DebugElement;
     let componentNE: Element;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [TestHostComponent, BillingComponent],
+            declarations: [TestHostComponent, AccountTablesComponent],
             imports: [NoopAnimationsModule],
             providers: [],
             schemas: [NO_ERRORS_SCHEMA],
@@ -48,6 +48,6 @@ describe('BillingComponent', () => {
     });
 
     it('should display the component', () => {
-        expect(hostComponentNE.querySelector('sbpro-billing')).toEqual(jasmine.anything());
+        expect(hostComponentNE.querySelector('sbpro-account-tables')).toEqual(jasmine.anything());
     });
 });

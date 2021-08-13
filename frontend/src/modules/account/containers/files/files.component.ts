@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'sbpro-billing',
+    selector: 'sbpro-files',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './billing.component.html',
-    styleUrls: ['billing.component.scss'],
+    templateUrl: './files.component.html',
+    styleUrls: ['files.component.scss'],
 })
-export class BillingComponent implements OnInit {
+export class FilesComponent implements OnInit {
     constructor() {}
     ngOnInit() {}
 }

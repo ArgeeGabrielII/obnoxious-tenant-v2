@@ -8,6 +8,7 @@ sbpro-dashboard-head-compact(
     // Account page navigation
     nav.nav.nav-borders
         a.nav-link.active(routerLink='/dashboard/account/profile') Profile
+        a.nav-link(routerLink='/dashboard/account/files') Files
         a.nav-link(routerLink='/dashboard/account/security') Security
         a.nav-link(routerLink='/dashboard/account/notifications') Notifications
     hr.mt-0.mb-4
@@ -23,6 +24,7 @@ sbpro-dashboard-head-compact(
                     .small.font-italic.text-muted.mb-4 JPG no larger than 5 MB
                     // Profile picture upload button
                     button.btn.btn-primary(type='button') Upload new image
+
         .col-xl-8
             // Account details card
             .card.mb-4
@@ -102,3 +104,5 @@ sbpro-dashboard-head-compact(
                                 
                         // Save changes button
                         button.btn.btn-primary(type='submit') Save changes
+
+            

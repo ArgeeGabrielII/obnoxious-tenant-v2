@@ -15,8 +15,21 @@ exports.userAccount = async (req, res) => {
     };
 
     switch (payload.action) {
-      case "INSERT":
-        break;
+      case "INSERT": {
+        const q = `
+          mutation insUserAccountDetails {
+            insert_obnoxious_tenant_user_account(objects: {
+              username: "${payload.data.username}",
+              email_address: "${payload.data.email_address}",
+              password: "${payload.data.password}"
+            }) {
+              returning {
+                id
+              }
+            }
+          }
+        `;
+      } break;
       case "UPDATE":
         break;
       default: {
@@ -44,6 +57,11 @@ exports.userAccount = async (req, res) => {
         `;
 
         const axRes = await axios.post(process.env.GRAPHQL_ENDPOINT, { query: q }, { headers: h });
+
+        if(!axRes.data.errors)
+          if(axRes.data.errors[0].extensions.code === 'constraint-violation')
+            res.status(200).send(JSON.stringify({ message: 'username or email is already registered' }));
+
         res.status(200).send(JSON.stringify(axRes.data.data));
 
       } break;

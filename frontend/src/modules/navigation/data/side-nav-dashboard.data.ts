@@ -49,10 +49,10 @@ export const sideNavItems: SideNavItems = {
                 link: '/dashboard/account/profile',
                 text: 'Profile',
             },
-            // {
-            //     link: '/dashboard/account/billing',
-            //     text: 'Billing',
-            // },
+            {
+                link: '/dashboard/account/files',
+                text: 'Files',
+            },
             {
                 link: '/dashboard/account/security',
                 text: 'Security',

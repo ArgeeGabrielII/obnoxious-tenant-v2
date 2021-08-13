@@ -48,6 +48,14 @@ export const ROUTES: Routes = [
                         } as SBRouteData,
                     },
                     {
+                        path: 'files',
+                        canActivate: [],
+                        component: accountContainers.FilesComponent,
+                        data: {
+                            title: 'Files - Obnoxious Tenant',
+                        } as SBRouteData,
+                    },
+                    {
                         path: 'security',
                         canActivate: [],
                         component: accountContainers.SecurityComponent,
@@ -61,24 +69,6 @@ export const ROUTES: Routes = [
                         component: accountContainers.NotificationsComponent,
                         data: {
                             title: 'Notifications - Obnoxious Tenant',
-                        } as SBRouteData,
-                    },
-                ],
-            },
-            {
-                path: 'auth',
-                children: [
-                    {
-                        path: '',
-                        pathMatch: 'full',
-                        redirectTo: 'wizard',
-                    },
-                    {
-                        path: 'wizard',
-                        canActivate: [],
-                        component: authContainers.WizardComponent,
-                        data: {
-                            title: 'Wizard - Obnoxious Tenant',
                         } as SBRouteData,
                     },
                 ],
