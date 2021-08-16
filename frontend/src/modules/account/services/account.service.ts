@@ -7,6 +7,7 @@ import { Account } from '../models/account.model';
 
 export class AccountService {
     private getMasterList_uri = environment.getMasterList;
+    private getUserAccountDetails_uri = environment.getUserAccountDetails;
 
     public country_list: any;
     public identification_list: any;
@@ -20,7 +21,22 @@ export class AccountService {
         headers = headers.set('Accept', '*/*');
 
         const master_data = await this.http.post(this.getMasterList_uri, { headers }).toPromise();
-        this.loadMasterListData(master_data);
+        await this.loadMasterListData(master_data);
+    }
+
+    async getProfile(user_id: number) {
+        let headers = new HttpHeaders();
+        headers = headers.set('Content-Type', 'application/json');
+        headers = headers.set('Accept', '*/*');
+
+        const body = { "id": user_id };
+
+        const profile_data = await this.http.post(this.getUserAccountDetails_uri, body, { headers }).toPromise();
+        await this.loadProfile(profile_data);
+    }
+
+    private loadProfile(data: any) {
+        this.account = data.obnoxious_tenant_user_account[0];
     }
 
     private loadMasterListData(data: any) {

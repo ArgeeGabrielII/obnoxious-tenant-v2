@@ -10,7 +10,7 @@
             <div class="card mb-4">
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
-                    <!-- Profile picture image--><img class="img-account-profile rounded-circle mb-2" src="assets/img/illustrations/profiles/profile-2.png" alt="" /><!-- Profile picture help block-->
+                    <!-- Profile picture image--><img class="img-account-profile rounded-circle mb-2" src="{{ this.svcUserAccount.account.image_path }}" alt="" /><!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG no larger than 5 MB</div>
                     <!-- Profile picture upload button--><button class="btn btn-primary" type="button">Upload new image</button>
                 </div>
@@ -24,34 +24,28 @@
                     <form (ngSubmit)="submit()">
                         <div class="mb-3" *ngIf="alert"><div class="alert alert-danger" role="alert">{{ alert_message }}</div></div>
                         <!-- Form Group (username)-->
-                        <div class="mb-3">
-                            <label class="small mb-1" for="inputUsername">Username <span class="badge bg-red">required</span></label
-                            ><input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username" name="username" [(ngModel)]="username" />
-                        </div>
+                        <div class="mb-3"><label class="small mb-1" for="inputUsername">Username </label><input class="form-control" id="inputUsername" disabled type="text" placeholder="Enter your username" value="username" name="username" [(ngModel)]="this.svcUserAccount.account.username" /></div>
                         <!-- Form Row-->
                         <div class="row">
                             <!-- Form Group (first name)-->
                             <div class="mb-3 col-md-6">
                                 <label class="small mb-1" for="inputFirstName">First Name <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" name="first_name" [(ngModel)]="first_name" />
+                                ><input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" name="first_name" [(ngModel)]="this.svcUserAccount.account.first_name" />
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="mb-3 col-md-6">
                                 <label class="small mb-1" for="inputLastName">Last Name <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" name="last_name" [(ngModel)]="last_name" />
+                                ><input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" name="last_name" [(ngModel)]="this.svcUserAccount.account.last_name" />
                             </div>
                         </div>
                         <!-- Form Row-->
                         <div class="row">
                             <!-- Form Group (email address)-->
-                            <div class="mb-3 col-md-6">
-                                <label class="small mb-1" for="inputEmailAddress">Email Address <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" name="email_address" [(ngModel)]="email_address" />
-                            </div>
+                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputEmailAddress">Email Address </label><input class="form-control" id="inputEmailAddress" disabled type="email" placeholder="Enter your email address" name="email_address" [(ngModel)]="this.svcUserAccount.account.email_address" /></div>
                             <!-- Form Group (date of birth)-->
                             <div class="mb-3 col-md-6">
                                 <label class="small mb-1" for="inputBirthday">Date of Birth <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputBirthday" type="date" name="date_of_birth" [(ngModel)]="date_of_birth" />
+                                ><input class="form-control" id="inputBirthday" type="date" name="date_of_birth" [(ngModel)]="this.svcUserAccount.account.date_of_birth" />
                             </div>
                         </div>
                         <!-- Form Row-->
@@ -59,25 +53,36 @@
                             <!-- Form Group (contact number)-->
                             <div class="mb-3 col-md-6">
                                 <label class="small mb-1" for="inputContactNumber">Contact Number <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputContactNumber" type="number" placeholder="Enter your contact number" name="contact_number" [(ngModel)]="contact_number" />
+                                ><input class="form-control" id="inputContactNumber" type="number" placeholder="Enter your contact number" name="contact_number" [(ngModel)]="this.svcUserAccount.account.contact_number" />
                             </div>
-                            <!-- Form Group (nationality)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputNationality">Nationality </label><input class="form-control" id="inputNationality" type="text" placeholder="Enter your nationality" name="nationality" [(ngModel)]="nationality" /></div>
+                            <div class="mb-3 col-md-6">
+                                <label class="small mb-1" for="inputGender">Gender <span class="badge bg-red">required</span></label
+                                ><select class="form-control" id="inputCountry" name="gender" [(ngModel)]="this.svcUserAccount.account.gender">
+                                    <option value="" default>Select</option>
+                                    <option value="male" default>Male</option>
+                                    <option value="female" default>Female</option>
+                                </select>
+                            </div>
                         </div>
                         <!-- Form Group (address 1)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputAddress1">Address 1 <span class="badge bg-red">required</span></label
-                            ><input class="form-control" id="inputAddress1" type="text" placeholder="Enter your address 1" name="address_1" [(ngModel)]="address_1" />
+                            ><input class="form-control" id="inputAddress1" type="text" placeholder="Enter your address 1" name="address_1" [(ngModel)]="this.svcUserAccount.account.address_1" />
                         </div>
                         <!-- Form Group (address 2)-->
-                        <div class="mb-3"><label class="small mb-1" for="inputAddress2">Address 2 </label><input class="form-control" id="inputAddress2" type="text" placeholder="Enter your address 2" name="address_2" [(ngModel)]="address_2" /></div>
-                        <!-- Form Group (country)-->
-                        <div class="mb-3">
-                            <label class="small mb-1" for="inputCountry">Country <span class="badge bg-red">required</span></label
-                            ><select class="form-control" id="inputCountry" name="country_name" [(ngModel)]="country_name">
-                                <option value="" default>Select</option>
-                                <option *ngFor="let cList of svcUserAccount.country_list" value="{{ cList.iso_code }}">{{ cList.country_name }}</option>
-                            </select>
+                        <div class="mb-3"><label class="small mb-1" for="inputAddress2">Address 2 </label><input class="form-control" id="inputAddress2" type="text" placeholder="Enter your address 2" name="address_2" [(ngModel)]="this.svcUserAccount.account.address_2" /></div>
+                        <!-- Form Row-->
+                        <div class="row">
+                            <!-- Form Group (country)-->
+                            <div class="mb-3 col-md-6">
+                                <label class="small mb-1" for="inputCountry">Country <span class="badge bg-red">required</span></label
+                                ><select class="form-control" id="inputCountry" name="country_name" [(ngModel)]="this.svcUserAccount.account.country_code">
+                                    <option value="" default>Select</option>
+                                    <option *ngFor="let cList of svcUserAccount.country_list" value="{{ cList.iso_code }}">{{ cList.country_name }}</option>
+                                </select>
+                            </div>
+                            <!-- Form Group (nationality)-->
+                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputNationality">Nationality </label><input class="form-control" id="inputNationality" type="text" placeholder="Enter your nationality" name="nationality" [(ngModel)]="this.svcUserAccount.account.nationality" /></div>
                         </div>
                         <!-- Save changes button--><button class="btn btn-primary" type="submit">Save changes</button>
                     </form>

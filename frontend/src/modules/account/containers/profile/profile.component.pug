@@ -19,7 +19,7 @@ sbpro-dashboard-head-compact(
                 .card-header Profile Picture
                 .card-body.text-center
                     // Profile picture image
-                    img.img-account-profile.rounded-circle.mb-2(src='assets/img/illustrations/profiles/profile-2.png', alt='')
+                    img.img-account-profile.rounded-circle.mb-2(src='{{ this.svcUserAccount.account.image_path }}', alt='') 
                     // Profile picture help block
                     .small.font-italic.text-muted.mb-4 JPG no larger than 5 MB
                     // Profile picture upload button
@@ -31,13 +31,12 @@ sbpro-dashboard-head-compact(
                 .card-header Account Details
                 .card-body
                     form((ngSubmit)='submit()')
-                        .mb-3(*ngIf="alert")
+                        .mb-3(*ngIf='alert')
                             .alert.alert-danger(role='alert') {{ alert_message }}
                         // Form Group (username)
                         .mb-3
                             label.small.mb-1(for='inputUsername') Username 
-                                span.badge.bg-red required
-                            input#inputUsername.form-control(type='text', placeholder='Enter your username', value='username', name='username', [(ngModel)]='username')
+                            input#inputUsername.form-control(disabled, type='text', placeholder='Enter your username', value='username', name='username', [(ngModel)]='this.svcUserAccount.account.username')
                         
                         // Form Row
                         .row
@@ -45,25 +44,24 @@ sbpro-dashboard-head-compact(
                             .mb-3.col-md-6
                                 label.small.mb-1(for='inputFirstName') First Name 
                                     span.badge.bg-red required
-                                input#inputFirstName.form-control(type='text', placeholder='Enter your first name', name='first_name', [(ngModel)]='first_name')
+                                input#inputFirstName.form-control(type='text', placeholder='Enter your first name', name='first_name', [(ngModel)]='this.svcUserAccount.account.first_name')
                             // Form Group (last name)
                             .mb-3.col-md-6
                                 label.small.mb-1(for='inputLastName') Last Name 
                                     span.badge.bg-red required
-                                input#inputLastName.form-control(type='text', placeholder='Enter your last name',, name='last_name', [(ngModel)]='last_name')
+                                input#inputLastName.form-control(type='text', placeholder='Enter your last name',, name='last_name', [(ngModel)]='this.svcUserAccount.account.last_name')
                         
                         // Form Row
                         .row
                             // Form Group (email address)
                             .mb-3.col-md-6
                                 label.small.mb-1(for='inputEmailAddress') Email Address 
-                                    span.badge.bg-red required
-                                input#inputEmailAddress.form-control(type='email', placeholder='Enter your email address', name='email_address', [(ngModel)]='email_address')
+                                input#inputEmailAddress.form-control(disabled, type='email', placeholder='Enter your email address', name='email_address', [(ngModel)]='this.svcUserAccount.account.email_address')
                             // Form Group (date of birth)
                             .mb-3.col-md-6
                                 label.small.mb-1(for='inputBirthday') Date of Birth 
                                     span.badge.bg-red required
-                                input#inputBirthday.form-control(type='date', name='date_of_birth', [(ngModel)]='date_of_birth')
+                                input#inputBirthday.form-control(type='date', name='date_of_birth', [(ngModel)]='this.svcUserAccount.account.date_of_birth')
                         
                         // Form Row
                         .row
@@ -71,36 +69,41 @@ sbpro-dashboard-head-compact(
                             .mb-3.col-md-6
                                 label.small.mb-1(for='inputContactNumber') Contact Number 
                                     span.badge.bg-red required
-                                input#inputContactNumber.form-control(type='number', placeholder='Enter your contact number', name='contact_number', [(ngModel)]='contact_number')
-                            // Form Group (nationality)
-                            .mb-3.col-md-6
-                                label.small.mb-1(for='inputNationality') Nationality 
-                                input#inputNationality.form-control(type='text', placeholder='Enter your nationality', name='nationality', [(ngModel)]='nationality')
+                                input#inputContactNumber.form-control(type='number', placeholder='Enter your contact number', name='contact_number', [(ngModel)]='this.svcUserAccount.account.contact_number')
+                            .mb-3.col-md-6 
+                                label.small.mb-1(for='inputGender') Gender 
+                                    span.badge.bg-red required
+                                select#inputCountry.form-control(name='gender', [(ngModel)]='this.svcUserAccount.account.gender')
+                                    option(value='' default) Select
+                                    option(value='male' default) Male
+                                    option(value='female' default) Female
                         
                         // Form Group (address 1)
                         .mb-3
                             label.small.mb-1(for='inputAddress1') Address 1 
                                 span.badge.bg-red required
-                            input#inputAddress1.form-control(type='text', placeholder='Enter your address 1', name='address_1', [(ngModel)]='address_1')
+                            input#inputAddress1.form-control(type='text', placeholder='Enter your address 1', name='address_1', [(ngModel)]='this.svcUserAccount.account.address_1')
                         
                         // Form Group (address 2)
                         .mb-3
                             label.small.mb-1(for='inputAddress2') Address 2 
-                            input#inputAddress2.form-control(type='text', placeholder='Enter your address 2', name='address_2', [(ngModel)]='address_2')
+                            input#inputAddress2.form-control(type='text', placeholder='Enter your address 2', name='address_2', [(ngModel)]='this.svcUserAccount.account.address_2')
                         
-                        //- // Form Row
-                        //- .row
-                        //-     // Form Group (country)
-                        //-     .mb-3.col-md-6
-                        //-         label.small.mb-1(for='inputContactNumber') Mobile Number
-                        //-         input#inputContactNumber.form-control(type='number', placeholder='Enter your contact number', name='contact_number', [(ngModel)]='contact_number')
-                        // Form Group (country)
-                        .mb-3
-                            label.small.mb-1(for='inputCountry') Country 
-                                span.badge.bg-red required
-                            select#inputCountry.form-control(name="country_name", [(ngModel)]="country_name")
-                                option(value='' default) Select
-                                option(*ngFor="let cList of svcUserAccount.country_list", value="{{ cList.iso_code }}") {{ cList.country_name }}
+                        // Form Row
+                        .row
+                            // Form Group (country)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputCountry') Country 
+                                    span.badge.bg-red required
+                                select#inputCountry.form-control(name='country_name', [(ngModel)]='this.svcUserAccount.account.country_code')
+                                    option(value='' default) Select
+                                    option(*ngFor='let cList of svcUserAccount.country_list', value='{{ cList.iso_code }}') {{ cList.country_name }}
+                            // Form Group (nationality)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputNationality') Nationality 
+                                input#inputNationality.form-control(type='text', placeholder='Enter your nationality', name='nationality', [(ngModel)]='this.svcUserAccount.account.nationality')
+
+                            
                                 
                         // Save changes button
                         button.btn.btn-primary(type='submit') Save changes
