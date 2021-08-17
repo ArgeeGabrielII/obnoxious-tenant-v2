@@ -2,16 +2,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 
-import { Account } from '../models/account.model';
+// import { Account } from '../models/account.model';
 @Injectable({ providedIn: 'root' })
 
 export class AccountService {
     private getMasterList_uri = environment.getMasterList;
     private getUserAccountDetails_uri = environment.getUserAccountDetails;
+    private updateUserAccountDetails_uri = environment.updateUserAccountDetails;
 
     public country_list: any;
     public identification_list: any;
-    public account: Array<Account> = [];
+    public account: any;
 
     constructor(private http: HttpClient) {}
 
@@ -33,6 +34,20 @@ export class AccountService {
 
         const profile_data = await this.http.post(this.getUserAccountDetails_uri, body, { headers }).toPromise();
         await this.loadProfile(profile_data);
+    }
+
+    async insertProfile(data: any) {
+
+    }
+
+    async updateProfile(body: any) {
+        let headers = new HttpHeaders();
+        headers = headers.set('Content-Type', 'application/json');
+        headers = headers.set('Accept', '*/*');
+
+        console.log(body);
+
+        return await this.http.post(this.updateUserAccountDetails_uri, body).toPromise();
     }
 
     private loadProfile(data: any) {

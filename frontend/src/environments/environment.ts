@@ -9,4 +9,6 @@ export const environment = {
 
     getMasterList: `https://asia-east2-crested-display-322005.cloudfunctions.net/getMasterList`,
     getUserAccountDetails: `https://asia-east2-crested-display-322005.cloudfunctions.net/getUserAccountDetails`,
+    insertUserAccountDetails: ``,
+    updateUserAccountDetails: `https://asia-east2-crested-display-322005.cloudfunctions.net/updateUserAccountDetails`,
 };
