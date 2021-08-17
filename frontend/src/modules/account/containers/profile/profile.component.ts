@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
 
     async ngOnInit() {
         await this.svcUserAccount.getMasterList();
-        await this.svcUserAccount.getProfile(11);
+        await this.svcUserAccount.getProfile(1);
         
         this.country_list = this.svcUserAccount.country_list;
         this.account = this.svcUserAccount.account;
