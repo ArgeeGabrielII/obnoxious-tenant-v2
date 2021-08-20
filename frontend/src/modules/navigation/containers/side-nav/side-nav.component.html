@@ -8,9 +8,9 @@
         </div>
     </div>
     <div class="sidenav-footer">
-        <div class="sidenav-footer-content" *ngIf="userService.user$ | async as user">
+        <div class="sidenav-footer-content" *ngIf="profileData">
             <div class="sidenav-footer-subtitle">Logged in as:</div>
-            <div class="sidenav-footer-title">{{user.firstName}} {{user.lastName}}</div>
+            <div class="sidenav-footer-title">{{ profileData.first_name }} {{ profileData.last_name }}</div>
         </div>
     </div>
 </nav>

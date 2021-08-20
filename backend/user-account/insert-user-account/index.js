@@ -36,7 +36,7 @@ exports.insertUserAccountDetails = async (req, res) => {
             last_name: "${last_name}", 
             email_address: "${email_address}",
             username: "${username}", 
-            password: "${password}") {
+            password: "${password}"}) {
           returning {
             id
           }
