@@ -18,6 +18,8 @@ export class SideNavComponent implements OnInit, OnDestroy {
     subscription: Subscription = new Subscription();
     routeDataSubscription!: Subscription;
 
+    profileData = JSON.parse(localStorage.getItem('locData') || '');
+
     constructor(public navigationService: NavigationService, public userService: UserService) {}
 
     ngOnInit() {}

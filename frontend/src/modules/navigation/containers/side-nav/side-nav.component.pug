@@ -8,6 +8,6 @@ nav#sidenavAccordion.sidenav.shadow-right([ngClass]='sidenavStyle', data-cy='sid
                         [sideNavItem]='sideNavItems[item]'
                     )
     .sidenav-footer
-        .sidenav-footer-content(*ngIf='userService.user$ | async as user')
+        .sidenav-footer-content(*ngIf='profileData')
             .sidenav-footer-subtitle Logged in as:
-            .sidenav-footer-title {{user.firstName}} {{user.lastName}}
+            .sidenav-footer-title {{ profileData.first_name }} {{ profileData.last_name }}
