@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-
-// import { Account } from '../models/account.model';
 @Injectable({ providedIn: 'root' })
 
 export class AccountService {
@@ -26,27 +24,14 @@ export class AccountService {
     }
 
     async getProfile(user_id: number) {
-        let headers = new HttpHeaders();
-        headers = headers.set('Content-Type', 'application/json');
-        headers = headers.set('Accept', '*/*');
-
         const body = { "id": user_id };
 
-        const profile_data = await this.http.post(this.getUserAccountDetails_uri, body, { headers }).toPromise();
+        const profile_data = await this.http.post(this.getUserAccountDetails_uri, body).toPromise();
         await this.loadProfile(profile_data);
     }
 
-    async insertProfile(data: any) {
-
-    }
-
     async updateProfile(body: any) {
-        let headers = new HttpHeaders();
-        headers = headers.set('Content-Type', 'application/json');
-        headers = headers.set('Accept', '*/*');
-
         console.log(body);
-
         return await this.http.post(this.updateUserAccountDetails_uri, body).toPromise();
     }
 

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } fr
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { AccountService } from '../../services/account.service';
+import { UserService } from '@modules/auth/services';
 
 @Component({
     selector: 'profile',
@@ -20,11 +21,15 @@ export class ProfileComponent implements OnInit {
     account: any;
     country_list: any;
 
-    constructor(public svcUserAccount: AccountService, private modalService: NgbModal) {}
+    profileData = JSON.parse(localStorage.getItem('locData') || '');
+
+    constructor(public userService: UserService, public svcUserAccount: AccountService, private modalService: NgbModal) {}
 
     async ngOnInit() {
+        console.log(`UserID: ${this.profileData.id}`);
+
         await this.svcUserAccount.getMasterList();
-        await this.svcUserAccount.getProfile(1);
+        await this.svcUserAccount.getProfile(parseInt(this.profileData.id));
         
         this.country_list = this.svcUserAccount.country_list;
         this.account = this.svcUserAccount.account;

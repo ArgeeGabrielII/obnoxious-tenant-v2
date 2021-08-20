@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { UserService } from '../../services/user.service';
+
 @Component({
     selector: 'sb-login',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,22 +17,28 @@ export class LoginComponent implements OnInit {
     loginForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]],
-        checkbox: [false],
     });
 
-    constructor(private fb: FormBuilder, private modalService: NgbModal, private router: Router) {}
+    constructor(private fb: FormBuilder, private modalService: NgbModal, private router: Router, public userService: UserService) {}
     ngOnInit() {}
 
-    onSubmit() {
+    async onSubmit() {
         if (this.loginForm.status === 'VALID') {
-            this.modalService.open(this.confirmationModal).result.then(
-                (result) => {
-                    if (result === 'DASHBOARD') {
-                        this.router.navigate(['/dashboard']);
-                    }
-                },
-                (reason) => {}
-            );
+            console.log(this.loginForm.value.email, this.loginForm.value.password);
+
+            const isValid = await this.userService.getLoginData(this.loginForm.value.email, this.loginForm.value.password);
+
+            if(isValid){
+                this.modalService.open(this.confirmationModal).result.then(
+                    (result) => {
+                        if (result === 'DASHBOARD') {
+                            this.router.navigate(['/dashboard']);
+                        }
+                    },
+                    (reason) => {}
+                );
+            }
+            
         }
 
         for (const key in this.loginForm.controls) {
@@ -39,8 +47,7 @@ export class LoginComponent implements OnInit {
         }
     }
 
-    /* Accessor Methods */
-
+    //#region Accessor Methods
     get emailControl() {
         return this.loginForm.get('email') as FormControl;
     }
@@ -71,4 +78,5 @@ export class LoginComponent implements OnInit {
                 this.passwordControl.hasError('minlength'))
         );
     }
+    //#endregion
 }
