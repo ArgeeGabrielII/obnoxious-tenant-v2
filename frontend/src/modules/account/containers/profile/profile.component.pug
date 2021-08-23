@@ -18,13 +18,15 @@ sbpro-dashboard-head-compact(
             .card.mb-4
                 .card-header Profile Picture
                 .card-body.text-center
-                    // Profile picture image
-                    img.img-account-profile.rounded-circle.mb-2([src]='this.account.image_path', alt='') 
-                    // Profile picture help block
-                    .small.font-italic.text-muted.mb-4 JPG no larger than 5 MB
-                    // Profile picture upload button
-                    input#profile_picture.form-control(type='file', name='profile_picture', [(ngModel)]='this.profile_picture')
-                    //- button.btn.btn-primary(type='file') Upload new image
+                    form((ngSubmit)="imageSubmit()")
+                        // Profile picture image
+                        img.img-account-profile.rounded-circle.mb-2([src]='this.account.image_path', alt='') 
+                        // Profile picture help block
+                        .small.font-italic.text-muted.mb-4 JPG no larger than 5 MB
+                        // Profile picture upload button
+                        input#profile_picture.form-control(type='file', name='profile_picture', (change)="onFileSelect($event)")
+                        br
+                        button.btn.btn-primary(type='submit') Upload
 
         .col-xl-8
             // Account details card

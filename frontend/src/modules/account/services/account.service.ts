@@ -7,6 +7,9 @@ export class AccountService {
     private getMasterList_uri = environment.getMasterList;
     private getUserAccountDetails_uri = environment.getUserAccountDetails;
     private updateUserAccountDetails_uri = environment.updateUserAccountDetails;
+    private updateUserAccountProfileImage_uri = environment.updateUserAccountProfileImage;
+    private fileUpload_uri = environment.fileUpload;
+    private baseFileUrl = environment.baseFileUrl;
 
     public country_list: any;
     public identification_list: any;
@@ -28,6 +31,26 @@ export class AccountService {
 
         const profile_data = await this.http.post(this.getUserAccountDetails_uri, body).toPromise();
         await this.loadProfile(profile_data);
+    }
+
+    async updateProfilePicture(body: FormData, id: any) {
+        try {
+            let headers = new HttpHeaders();
+            headers = headers.set('Accept', '*/*');
+
+            // Save Image to Google Cloud Storage via API
+            const jRes: any = await this.http.post(this.fileUpload_uri, body, { headers: headers }).toPromise();
+            const image_path = this.baseFileUrl + jRes.path;
+
+            // Update HasuraDB for ImagePath
+            const updImageBody = { id, image_path };
+            await this.http.post(this.updateUserAccountProfileImage_uri, updImageBody).toPromise();
+
+            // Reload Profile Details
+            await this.getProfile(id);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     async updateProfile(body: any) {

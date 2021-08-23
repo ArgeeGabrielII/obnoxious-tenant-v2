@@ -19,7 +19,11 @@ export class LoginComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(8)]],
     });
 
-    constructor(private fb: FormBuilder, private modalService: NgbModal, private router: Router, public userService: UserService) {}
+    constructor(
+        private fb: FormBuilder, 
+        private modalService: NgbModal, 
+        private router: Router, 
+        public userService: UserService) {}
     ngOnInit() {}
 
     async onSubmit() {

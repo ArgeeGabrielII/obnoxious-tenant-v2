@@ -10,9 +10,11 @@
             <div class="card mb-4">
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
-                    <!-- Profile picture image--><img class="img-account-profile rounded-circle mb-2" [src]="this.account.image_path" alt="" /><!-- Profile picture help block-->
-                    <div class="small font-italic text-muted mb-4">JPG no larger than 5 MB</div>
-                    <!-- Profile picture upload button--><input class="form-control" id="profile_picture" type="file" name="profile_picture" [(ngModel)]="this.profile_picture" />
+                    <form (ngSubmit)="imageSubmit()">
+                        <!-- Profile picture image--><img class="img-account-profile rounded-circle mb-2" [src]="this.account.image_path" alt="" /><!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-4">JPG no larger than 5 MB</div>
+                        <!-- Profile picture upload button--><input class="form-control" id="profile_picture" type="file" name="profile_picture" (change)="onFileSelect($event)" /><br /><button class="btn btn-primary" type="submit">Upload</button>
+                    </form>
                 </div>
             </div>
         </div>
