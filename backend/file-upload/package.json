@@ -1,5 +1,5 @@
 {
-  "name": "obnoxious-tenant-token-nodejs",
+  "name": "obnoxious-tenant-file-upload-nodejs",
   "version": "0.0.1",
   "private": true,
   "license": "Apache-2.0",
@@ -19,7 +19,13 @@
   },
   "dependencies": {
     "@google-cloud/debug-agent": "^5.2.7",
-    "jsonwebtoken": "^8.5.1"
+    "@google-cloud/storage": "^5.13.1",
+    "busboy": "^0.3.1",
+    "fs": "0.0.1-security",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
+    "os": "^0.1.2",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.9.0"

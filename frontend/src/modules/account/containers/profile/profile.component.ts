@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
     alert = false;
     alert_message = '';
 
+    profile_picture: any;
     account: any;
     country_list: any;
 
@@ -36,22 +37,24 @@ export class ProfileComponent implements OnInit {
     }
 
     submit() {
+
+        console.log(this.profile_picture);
         
-        if(this.account.first_name !== '' && this.account.last_name !== '') {
-            this.alert = false;
-            this.modalService.open(this.confirmationModal).result.then(
-                async (result) => {
-                    if(result === "SAVE") {
-                        console.log(`Saving the following data: ${JSON.stringify(this.account)}`);
-                        this.svcUserAccount.updateProfile(this.account);
-                        this.modalService.open(this.notificationModal);
-                    }
-                },
-                (reason) => { }
-            );
-        } else {
-            this.alert = true;
-            this.alert_message = 'Please fill in the details for the required fields.';
-        }
+        // if(this.account.first_name !== '' && this.account.last_name !== '') {
+        //     this.alert = false;
+        //     this.modalService.open(this.confirmationModal).result.then(
+        //         async (result) => {
+        //             if(result === "SAVE") {
+        //                 console.log(`Saving the following data: ${JSON.stringify(this.account)}`);
+        //                 this.svcUserAccount.updateProfile(this.account);
+        //                 this.modalService.open(this.notificationModal);
+        //             }
+        //         },
+        //         (reason) => { }
+        //     );
+        // } else {
+        //     this.alert = true;
+        //     this.alert_message = 'Please fill in the details for the required fields.';
+        // }
      }
 }

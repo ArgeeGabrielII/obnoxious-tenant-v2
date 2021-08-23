@@ -44,30 +44,6 @@ export const ROUTES: Routes = [
         } as SBRouteData,
     },
     {
-        path: 'login-social',
-        canActivate: [],
-        component: authContainers.LoginSocialComponent,
-        data: {
-            title: 'Login Social - Obnoxious Tenant',
-        } as SBRouteData,
-    },
-    {
-        path: 'register-social',
-        canActivate: [],
-        component: authContainers.RegisterSocialComponent,
-        data: {
-            title: 'Register Social - Obnoxious Tenant',
-        } as SBRouteData,
-    },
-    {
-        path: 'forgot-password-social',
-        canActivate: [],
-        component: authContainers.ForgotPasswordSocialComponent,
-        data: {
-            title: 'Forgot Password Social - Obnoxious Tenant',
-        } as SBRouteData,
-    },
-    {
         path: 'multi-tenant-select',
         canActivate: [],
         component: authContainers.MultiTenantSelectComponent,

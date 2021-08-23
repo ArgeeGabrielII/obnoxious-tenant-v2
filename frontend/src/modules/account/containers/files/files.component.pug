@@ -14,14 +14,14 @@ sbpro-dashboard-head-compact(
     hr.mt-0.mb-4
     .row.gx-4
         .col-lg-8
-            // Change password card
+            // Identification File Directory Card
             .card.mb-4
                 .card-header Indentification File Directory
                 .card-body
                     file-upload-table([pageSize]='4')
 
         .col-lg-4
-            // Two factor authentication card
+            // File Upload Card
             .card.mb-4
                 .card-header File Upload
                 .card-body
@@ -29,8 +29,5 @@ sbpro-dashboard-head-compact(
                     form
                         .mb-3
                             .form-check
-                                input#twoFactorOn.form-check-input(type='radio', name='radioUsage', checked disabled)
+                                input#twoFactorOn.form-control(type='file', name='radioUsage')
                                 label.form-check-label(for='twoFactorOn') On
-                            .form-check
-                                input#twoFactorOff.form-check-input(type='radio', name='radioUsage' disabled)
-                                label.form-check-label(for='twoFactorOff') Off

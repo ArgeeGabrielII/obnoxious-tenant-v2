@@ -23,7 +23,8 @@ sbpro-dashboard-head-compact(
                     // Profile picture help block
                     .small.font-italic.text-muted.mb-4 JPG no larger than 5 MB
                     // Profile picture upload button
-                    button.btn.btn-primary(type='button') Upload new image
+                    input#profile_picture.form-control(type='file', name='profile_picture', [(ngModel)]='this.profile_picture')
+                    //- button.btn.btn-primary(type='file') Upload new image
 
         .col-xl-8
             // Account details card
