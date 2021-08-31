@@ -13,46 +13,91 @@ sbpro-dashboard-head-compact(
         a.nav-link(routerLink='/dashboard/account/notifications') Notifications
     hr.mt-0.mb-4
     .row.gx-4
-        .col-lg-8
+        //- .col-lg-8
+        .col-lg-12
             // Change password card
             .card.mb-4
                 .card-header Change Password
                 .card-body
-                    form
-                        // Form Group (current password)
-                        .mb-3
-                            label(for='currentPassword').small.mb-1 Current Password
-                            input.form-control#currentPassword(type='password', placeholder='Enter current password')
+                    form([formGroup]='securityForm', (ngSubmit)='onSubmit()')
                         // Form Group (new password)
                         .mb-3
-                            label(for='newPassword').small.mb-1 New Password
-                            input.form-control#newPassword(type='password', placeholder='Enter new password')
+                            label.small.mb-1(for='inputPassword') New Password
+                            input#inputPassword.form-control(
+                                data-cy='passwordInput',
+                                type='password',
+                                placeholder='Enter new password',
+                                formControlName='newPassword',
+                                [class.is-valid]='newPasswordControlValid',
+                                [class.is-invalid]='newPasswordControlInvalid'
+                            )
+                            .valid-feedback Looks good!
+                            .invalid-feedback(*ngIf='newPasswordControl.hasError("required")')
+                                | New Password required.
+                            .invalid-feedback(*ngIf='newPasswordControl.hasError("minlength")')
+                                | Password must be at least 12 characters.
                         // Form Group (confirm password)
                         .mb-3
-                            label(for='confirmPassword').small.mb-1 Confirm Password
-                            input.form-control#confirmPassword(type='password', placeholder='Confirm new password')
-                        button.btn.btn-primary(type='button') Save
+                            label.small.mb-1(for='inputConfirmPassword') Confirm New Password
+                            input#inputConfirmPassword.form-control(
+                                data-cy='confirmPasswordInput',
+                                type='password',
+                                placeholder='Confirm password',
+                                formControlName='confirmPassword',
+                                [class.is-valid]='confirmPasswordControlValid',
+                                [class.is-invalid]='confirmPasswordControlInvalid'
+                            )
+                            .valid-feedback Looks good!
+                            .invalid-feedback(*ngIf='confirmPasswordControl.hasError("required")')
+                                | Confirm Password required.
+                            .invalid-feedback(*ngIf='securityForm.hasError("passwordMismatch")')
+                                | Passwords do not match.
+                        button.btn.btn-primary(
+                            type='submit',
+                            [disabled]='securityForm.invalid'
+                        ) Save
 
-        .col-lg-4
-            // Two factor authentication card
-            .card.mb-4
-                .card-header Two-Factor Authentication
-                .card-body
-                    p Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.
-                    form
-                        .mb-3
-                            .form-check
-                                input#twoFactorOn.form-check-input(type='radio', name='radioUsage', checked disabled)
-                                label.form-check-label(for='twoFactorOn') On
-                            .form-check
-                                input#twoFactorOff.form-check-input(type='radio', name='radioUsage' disabled)
-                                label.form-check-label(for='twoFactorOff') Off
-                        .mb-3.mb-0
-                            label(for='twoFactorSMS').small.mb-1 SMS Number
-                            input.form-control#twoFactorSMS(type='tel', placeholder='Enter a phone number', value='123-456-7890')
-            // Delete account card
-            .card.mb-4
-                .card-header Delete Account
-                .card-body
-                    p Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.
-                    button.btn.btn-danger-soft.text-danger(type='button') I understand, delete my account
+        //- .col-lg-4
+        //-     // Two factor authentication card
+        //-     .card.mb-4
+        //-         .card-header Two-Factor Authentication
+        //-         .card-body
+        //-             p Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.
+        //-             form
+        //-                 .mb-3
+        //-                     .form-check
+        //-                         input#twoFactorOn.form-check-input(type='radio', name='radioUsage', checked disabled)
+        //-                         label.form-check-label(for='twoFactorOn') On
+        //-                     .form-check
+        //-                         input#twoFactorOff.form-check-input(type='radio', name='radioUsage' disabled)
+        //-                         label.form-check-label(for='twoFactorOff') Off
+        //-                 .mb-3.mb-0
+        //-                     label(for='twoFactorSMS').small.mb-1 Mobile Number
+        //-                     input.form-control#twoFactorSMS(type='tel', placeholder='Enter a phone number', value='+63 917 123 1234')
+        //-     //- // Delete account card
+        //-     //- .card.mb-4
+        //-     //-     .card-header Delete Account
+        //-     //-     .card-body
+        //-     //-         p Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.
+        //-     //-         button.btn.btn-danger-soft.text-danger(type='button') I understand, delete my account
+
+ng-template(#notificationModal, let-modal)
+    .modal-header
+        h5.modal-title Password Update
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        You're password has been successfully updated! Do you want to relogin, again?
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Cancel
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("RELOGIN")'
+        ) Re Login

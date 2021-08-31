@@ -28,6 +28,14 @@ sbpro-dashboard-head-compact(
                         br
                         button.btn.btn-primary(type='submit') Upload
 
+            // Profile picture card
+            .card.mb-4
+                .card-header Account Tier
+                .card-body.text-center
+                    img.img-account-profile.rounded-circle.mb-2([src]='this.account.tier_list.image_path', alt='') 
+                    p {{ this.account.tier_list.tier }}
+                    p {{ this.account.tier_list.description }}
+
         .col-xl-8
             // Account details card
             .card.mb-4

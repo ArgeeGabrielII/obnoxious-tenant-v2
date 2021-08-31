@@ -45,7 +45,7 @@
                                         <label class="small mb-1" for="inputPassword">Password</label><input class="form-control" id="inputPassword" data-cy="passwordInput" type="password" placeholder="Enter password" formControlName="password" [class.is-valid]="passwordControlValid" [class.is-invalid]="passwordControlInvalid" />
                                         <div class="valid-feedback">Looks good!</div>
                                         <div class="invalid-feedback" *ngIf='passwordControl.hasError("required")'>Password required.</div>
-                                        <div class="invalid-feedback" *ngIf='passwordControl.hasError("minlength")'>Password must be at least 8 characters.</div>
+                                        <div class="invalid-feedback" *ngIf='passwordControl.hasError("minlength")'>Password must be at least 12 characters.</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

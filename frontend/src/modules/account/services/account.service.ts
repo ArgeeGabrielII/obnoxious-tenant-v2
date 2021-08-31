@@ -17,6 +17,8 @@ export class AccountService {
 
     constructor(private http: HttpClient) {}
 
+    //#region Profile
+
     async getMasterList() {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json');
@@ -66,4 +68,21 @@ export class AccountService {
         this.country_list = data.obnoxious_tenant_country_list;
         this.identification_list = data.obnoxious_tenant_identification_list;
     }
+
+    //#endregion
+
+    //#region Files
+    //#endregion
+
+    //#region Security
+
+    async updateSecurityPassword(newPassword: string) {
+        console.log(newPassword);
+        return { msg: 'Update Password Successful' };
+    }
+
+    //#endregion
+
+    //#region Notification
+    //#endregion
 }

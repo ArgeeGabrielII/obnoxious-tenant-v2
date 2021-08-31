@@ -13,4 +13,5 @@ export const environment = {
     insertUserAccountDetails: `https://asia-east2-crested-display-322005.cloudfunctions.net/insertUserAccountDetails`,
     updateUserAccountDetails: `https://asia-east2-crested-display-322005.cloudfunctions.net/updateUserAccountDetails`,
     updateUserAccountProfileImage: `https://asia-east2-crested-display-322005.cloudfunctions.net/updateUserAccountProfileImage`,
+    updateUserAccountPassword: `https://asia-east2-crested-display-322005.cloudfunctions.net/updateUserPassword`,
 };

@@ -19,9 +19,3 @@ image: build gcp_config
 
 image_push: image
 	docker push asia.gcr.io/crested-display-322005/masashi-yamamoto/obnoxious-tenant/obnoxious-tenant:$(shell git rev-parse HEAD)
-
-# install: image_push gcp_config
-# 	kubectx gke_crested-display-322005_asia-east1-a_masashi-cluster
-# 	# kubectl get deployment partners-bucket-graphql-apollo -o yaml > ../yamlBackUp/stg/stg-backup-deployment.yaml
-# 	# helm delete --purge obnoxious-tenant
-# 	helm install ../deployment --name obnoxious-tenant -f ~/masashi.yaml.yaml --set ObnoxiousTenant.tag=$(shell git rev-parse HEAD)

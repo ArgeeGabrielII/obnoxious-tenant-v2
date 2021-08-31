@@ -17,6 +17,15 @@
                     </form>
                 </div>
             </div>
+            <!-- Profile picture card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Tier</div>
+                <div class="card-body text-center">
+                    <img class="img-account-profile rounded-circle mb-2" [src]="this.account.tier_list.image_path" alt="" />
+                    <p>{{ this.account.tier_list.tier }}</p>
+                    <p>{{ this.account.tier_list.description }}</p>
+                </div>
+            </div>
         </div>
         <div class="col-xl-8">
             <!-- Account details card-->
