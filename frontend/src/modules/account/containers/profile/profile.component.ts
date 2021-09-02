@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } fr
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { AccountService } from '../../services/account.service';
-import { UserService } from '@modules/auth/services';
 
 @Component({
     selector: 'profile',
@@ -25,13 +24,10 @@ export class ProfileComponent implements OnInit {
     profileData = JSON.parse(localStorage.getItem('locData') || '');
 
     constructor(
-        public userService: UserService, 
         public svcUserAccount: AccountService, 
         private modalService: NgbModal) { }
 
     async ngOnInit() {
-        console.log(`UserID: ${this.profileData.id}`);
-
         await this.svcUserAccount.getMasterList();
         await this.svcUserAccount.getProfile(parseInt(this.profileData.id));
         
@@ -47,7 +43,6 @@ export class ProfileComponent implements OnInit {
 
     async imageSubmit() {
         const fd = new FormData();
-        console.log(this.profile_picture, this.profileData.id);
         
         fd.append('user_id', this.profileData.id);
         fd.append('file_type', 'profile-picture');
@@ -62,7 +57,6 @@ export class ProfileComponent implements OnInit {
             this.modalService.open(this.confirmationModal).result.then(
                 async (result) => {
                     if(result === "SAVE") {
-                        console.log(`Saving the following data: ${JSON.stringify(this.account)}`);
                         this.svcUserAccount.updateProfile(this.account);
                         this.modalService.open(this.notificationModal);
                     }

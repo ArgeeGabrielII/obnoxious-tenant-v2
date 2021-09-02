@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
     async onSubmit() {
         if (this.loginForm.status === 'VALID') {
-            console.log(this.loginForm.value.email, this.loginForm.value.password);
+            // console.log(this.loginForm.value.email, this.loginForm.value.password);
 
             const isValid = await this.userService.getLoginData(this.loginForm.value.email, this.loginForm.value.password);
 

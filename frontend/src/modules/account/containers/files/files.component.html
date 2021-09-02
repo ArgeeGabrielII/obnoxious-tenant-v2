@@ -16,12 +16,11 @@
             <!-- File Upload Card-->
             <div class="card mb-4">
                 <div class="card-header">File Upload</div>
-                <div class="card-body">
-                    <p>Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.</p>
-                    <form>
-                        <div class="mb-3">
-                            <div class="form-check"><input class="form-control" id="twoFactorOn" type="file" name="radioUsage" /><label class="form-check-label" for="twoFactorOn">On</label></div>
-                        </div>
+                <div class="card-body text-center">
+                    <form (ngSubmit)="imageSubmit()">
+                        <!-- File upload button--><input class="form-control" id="document" type="file" name="document" (change)="onFileSelect($event)" /><!-- File help block-->
+                        <div class="small font-italic text-muted mb-4">PNG no larger than 5 MB</div>
+                        <button class="btn btn-primary" type="submit">Upload</button>
                     </form>
                 </div>
             </div>

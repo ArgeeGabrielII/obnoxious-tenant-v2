@@ -5,7 +5,7 @@
     <nav class="nav nav-borders"><a class="nav-link" routerLink="/dashboard/account/profile">Profile</a><a class="nav-link" routerLink="/dashboard/account/files">Files</a><a class="nav-link active" routerLink="/dashboard/account/security">Security</a><a class="nav-link" routerLink="/dashboard/account/notifications">Notifications</a></nav>
     <hr class="mt-0 mb-4" />
     <div class="row gx-4">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <!-- Change password card-->
             <div class="card mb-4">
                 <div class="card-header">Change Password</div>
@@ -26,6 +26,22 @@
                             <div class="invalid-feedback" *ngIf='securityForm.hasError("passwordMismatch")'>Passwords do not match.</div>
                         </div>
                         <button class="btn btn-primary" type="submit" [disabled]="securityForm.invalid">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <!-- Two factor authentication card-->
+            <div class="card mb-4">
+                <div class="card-header">Two-Factor Authentication</div>
+                <div class="card-body">
+                    <p>Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.</p>
+                    <form>
+                        <div class="mb-3">
+                            <div class="form-check"><input class="form-check-input" id="twoFactorOn" type="radio" name="radioUsage" checked /><label class="form-check-label" for="twoFactorOn">On</label></div>
+                            <div class="form-check"><input class="form-check-input" id="twoFactorOff" type="radio" name="radioUsage" /><label class="form-check-label" for="twoFactorOff">Off</label></div>
+                        </div>
+                        <div class="mb-3 mb-0"><label class="small mb-1" for="twoFactorSMS">Mobile Number</label><input class="form-control" id="twoFactorSMS" type="tel" placeholder="Enter a phone number" value="+63 917 123 1234" /></div>
                     </form>
                 </div>
             </div>

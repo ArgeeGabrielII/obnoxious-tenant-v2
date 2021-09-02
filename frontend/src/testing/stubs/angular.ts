@@ -64,6 +64,6 @@ export class RouterStub {
 
 export const ChangeDetectorRefStub = {
     detectChanges: () => {
-        console.log('asd');
+        // console.log('asd');
     },
 };

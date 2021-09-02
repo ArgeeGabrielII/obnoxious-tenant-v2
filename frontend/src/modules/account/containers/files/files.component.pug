@@ -24,10 +24,11 @@ sbpro-dashboard-head-compact(
             // File Upload Card
             .card.mb-4
                 .card-header File Upload
-                .card-body
-                    p Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.
-                    form
-                        .mb-3
-                            .form-check
-                                input#twoFactorOn.form-control(type='file', name='radioUsage')
-                                label.form-check-label(for='twoFactorOn') On
+                .card-body.text-center
+                    form((ngSubmit)="imageSubmit()")
+                        
+                        // File upload button
+                        input#document.form-control(type='file', name='document', (change)="onFileSelect($event)")
+                        // File help block
+                        .small.font-italic.text-muted.mb-4 PNG no larger than 5 MB
+                        button.btn.btn-primary(type='submit') Upload

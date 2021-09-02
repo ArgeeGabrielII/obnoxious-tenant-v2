@@ -24,7 +24,7 @@ exports.crypto = async (req, res) => {
         // Encrypt
         const ciphertext = CryptoJS.AES.encrypt(input_data, KEY).toString();
         res.status(200).send({data: ciphertext});
-      } else {
+      } else if(type_data === 'D') {
         // Decrypt
         const bytes  = CryptoJS.AES.decrypt(input_data, KEY);
         const deciphertext = bytes.toString(CryptoJS.enc.Utf8);

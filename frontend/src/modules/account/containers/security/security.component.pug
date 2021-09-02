@@ -14,7 +14,7 @@ sbpro-dashboard-head-compact(
     hr.mt-0.mb-4
     .row.gx-4
         //- .col-lg-8
-        .col-lg-12
+        .col-lg-8
             // Change password card
             .card.mb-4
                 .card-header Change Password
@@ -57,29 +57,29 @@ sbpro-dashboard-head-compact(
                             [disabled]='securityForm.invalid'
                         ) Save
 
-        //- .col-lg-4
-        //-     // Two factor authentication card
-        //-     .card.mb-4
-        //-         .card-header Two-Factor Authentication
-        //-         .card-body
-        //-             p Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.
-        //-             form
-        //-                 .mb-3
-        //-                     .form-check
-        //-                         input#twoFactorOn.form-check-input(type='radio', name='radioUsage', checked disabled)
-        //-                         label.form-check-label(for='twoFactorOn') On
-        //-                     .form-check
-        //-                         input#twoFactorOff.form-check-input(type='radio', name='radioUsage' disabled)
-        //-                         label.form-check-label(for='twoFactorOff') Off
-        //-                 .mb-3.mb-0
-        //-                     label(for='twoFactorSMS').small.mb-1 Mobile Number
-        //-                     input.form-control#twoFactorSMS(type='tel', placeholder='Enter a phone number', value='+63 917 123 1234')
-        //-     //- // Delete account card
-        //-     //- .card.mb-4
-        //-     //-     .card-header Delete Account
-        //-     //-     .card-body
-        //-     //-         p Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.
-        //-     //-         button.btn.btn-danger-soft.text-danger(type='button') I understand, delete my account
+        .col-lg-4
+            // Two factor authentication card
+            .card.mb-4
+                .card-header Two-Factor Authentication
+                .card-body
+                    p Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.
+                    form
+                        .mb-3
+                            .form-check
+                                input#twoFactorOn.form-check-input(type='radio', name='radioUsage', checked)
+                                label.form-check-label(for='twoFactorOn') On
+                            .form-check
+                                input#twoFactorOff.form-check-input(type='radio', name='radioUsage')
+                                label.form-check-label(for='twoFactorOff') Off
+                        .mb-3.mb-0
+                            label(for='twoFactorSMS').small.mb-1 Mobile Number
+                            input.form-control#twoFactorSMS(type='tel', placeholder='Enter a phone number', value='+63 917 123 1234')
+            //- // Delete account card
+            //- .card.mb-4
+            //-     .card-header Delete Account
+            //-     .card-body
+            //-         p Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.
+            //-         button.btn.btn-danger-soft.text-danger(type='button') I understand, delete my account
 
 ng-template(#notificationModal, let-modal)
     .modal-header

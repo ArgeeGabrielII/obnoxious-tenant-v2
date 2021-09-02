@@ -6,8 +6,12 @@ import { environment } from 'environments/environment';
 export class AccountService {
     private getMasterList_uri = environment.getMasterList;
     private getUserAccountDetails_uri = environment.getUserAccountDetails;
+    private updateUserAccountPassword_uri = environment.updateUserAccountPassword;
     private updateUserAccountDetails_uri = environment.updateUserAccountDetails;
+
     private updateUserAccountProfileImage_uri = environment.updateUserAccountProfileImage;
+
+    private crypt_uri = environment.crypt;
     private fileUpload_uri = environment.fileUpload;
     private baseFileUrl = environment.baseFileUrl;
 
@@ -56,7 +60,6 @@ export class AccountService {
     }
 
     async updateProfile(body: any) {
-        console.log(body);
         return await this.http.post(this.updateUserAccountDetails_uri, body).toPromise();
     }
 
@@ -72,13 +75,36 @@ export class AccountService {
     //#endregion
 
     //#region Files
+
+    async updateDocuments(body: FormData, id: any) {
+        try {
+            let headers = new HttpHeaders();
+            headers = headers.set('Accept', '*/*');
+
+            // Save Image to Google Cloud Storage via API
+            const jRes: any = await this.http.post(this.fileUpload_uri, body, { headers: headers }).toPromise();
+            const image_path = this.baseFileUrl + jRes.path;
+
+            // // Update HasuraDB for ImagePath
+            // const updImageBody = { id, image_path };
+            // await this.http.post(this.updateUserAccountProfileImage_uri, updImageBody).toPromise();
+
+            // // Reload Profile Details
+            // await this.getProfile(id);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
     //#endregion
 
     //#region Security
 
-    async updateSecurityPassword(newPassword: string) {
-        console.log(newPassword);
-        return { msg: 'Update Password Successful' };
+    async updateSecurityPassword(user_id: string, p: string) {
+        const payload = { input_data: p, type_data: 'E' };
+        let new_password: any = await this.http.post(this.crypt_uri, payload).toPromise();
+
+        return await this.http.post(this.updateUserAccountPassword_uri, { user_id, new_password}).toPromise();
     }
 
     //#endregion

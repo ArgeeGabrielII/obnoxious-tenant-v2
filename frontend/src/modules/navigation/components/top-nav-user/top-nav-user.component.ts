@@ -17,7 +17,7 @@ export class TopNavUserComponent implements OnInit {
     ngOnInit() {}
 
     logout(){
-        console.log(`logout`);
+        // console.log(`logout`);
         localStorage.clear();
         this.router.navigate(['/auth/login']);
     }

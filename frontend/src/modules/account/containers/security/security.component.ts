@@ -31,27 +31,25 @@ export class SecurityComponent implements OnInit {
         private router: Router,
         private modalService: NgbModal) {}
 
-    ngOnInit() {
-        console.log(`UserID: ${this.profileData.id}`);
-    }
+    ngOnInit() { }
 
     async onSubmit() {
-        console.log(this.securityForm.status);
         if (this.securityForm.status === 'VALID') {
-            let data: any = await this.accountService.updateSecurityPassword(
+            let resData: any = await this.accountService.updateSecurityPassword(
+                this.profileData.id,
                 this.securityForm.value.newPassword
             );
 
-            // {msg: 'Update Password Successful'}
-            if(data.msg === 'Update Password Successful') {
+            console.log(resData);
+            if(resData.msg === 'Update Password Successful') {
                 this.modalService.open(this.notificationModal).result.then(
                     (result) => {
                         if (result === 'RELOGIN') {
                             localStorage.clear();
                             this.router.navigate(['/auth/login']);
-                        } else {
-                            this.securityForm.reset();
                         }
+                        
+                        this.securityForm.reset();
                     },
                     (reason) => {}
                 );
