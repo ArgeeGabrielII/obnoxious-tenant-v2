@@ -16,7 +16,7 @@ sbpro-dashboard-head-compact(
         .col-lg-8
             // Identification File Directory Card
             .card.mb-4
-                .card-header Indentification File Directory
+                .card-header Identification File Directory
                 .card-body
                     file-upload-table([pageSize]='4')
 
@@ -26,7 +26,10 @@ sbpro-dashboard-head-compact(
                 .card-header File Upload
                 .card-body.text-center
                     form((ngSubmit)="imageSubmit()")
-                        
+                        select#inputCountry.form-control(name='gender')
+                            option(value='') File Type
+                            option(*ngFor='let flList of file_type_list', value='{{ flList.id }}') {{ flList.identification_name }}
+                        br
                         // File upload button
                         input#document.form-control(type='file', name='document', (change)="onFileSelect($event)")
                         // File help block

@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
     account: any;
     country_list: any;
 
-    profileData = JSON.parse(localStorage.getItem('locData') || '');
+    profileData = JSON.parse(localStorage.getItem('_ld') || '');
 
     constructor(
         public svcUserAccount: AccountService, 

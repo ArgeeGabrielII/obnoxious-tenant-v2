@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
         private modalService: NgbModal, 
         private router: Router, 
         public userService: UserService) {}
-    ngOnInit() {}
+    ngOnInit() { localStorage.clear(); }
 
     async onSubmit() {
         if (this.loginForm.status === 'VALID') {

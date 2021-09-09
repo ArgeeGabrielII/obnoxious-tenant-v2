@@ -12,7 +12,7 @@ export class TopNavUserComponent implements OnInit {
     dropdownClasses: string[] = [];
     constructor(private router: Router) {}
 
-    profileData = JSON.parse(localStorage.getItem('locData') || '');
+    profileData = JSON.parse(localStorage.getItem('_ld') || '');
 
     ngOnInit() {}
 

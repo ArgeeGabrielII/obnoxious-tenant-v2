@@ -20,14 +20,17 @@ export class UserService {
         let data: any = await this.http.post(this.getLoginDetails_uri, loginData).toPromise();
 
         if(data.valid) {
-            await this.setUser(data);
-            return true;
+            let token: any = await this.getUserToken(e);
+            if(token.msg === 'Successfully Generated User Token') {
+                await this.setUser(data, token);
+                return true;
+            }
         }
 
         return false;
     }
 
-    async setUser(data: any) {
+    async setUser(data: any, token: any) {
         const localData = {
             id: data.id,
             username: data.username,
@@ -41,11 +44,12 @@ export class UserService {
                 roles: data.role_list.roles,
             }
         };
-        localStorage.setItem('locData', JSON.stringify(localData));
+        localStorage.setItem('_ld', JSON.stringify(localData));
+        localStorage.setItem('_td', token.token);
     }
 
-    getUserToken(user: any) {
-        return this.http.post(this.getUserToken_uri, user).pipe(map((res: any) => res));
+    async getUserToken(user: any) {
+        return await this.http.post(this.getUserToken_uri, user).toPromise();
     }
 
     public getIPAddress(): Observable<any> {

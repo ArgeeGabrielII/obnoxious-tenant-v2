@@ -8,7 +8,7 @@
         <div class="col-lg-8">
             <!-- Identification File Directory Card-->
             <div class="card mb-4">
-                <div class="card-header">Indentification File Directory</div>
+                <div class="card-header">Identification File Directory</div>
                 <div class="card-body"><file-upload-table [pageSize]="4"></file-upload-table></div>
             </div>
         </div>
@@ -18,7 +18,10 @@
                 <div class="card-header">File Upload</div>
                 <div class="card-body text-center">
                     <form (ngSubmit)="imageSubmit()">
-                        <!-- File upload button--><input class="form-control" id="document" type="file" name="document" (change)="onFileSelect($event)" /><!-- File help block-->
+                        <select class="form-control" id="inputCountry" name="gender">
+                            <option value="">File Type</option>
+                            <option *ngFor="let flList of file_type_list" value="{{ flList.id }}">{{ flList.identification_name }}</option></select
+                        ><br /><!-- File upload button--><input class="form-control" id="document" type="file" name="document" (change)="onFileSelect($event)" /><!-- File help block-->
                         <div class="small font-italic text-muted mb-4">PNG no larger than 5 MB</div>
                         <button class="btn btn-primary" type="submit">Upload</button>
                     </form>

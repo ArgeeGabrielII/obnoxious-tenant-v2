@@ -11,14 +11,20 @@ import { AccountService } from '../../services/account.service';
 export class FilesComponent implements OnInit {
 
     document: any;
+    file_type_list: any;
 
-    profileData = JSON.parse(localStorage.getItem('locData') || '');
+    profileData = JSON.parse(localStorage.getItem('_ld') || '');
 
     constructor(
         public svcUserAccount: AccountService
     ) {}
     
-    ngOnInit() {}
+    async ngOnInit() {
+        await this.svcUserAccount.getMasterList();
+
+        this.file_type_list = this.svcUserAccount.identification_list;
+        console.log(JSON.stringify(this.file_type_list));
+    }
 
     onFileSelect(event: any) {
         if(event.target.files.length > 0) {
@@ -33,6 +39,6 @@ export class FilesComponent implements OnInit {
         fd.append('file_type', 'documents');
         fd.append('filename', this.document);
 
-        await this.svcUserAccount.updateDocuments(fd, this.profileData.id);
+        await this.svcUserAccount.updateDocuments(fd, this.profileData.id, '');
     }
 }

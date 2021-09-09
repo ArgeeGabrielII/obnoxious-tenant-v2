@@ -76,7 +76,7 @@ export class AccountService {
 
     //#region Files
 
-    async updateDocuments(body: FormData, id: any) {
+    async updateDocuments(body: FormData, id: any, file_type: any) {
         try {
             let headers = new HttpHeaders();
             headers = headers.set('Accept', '*/*');
@@ -86,7 +86,7 @@ export class AccountService {
             const image_path = this.baseFileUrl + jRes.path;
 
             // // Update HasuraDB for ImagePath
-            // const updImageBody = { id, image_path };
+            const updImageBody = { id, image_path, file_type };
             // await this.http.post(this.updateUserAccountProfileImage_uri, updImageBody).toPromise();
 
             // // Reload Profile Details

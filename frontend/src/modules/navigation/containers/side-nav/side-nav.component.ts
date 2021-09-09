@@ -18,7 +18,7 @@ export class SideNavComponent implements OnInit, OnDestroy {
     subscription: Subscription = new Subscription();
     routeDataSubscription!: Subscription;
 
-    profileData = JSON.parse(localStorage.getItem('locData') || '');
+    profileData = JSON.parse(localStorage.getItem('_ld') || '');
 
     constructor(public navigationService: NavigationService, public userService: UserService) {}
 

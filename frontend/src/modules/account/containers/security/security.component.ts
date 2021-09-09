@@ -15,7 +15,7 @@ export class SecurityComponent implements OnInit {
 
     @ViewChild('notificationModal') notificationModal!: TemplateRef<unknown>;
 
-    profileData = JSON.parse(localStorage.getItem('locData') || '');
+    profileData = JSON.parse(localStorage.getItem('_ld') || '');
 
     securityForm = this.fb.group(
         {
