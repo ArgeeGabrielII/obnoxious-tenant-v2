@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } fr
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { AccountService } from '../../services/account.service';
+import { environment } from 'environments/environment';
 
 @Component({
     selector: 'profile',
@@ -33,6 +34,11 @@ export class ProfileComponent implements OnInit {
         
         this.country_list = this.svcUserAccount.country_list;
         this.account = this.svcUserAccount.account;
+
+        if(!environment.production) {
+            console.log(`Account > Profile > Country List: ${JSON.stringify(this.country_list)}`);
+            console.log(`Account > Profile > Account Details: ${JSON.stringify(this.account)}`);
+        }
     }
 
     onFileSelect(event: any) {

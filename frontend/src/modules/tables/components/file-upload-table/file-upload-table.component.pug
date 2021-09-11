@@ -41,8 +41,8 @@ form
                 tr(*ngFor='let fileUpload of file_upload$ | async')
                     td
                         .d-inline-flex.align-items-center
-                            span.badge.bg-green(*ngIf="fileUpload.status === 'verified'") {{fileUpload.status}} 
-                            span.badge.bg-yellow(*ngIf="fileUpload.status === 'pending'") {{fileUpload.status}} 
+                            span.badge.bg-green(*ngIf="fileUpload.status === 'Verified'") {{fileUpload.status}} 
+                            span.badge.bg-yellow(*ngIf="fileUpload.status === 'Pending'") {{fileUpload.status}} 
                         ngb-highlight(
                             [result]='" " + fileUpload.identification_list_type',
                             [term]='fileUploadService.searchTerm'
@@ -56,7 +56,8 @@ form
                         .d-inline-flex.align-items-center
                             ng-container(*ngIf='fileUpload.identification_list_type')
                                 a(href='{{fileUpload.identification_path}}', target="_blank") View
-                                a(style="margin-left: 15px;") Delete
+                                a(href='#', style="margin-left: 15px;") Verify
+                                a(href='#', style="margin-left: 15px;") Delete
     .d-flex.justify-content-between.align-items-center.p-2
         ngb-pagination(
             [collectionSize]='total$ | async',

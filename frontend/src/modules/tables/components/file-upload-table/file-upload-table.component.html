@@ -18,13 +18,13 @@
             <tbody>
                 <tr *ngFor="let fileUpload of file_upload$ | async">
                     <td>
-                        <div class="d-inline-flex align-items-center"><span class="badge bg-green" *ngIf="fileUpload.status === 'verified'">{{fileUpload.status}} </span><span class="badge bg-yellow" *ngIf="fileUpload.status === 'pending'">{{fileUpload.status}} </span></div>
+                        <div class="d-inline-flex align-items-center"><span class="badge bg-green" *ngIf="fileUpload.status === 'Verified'">{{fileUpload.status}} </span><span class="badge bg-yellow" *ngIf="fileUpload.status === 'Pending'">{{fileUpload.status}} </span></div>
                         <ngb-highlight [result]='" " + fileUpload.identification_list_type' [term]="fileUploadService.searchTerm"> </ngb-highlight>
                     </td>
                     <td><ngb-highlight [result]="formatDate(fileUpload.created_at)" [term]="fileUploadService.searchTerm"></ngb-highlight></td>
                     <td>
                         <div class="d-inline-flex align-items-center">
-                            <ng-container *ngIf="fileUpload.identification_list_type"><a href="{{fileUpload.identification_path}}" target="_blank">View</a><a style="margin-left: 15px">Delete</a></ng-container>
+                            <ng-container *ngIf="fileUpload.identification_list_type"><a href="{{fileUpload.identification_path}}" target="_blank">View</a><a href="#" style="margin-left: 15px">Verify</a><a href="#" style="margin-left: 15px">Delete</a></ng-container>
                         </div>
                     </td>
                 </tr>

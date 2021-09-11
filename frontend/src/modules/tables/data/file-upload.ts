@@ -7,7 +7,7 @@ export const FILEDATA: FileUpload[] = [
         identification_list_type: "Passport",
         identification_path: 'https://picsum.photos/300/200',
         created_at: '2021-08-13T04:04:27.04778+00:00',
-        status: 'pending'
+        status: 'Pending'
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const FILEDATA: FileUpload[] = [
         identification_list_type: "Driver's License",
         identification_path: 'https://picsum.photos/300/200',
         created_at: '2021-08-11T04:04:27.04778+00:00',
-        status: 'pending'
+        status: 'Pending'
     },
     {
         id: 3,
@@ -23,7 +23,7 @@ export const FILEDATA: FileUpload[] = [
         identification_list_type: "Broker's License",
         identification_path: 'https://picsum.photos/300/200',
         created_at: '2021-08-12T04:04:27.04778+00:00',
-        status: 'verified'
+        status: 'Verified'
     },
     {
         id: 4,
@@ -31,7 +31,7 @@ export const FILEDATA: FileUpload[] = [
         identification_list_type: "PRC ID",
         identification_path: 'https://picsum.photos/300/200',
         created_at: '2021-08-11T04:04:27.04778+00:00',
-        status: 'pending'
+        status: 'Pending'
     },
     {
         id: 5,
@@ -39,6 +39,6 @@ export const FILEDATA: FileUpload[] = [
         identification_list_type: "Company ID",
         identification_path: 'https://picsum.photos/300/200',
         created_at: '2021-08-12T04:04:27.04778+00:00',
-        status: 'verified'
+        status: 'Verified'
     },
 ];

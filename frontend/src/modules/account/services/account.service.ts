@@ -6,6 +6,8 @@ import { environment } from 'environments/environment';
 export class AccountService {
     private getMasterList_uri = environment.getMasterList;
     private getUserAccountDetails_uri = environment.getUserAccountDetails;
+    private getUserAccountIdentificationList_uri = environment.getUserAccountIdentificationList;
+    private insertUserAccountIdentificationList_uri = environment.insertUserAccountIdentificationList;
     private updateUserAccountPassword_uri = environment.updateUserAccountPassword;
     private updateUserAccountDetails_uri = environment.updateUserAccountDetails;
 
@@ -18,10 +20,11 @@ export class AccountService {
     public country_list: any;
     public identification_list: any;
     public account: any;
+    public idFiles: any;
 
     constructor(private http: HttpClient) {}
 
-    //#region Profile
+    //#region General
 
     async getMasterList() {
         let headers = new HttpHeaders();
@@ -31,6 +34,10 @@ export class AccountService {
         const master_data = await this.http.post(this.getMasterList_uri, { headers }).toPromise();
         await this.loadMasterListData(master_data);
     }
+
+    //#endregion
+
+    //#region Profile
 
     async getProfile(user_id: number) {
         const body = { "id": user_id };
@@ -76,24 +83,39 @@ export class AccountService {
 
     //#region Files
 
-    async updateDocuments(body: FormData, id: any, file_type: any) {
+    async getIdentificationList(user_id: any) {
+        try {
+            const body = { user_id };
+
+            const id_data = await this.http.post(this.getUserAccountIdentificationList_uri, body).toPromise();
+            await this.loadFiles(id_data);
+        } catch(e) {
+            console.error(e);
+        }
+    }
+
+    async updateDocuments(body: FormData, user_id: any, file_type_id: any) {
         try {
             let headers = new HttpHeaders();
             headers = headers.set('Accept', '*/*');
 
             // Save Image to Google Cloud Storage via API
             const jRes: any = await this.http.post(this.fileUpload_uri, body, { headers: headers }).toPromise();
-            const image_path = this.baseFileUrl + jRes.path;
+            const id_path = this.baseFileUrl + jRes.path;
 
             // // Update HasuraDB for ImagePath
-            const updImageBody = { id, image_path, file_type };
-            // await this.http.post(this.updateUserAccountProfileImage_uri, updImageBody).toPromise();
+            const insFileBody = { user_id, id_path, file_type_id };
+            await this.http.post(this.insertUserAccountIdentificationList_uri, insFileBody).toPromise();
 
-            // // Reload Profile Details
-            // await this.getProfile(id);
+            // Reload Profile Identification List
+            await this.getIdentificationList(user_id);
         } catch (e) {
             console.error(e);
         }
+    }
+
+    async loadFiles(data: any) {
+        this.idFiles = data.obnoxious_tenant_user_account_identification_list;
     }
 
     //#endregion

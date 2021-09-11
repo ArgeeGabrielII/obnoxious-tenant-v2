@@ -26,12 +26,29 @@ sbpro-dashboard-head-compact(
                 .card-header File Upload
                 .card-body.text-center
                     form((ngSubmit)="imageSubmit()")
-                        select#inputCountry.form-control(name='gender')
+                        select#inputCountry.form-control(name='selected_file_type', [(ngModel)]='this.selected_file_type')
                             option(value='') File Type
                             option(*ngFor='let flList of file_type_list', value='{{ flList.id }}') {{ flList.identification_name }}
                         br
                         // File upload button
-                        input#document.form-control(type='file', name='document', (change)="onFileSelect($event)")
+                        input#document.form-control(type='file', name='document', (change)='onFileSelect($event)')
                         // File help block
                         .small.font-italic.text-muted.mb-4 PNG no larger than 5 MB
                         button.btn.btn-primary(type='submit') Upload
+
+ng-template(#notificationModal, let-modal)
+    .modal-header
+        h5.modal-title File Upload - Warning!
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        {{ notifMessage }}
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Ok

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserService } from '../../services/user.service';
+import { environment } from 'environments/environment';
 
 @Component({
     selector: 'sb-login',
@@ -28,8 +29,7 @@ export class LoginComponent implements OnInit {
 
     async onSubmit() {
         if (this.loginForm.status === 'VALID') {
-            // console.log(this.loginForm.value.email, this.loginForm.value.password);
-
+            if(!environment.production) { console.log(`Login: Username: ${this.loginForm.value.email}, Password: ${this.loginForm.value.password}`); }
             const isValid = await this.userService.getLoginData(this.loginForm.value.email, this.loginForm.value.password);
 
             if(isValid){
