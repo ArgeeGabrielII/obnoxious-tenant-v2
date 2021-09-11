@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
     @ViewChild('confirmationModal') confirmationModal!: TemplateRef<unknown>;
     @ViewChild('notificationModal') notificationModal!: TemplateRef<unknown>;
 
+    // test
     alert = false;
     alert_message = '';
 
