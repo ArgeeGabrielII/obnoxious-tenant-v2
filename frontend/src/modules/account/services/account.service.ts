@@ -1,7 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
+import { FileUpload } from '@modules/tables/models';
+
 @Injectable({ providedIn: 'root' })
+
+
 
 export class AccountService {
     private getMasterList_uri = environment.getMasterList;
@@ -83,15 +87,9 @@ export class AccountService {
 
     //#region Files
 
-    async getIdentificationList(user_id: any) {
-        try {
-            const body = { user_id };
-
-            const id_data = await this.http.post(this.getUserAccountIdentificationList_uri, body).toPromise();
-            await this.loadFiles(id_data);
-        } catch(e) {
-            console.error(e);
-        }
+    async getIdentificationList(user_id: any): Promise<FileUpload[]> {
+        const body = { user_id };
+        return <FileUpload[]>await this.http.post(this.getUserAccountIdentificationList_uri, body).toPromise();
     }
 
     async updateDocuments(body: FormData, user_id: any, file_type_id: any) {
@@ -112,10 +110,6 @@ export class AccountService {
         } catch (e) {
             console.error(e);
         }
-    }
-
-    async loadFiles(data: any) {
-        this.idFiles = data.obnoxious_tenant_user_account_identification_list;
     }
 
     //#endregion

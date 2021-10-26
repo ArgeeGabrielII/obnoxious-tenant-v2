@@ -13,6 +13,8 @@ import { FileUploadTableService } from '@modules/tables/services';
 import moment from 'moment-timezone';
 import { Observable } from 'rxjs';
 
+import { AccountService } from '../../../account/services/account.service';
+
 @Component({
     selector: 'file-upload-table',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,6 +23,8 @@ import { Observable } from 'rxjs';
 })
 export class FileUploadTableComponent implements OnInit {
     @Input() pageSize = 8;
+
+    profileData = JSON.parse(localStorage.getItem('_ld') || '');
 
     file_upload$!: Observable<FileUpload[]>;
     total$!: Observable<number>;
@@ -32,10 +36,12 @@ export class FileUploadTableComponent implements OnInit {
 
     constructor(
         public fileUploadService: FileUploadTableService,
-        public changeDetectorRef: ChangeDetectorRef
+        public changeDetectorRef: ChangeDetectorRef,
+        public svcAccount: AccountService
     ) {}
-    ngOnInit() {
+    async ngOnInit() {
         this.fileUploadService.pageSize = this.pageSize;
+        this.fileUploadService.idListData = await this.svcAccount.getIdentificationList(this.profileData.id);
         this.file_upload$ = this.fileUploadService.file_upload$;
         this.total$ = this.fileUploadService.total$;
         this.changeDetectorRef.detectChanges();

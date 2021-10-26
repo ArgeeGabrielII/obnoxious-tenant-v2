@@ -17,6 +17,7 @@ interface State {
     searchTerm: string;
     sortColumn: string;
     sortDirection: SortDirection;
+    idListData: FileUpload[];
 }
 
 function compare(v1: number | string, v2: number | string,) {
@@ -47,12 +48,15 @@ export class FileUploadTableService {
     private _file_upload$ = new BehaviorSubject<FileUpload[]>([]);
     private _total$ = new BehaviorSubject<number>(0);
 
+    profileData = JSON.parse(localStorage.getItem('_ld') || '');
+
     private _state: State = {
         page: 1,
         pageSize: 8,
         searchTerm: '',
         sortColumn: '',
         sortDirection: '',
+        idListData: []
     };
 
     constructor(private pipe: DecimalPipe) {
@@ -90,6 +94,12 @@ export class FileUploadTableService {
     get pageSize() {
         return this._state.pageSize;
     }
+    set idListData(idListData: FileUpload[]) {
+        this._set({ idListData });
+    }
+    get idListData() {
+        return this._state.idListData;
+    }
     set pageSize(pageSize: number) {
         this._set({ pageSize });
     }
@@ -112,13 +122,13 @@ export class FileUploadTableService {
     }
 
     private _search(): Observable<SearchResult> {
-        const { sortColumn, sortDirection, pageSize, page, searchTerm } = this._state;
+        const { sortColumn, sortDirection, pageSize, page, searchTerm, idListData } = this._state;
 
         // 1. sort
-        let file_upload = sort(FILEDATA, sortColumn, sortDirection);
+        let file_upload = sort(idListData, sortColumn, sortDirection);
 
         // 2. filter
-        file_upload = file_upload.filter((filedata) => matches(filedata, searchTerm, this.pipe));
+        file_upload = file_upload.filter((idListData) => matches(idListData, searchTerm, this.pipe));
         const total = file_upload.length;
 
         // 3. paginate

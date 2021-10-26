@@ -34,6 +34,7 @@ exports.getUserAccountIdentificationList = async (req, res) => {
             id
             identification_path
             status
+            created_at
             identification_list {
               id
               identification_name
@@ -43,9 +44,17 @@ exports.getUserAccountIdentificationList = async (req, res) => {
       `;
 
       const axRes = await axios.post(process.env.GRAPHQL_ENDPOINT, { query: q }, { headers: h });
-      const response = axRes.data.data;
+      const id_list = axRes.data.data.obnoxious_tenant_user_account_identification_list;
 
-      res.status(200).send(JSON.stringify(response));
+      console.log(`[LOG] gQLResponse: ${JSON.stringify(id_list)}`);
+
+      id_list.forEach(idData => {
+        idData.identification_list_id = idData.identification_list.id;
+        idData.identification_list_type = idData.identification_list.identification_name;
+        delete idData.identification_list;
+      });
+
+      res.status(200).send(JSON.stringify(id_list));
     }
   } catch (e) {
     const errorMsg = { status: 500, message: 'Error: ' + e }

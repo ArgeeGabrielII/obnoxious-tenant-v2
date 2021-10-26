@@ -11,7 +11,6 @@ import { environment } from 'environments/environment';
     styleUrls: ['files.component.scss'],
 })
 export class FilesComponent implements OnInit {
-
     @ViewChild('notificationModal') notificationModal!: TemplateRef<unknown>;
 
     document: any;
@@ -28,6 +27,7 @@ export class FilesComponent implements OnInit {
     ) {}
     
     async ngOnInit() {
+        console.log(this.profileData);
         await this.svcUserAccount.getMasterList();
 
         this.file_type_list = this.svcUserAccount.identification_list;
