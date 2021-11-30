@@ -5,17 +5,9 @@ export const sideNavSections: SideNavSection[] = [
         text: 'CORE',
         items: ['dashboard'],
     },
-    // {
-    //     text: 'HOST',
-    //     items: [''],
-    // },
-    // {
-    //     text: 'TENANT',
-    //     items: [''],
-    // },
     {
         text: 'MANAGEMENT',
-        items: ['account', 'registration'],
+        items: ['tenant', 'account', 'registration'],
     },
 ];
 
@@ -24,6 +16,13 @@ export const sideNavItems: SideNavItems = {
         icon: 'activity',
         link: '/dashboard',
         text: 'Dashboard',
+    },
+    tenant: {
+        icon: 'user',
+        submenu: [
+
+        ],
+        text: 'Tenant',
     },
     account: {
         icon: 'users',

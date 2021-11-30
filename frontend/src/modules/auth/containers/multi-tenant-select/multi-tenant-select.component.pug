@@ -6,7 +6,7 @@ sb-layout-auth
                 .card.text-center.h-100
                     .card-body.px-5.pt-5.d-flex.flex-column
                         div
-                            .h3.text-primary.fw-300 Create
+                            .h3.text-primary.fw-300 Create Organization
                             p.text-muted.mb-4 Create an organization and invite new members
                         .icons-org-create.align-items-center.mx-auto.mt-auto
                             i-feather(name='users').icon-users
@@ -19,12 +19,31 @@ sb-layout-auth
                                     data-cy='createNewOrganization',
                                     routerLink='/auth/org-create'
                                 ) Create new organization
+            // Individual
+            .col-xl-5.col-lg-6.col-md-8.col-sm-11.mt-4
+                .card.text-center.h-100
+                    .card-body.px-5.pt-5.d-flex.flex-column.align-items-between
+                        div
+                            .h3.text-secondary.fw-300 Individual Tenant
+                            p.text-muted.mb-4 Enter an access code or request access to an existing organization
+                        .icons-org-join.align-items-center.mx-auto
+                            i-feather(name='user-plus').icon-user
+                    .card-footer.bg-transparent.px-5.py-4
+                        .small.text-center
+                            .d-grid
+                                a.btn.btn-secondary(
+                                    data-cy='joinOrganization',
+                                    routerLink='/auth/org-join'
+                                ) Create Individual Tenant
+            
+    .container-xl.px-4
+        .row.gx-4.justify-content-center
             // Join Organization
             .col-xl-5.col-lg-6.col-md-8.col-sm-11.mt-4
                 .card.text-center.h-100
                     .card-body.px-5.pt-5.d-flex.flex-column.align-items-between
                         div
-                            .h3.text-secondary.fw-300 Join
+                            .h3.text-secondary.fw-300 Join Organization
                             p.text-muted.mb-4 Enter an access code or request access to an existing organization
                         .icons-org-join.align-items-center.mx-auto
                             i-feather(name='user').icon-user

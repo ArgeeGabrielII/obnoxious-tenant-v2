@@ -27,7 +27,7 @@ export class FilesComponent implements OnInit {
     ) {}
     
     async ngOnInit() {
-        console.log(this.profileData);
+        if(!environment.production) { console.log(this.profileData); }
         await this.svcUserAccount.getMasterList();
 
         this.file_type_list = this.svcUserAccount.identification_list;

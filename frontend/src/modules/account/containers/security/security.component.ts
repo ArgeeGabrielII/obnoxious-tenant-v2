@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } fr
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'environments/environment';
 
 import { AccountService } from '../../services/account.service';
 
@@ -40,7 +41,7 @@ export class SecurityComponent implements OnInit {
                 this.securityForm.value.newPassword
             );
 
-            console.log(resData);
+            if(!environment.production) { console.log(resData); }
             if(resData.msg === 'Update Password Successful') {
                 this.modalService.open(this.notificationModal).result.then(
                     (result) => {

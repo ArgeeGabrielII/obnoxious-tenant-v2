@@ -42,7 +42,8 @@ form
                     td
                         .d-inline-flex.align-items-center
                             span.badge.bg-green(*ngIf="fileUpload.status === 'Verified'") {{fileUpload.status}} 
-                            span.badge.bg-yellow(*ngIf="fileUpload.status === 'Pending'") {{fileUpload.status}} 
+                            span.badge.bg-yellow(*ngIf="fileUpload.status === 'Pending'") {{fileUpload.status}}
+                            span.badge.bg-red(*ngIf="fileUpload.status === 'ReUpload'") {{fileUpload.status}}
                         ngb-highlight(
                             [result]='" " + fileUpload.identification_list_type',
                             [term]='fileUploadService.searchTerm'
