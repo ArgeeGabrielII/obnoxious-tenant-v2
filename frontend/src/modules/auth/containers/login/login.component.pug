@@ -52,7 +52,7 @@ sb-layout-auth
 
 ng-template(#confirmationModal, let-modal)
     .modal-header
-        h5.modal-title Login Form Data
+        h5.modal-title Login
         button.btn-close(
             type='button',
             aria-label='Close',
@@ -65,4 +65,21 @@ ng-template(#confirmationModal, let-modal)
         button.btn.btn-primary(
             type='button',
             (click)='modal.close("DASHBOARD")'
+        ) OK
+
+ng-template(#notificationModal, let-modal)
+    .modal-header
+        h5.modal-title Login
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Email Address and Password is not valid.
+    .modal-footer
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close()'
         ) OK

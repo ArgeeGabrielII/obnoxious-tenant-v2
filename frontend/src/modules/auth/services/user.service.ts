@@ -18,6 +18,7 @@ export class UserService {
     async getLoginData(e: string, p: string) {
         const loginData = { email_address: e, password: p };
         let data: any = await this.http.post(this.getLoginDetails_uri, loginData).toPromise();
+        console.log(data);
 
         if(data.valid) {
             let token: any = await this.getUserToken(e);

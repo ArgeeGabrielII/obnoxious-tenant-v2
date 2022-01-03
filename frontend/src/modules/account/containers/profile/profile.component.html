@@ -2,7 +2,7 @@
 ><!-- Main page content-->
 <div class="container-xl px-4 mt-4">
     <!-- Account page navigation-->
-    <nav class="nav nav-borders"><a class="nav-link active" routerLink="/dashboard/account/profile">Profile</a><a class="nav-link" routerLink="/dashboard/account/files">Files</a><a class="nav-link" routerLink="/dashboard/account/security">Security</a><a class="nav-link" routerLink="/dashboard/account/notifications">Notifications</a></nav>
+    <nav class="nav nav-borders"><a class="nav-link active" routerLink="/dashboard/account/profile">Profile</a><a class="nav-link" routerLink="/dashboard/account/files">Files</a><a class="nav-link" routerLink="/dashboard/account/security">Security</a><a class="nav-link" routerLink="/dashboard/account/notifications">Notifications</a><a class="nav-link" routerLink="/dashboard/account/administrator">Administrator</a></nav>
     <hr class="mt-0 mb-4" />
     <div class="row gx-4">
         <div class="col-xl-4">
@@ -11,19 +11,10 @@
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
                     <form (ngSubmit)="imageSubmit()">
-                        <!-- Profile picture image--><img class="img-account-profile rounded-circle mb-2" [src]="this.account.image_path" alt="" /><!-- Profile picture help block-->
+                        <!-- Profile picture image--><img class="img-account-profile rounded-circle mb-2" [src]="this.profileData.image_path" alt="" /><!-- Profile picture help block-->
                         <div class="small font-italic text-muted mb-4">JPG no larger than 5 MB</div>
                         <!-- Profile picture upload button--><input class="form-control" id="profile_picture" type="file" name="profile_picture" (change)="onFileSelect($event)" /><br /><button class="btn btn-primary" type="submit">Upload</button>
                     </form>
-                </div>
-            </div>
-            <!-- Profile picture card-->
-            <div class="card mb-4">
-                <div class="card-header">Account Tier</div>
-                <div class="card-body text-center">
-                    <img class="img-account-profile rounded-circle mb-2" [src]="this.account.tier_list.image_path" alt="" />
-                    <p>{{ this.account.tier_list.tier }}</p>
-                    <p>{{ this.account.tier_list.description }}</p>
                 </div>
             </div>
         </div>
@@ -32,70 +23,76 @@
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
-                    <form (ngSubmit)="submit()">
-                        <div class="mb-3" *ngIf="alert"><div class="alert alert-danger" role="alert">{{ alert_message }}</div></div>
-                        <!-- Form Group (username)-->
-                        <div class="mb-3"><label class="small mb-1" for="inputUsername">Username </label><input class="form-control" id="inputUsername" disabled type="text" placeholder="Enter your username" value="username" name="username" [(ngModel)]="this.account.username" /></div>
+                    <form [formGroup]="accountDetails" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <!-- Form Group (username)-->
+                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputUsername">Username </label><input class="form-control" id="inputUsername" type="text" placeholder="Username" formControlName="username" /></div>
+                            <!-- Form Group (tier)-->
+                            <div class="mb-3 col-md-6" formGroupName="tier_list"><label class="small mb-1" for="inputTier">Tier </label><input class="form-control" id="inputTier" type="text" placeholder="Tier" formControlName="tier" /></div>
+                        </div>
                         <!-- Form Row-->
                         <div class="row">
-                            <!-- Form Group (first name)-->
+                            <!-- Form Group (First Name)-->
                             <div class="mb-3 col-md-6">
-                                <label class="small mb-1" for="inputFirstName">First Name <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" name="first_name" [(ngModel)]="this.account.first_name" />
+                                <label class="small mb-1" for="inputfirstname">First Name</label><input class="form-control" id="inputfirstname" type="text" placeholder="First Name" formControlName="first_name" [class.is-valid]="firstnameControlValid" [class.is-invalid]="firstnameControlInvalid" />
+                                <div class="invalid-feedback" *ngIf='firstnameControl.hasError("required")'>First Name Required</div>
                             </div>
-                            <!-- Form Group (last name)-->
+                            <!-- Form Group (Last Name)-->
                             <div class="mb-3 col-md-6">
-                                <label class="small mb-1" for="inputLastName">Last Name <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" name="last_name" [(ngModel)]="this.account.last_name" />
+                                <label class="small mb-1" for="inputlastname">Last Name </label><input class="form-control" id="inputlastname" type="text" placeholder="Last Name" formControlName="last_name" [class.is-valid]="lastnameControlValid" [class.is-invalid]="lastnameControlInvalid" />
+                                <div class="invalid-feedback" *ngIf='lastnameControl.hasError("required")'>Last Name Required</div>
                             </div>
                         </div>
                         <!-- Form Row-->
                         <div class="row">
-                            <!-- Form Group (email address)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputEmailAddress">Email Address </label><input class="form-control" id="inputEmailAddress" disabled type="email" placeholder="Enter your email address" name="email_address" [(ngModel)]="this.account.email_address" /></div>
+                            <!-- Form Group (Email Address)-->
+                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputemailaddress">Email Address </label><input class="form-control" id="inputemailaddress" type="email" placeholder="Email Address" formControlName="email_address" /></div>
                             <!-- Form Group (date of birth)-->
                             <div class="mb-3 col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Date of Birth <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputBirthday" type="date" name="date_of_birth" [(ngModel)]="this.account.date_of_birth" />
+                                <label class="small mb-1" for="inputDateOfBirth">Date of Birth</label><input class="form-control" id="inputDateOfBirth" type="date" placeholder="Date of Birth" formControlName="date_of_birth" [class.is-valid]="dateofbirthControlValid" [class.is-invalid]="dateofbirthControlInvalid" />
+                                <div class="invalid-feedback" *ngIf='dateofbirthControl.hasError("required")'>Date of Birth Required</div>
                             </div>
                         </div>
                         <!-- Form Row-->
                         <div class="row">
                             <!-- Form Group (contact number)-->
                             <div class="mb-3 col-md-6">
-                                <label class="small mb-1" for="inputContactNumber">Contact Number <span class="badge bg-red">required</span></label
-                                ><input class="form-control" id="inputContactNumber" type="number" placeholder="Enter your contact number" name="contact_number" [(ngModel)]="this.account.contact_number" />
+                                <label class="small mb-1" for="inputContactNumber">Contact Number</label><input class="form-control" id="inputContactNumber" type="text" placeholder="Contact Number" formControlName="contact_number" [class.is-valid]="contactnumberControlValid" [class.is-invalid]="contactnumberControlInvalid" />
+                                <div class="invalid-feedback" *ngIf='contactnumberControl.hasError("required")'>Contact Number Required</div>
                             </div>
+                            <!-- Form Group (gender)-->
                             <div class="mb-3 col-md-6">
-                                <label class="small mb-1" for="inputGender">Gender <span class="badge bg-red">required</span></label
-                                ><select class="form-control" id="inputCountry" name="gender" [(ngModel)]="this.account.gender">
+                                <label class="small mb-1" for="inputGender">Gender</label
+                                ><select class="form-control" id="inputCountry" placeholder="Gender" formControlName="gender" [class.is-valid]="genderControlValid" [class.is-invalid]="genderControlInvalid">
                                     <option value="">Select</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
+                                <div class="invalid-feedback" *ngIf='genderControl.hasError("required")'>Gender Required</div>
                             </div>
                         </div>
                         <!-- Form Group (address 1)-->
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputAddress1">Address 1 <span class="badge bg-red">required</span></label
-                            ><input class="form-control" id="inputAddress1" type="text" placeholder="Enter your address 1" name="address_1" [(ngModel)]="this.account.address_1" />
+                            <label class="small mb-1" for="inputAddress1">Address 1 </label><input class="form-control" id="inputAddress1" type="text" placeholder="Address 1" formControlName="address_1" [class.is-valid]="address1ControlValid" [class.is-invalid]="address1ControlInvalid" />
+                            <div class="invalid-feedback" *ngIf='address1Control.hasError("required")'>Address Required</div>
                         </div>
                         <!-- Form Group (address 2)-->
-                        <div class="mb-3"><label class="small mb-1" for="inputAddress2">Address 2 </label><input class="form-control" id="inputAddress2" type="text" placeholder="Enter your address 2" name="address_2" [(ngModel)]="this.account.address_2" /></div>
+                        <div class="mb-3"><label class="small mb-1" for="inputAddress2">Address 2 </label><input class="form-control" id="inputAddress2" type="text" placeholder="Address 2" formControlName="address_2" /></div>
                         <!-- Form Row-->
                         <div class="row">
                             <!-- Form Group (country)-->
                             <div class="mb-3 col-md-6">
-                                <label class="small mb-1" for="inputCountry">Country <span class="badge bg-red">required</span></label
-                                ><select class="form-control" id="inputCountry" name="country_name" [(ngModel)]="this.account.country_code">
+                                <label class="small mb-1" for="inputCountry">Country </label
+                                ><select class="form-control" id="inputCountry" formControlName="country_name" [class.is-valid]="countrynameControlValid" [class.is-invalid]="countrynameControlInvalid">
                                     <option value="">Select</option>
                                     <option *ngFor="let cList of country_list" value="{{ cList.iso_code }}">{{ cList.country_name }}</option>
                                 </select>
+                                <div class="invalid-feedback" *ngIf='countrynameControl.hasError("required")'>Country Required</div>
                             </div>
                             <!-- Form Group (nationality)-->
-                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputNationality">Nationality </label><input class="form-control" id="inputNationality" type="text" placeholder="Enter your nationality" name="nationality" [(ngModel)]="this.account.nationality" /></div>
+                            <div class="mb-3 col-md-6"><label class="small mb-1" for="inputNationality">Nationality </label><input class="form-control" id="inputNationality" type="text" placeholder="Nationality" formControlName="nationality" [class.is-valid]="nationalityControlValid" [class.is-invalid]="nationalityControlInvalid" /></div>
                         </div>
-                        <!-- Save changes button--><button class="btn btn-primary" type="submit">Submit</button>
+                        <!-- Save changes button--><button class="btn btn-primary" data-cy="accountDetailsButton" type="submit" [disabled]="accountDetails.invalid">Submit</button>
                     </form>
                 </div>
             </div>
@@ -109,15 +106,15 @@
     </div>
     <div class="modal-body">
         Are you sure you want to save the following details? <br /><br />
-        First Name: <code>{{account.first_name}}</code><br />
-        Last Name: <code>{{account.last_name}}</code><br />
-        Date of Birth: <code>{{account.date_of_birth}}</code><br />
-        Contact Number: <code>{{account.contact_number}}</code><br />
-        Gender: <code>{{account.gender}}</code><br />
-        Address 1: <code>{{account.address_1}}</code><br />
-        Address 2: <code>{{account.address_2}}</code><br />
-        Country: <code>{{account.country_code}}</code><br />
-        Nationality: <code>{{account.nationality}}</code><br />
+        First Name: <code>{{accountDetails.value.first_name}}</code><br />
+        Last Name: <code>{{accountDetails.value.last_name}}</code><br />
+        Date of Birth: <code>{{accountDetails.value.date_of_birth}}</code><br />
+        Contact Number: <code>{{accountDetails.value.contact_number}}</code><br />
+        Gender: <code>{{accountDetails.value.gender}}</code><br />
+        Address 1: <code>{{accountDetails.value.address_1}}</code><br />
+        Address 2: <code>{{accountDetails.value.address_2}}</code><br />
+        Country: <code>{{accountDetails.value.country_code}}</code><br />
+        Nationality: <code>{{accountDetails.value.nationality}}</code><br />
     </div>
     <div class="modal-footer"><button class="btn btn-secondary" type="button" (click)='modal.close("CANCEL")'>Cancel</button><button class="btn btn-primary" type="button" (click)='modal.close("SAVE")'>Save Changes</button></div></ng-template
 ><ng-template #notificationModal let-modal

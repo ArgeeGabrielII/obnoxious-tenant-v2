@@ -20,7 +20,7 @@ export class SecurityComponent implements OnInit {
 
     securityForm = this.fb.group(
         {
-            newPassword: ['', [Validators.required, Validators.minLength(1)]],
+            newPassword: ['', [Validators.required, Validators.minLength(12)]],
             confirmPassword: ['', [Validators.required]],
         },
         { validator: this._checkPasswords }
@@ -38,7 +38,7 @@ export class SecurityComponent implements OnInit {
         if (this.securityForm.status === 'VALID') {
             let resData: any = await this.accountService.updateSecurityPassword(
                 this.profileData.id,
-                this.securityForm.value.newPassword
+                this.securityForm.controls.newPassword.value
             );
 
             if(!environment.production) { console.log(resData); }

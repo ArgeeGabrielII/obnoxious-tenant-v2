@@ -119,8 +119,9 @@ export class AccountService {
     async updateSecurityPassword(user_id: string, p: string) {
         const payload = { input_data: p, type_data: 'E' };
         let new_password: any = await this.http.post(this.crypt_uri, payload).toPromise();
+        console.log(`NewPassword: ${new_password.data}`);
 
-        return await this.http.post(this.updateUserAccountPassword_uri, { user_id, new_password}).toPromise();
+        return await this.http.post(this.updateUserAccountPassword_uri, { user_id, new_password: new_password.data}).toPromise();
     }
 
     //#endregion

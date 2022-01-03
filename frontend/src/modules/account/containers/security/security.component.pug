@@ -11,6 +11,7 @@ sbpro-dashboard-head-compact(
         a.nav-link(routerLink='/dashboard/account/files') Files
         a.nav-link.active(routerLink='/dashboard/account/security') Security
         a.nav-link(routerLink='/dashboard/account/notifications') Notifications
+        a.nav-link(routerLink='/dashboard/account/administrator') Administrator
     hr.mt-0.mb-4
     .row.gx-4
         //- .col-lg-8
@@ -73,13 +74,7 @@ sbpro-dashboard-head-compact(
                                 label.form-check-label(for='twoFactorOff') Off
                         .mb-3.mb-0
                             label(for='twoFactorSMS').small.mb-1 Mobile Number
-                            input.form-control#twoFactorSMS(type='tel', placeholder='Enter a phone number', value='+63 917 123 1234')
-            //- // Delete account card
-            //- .card.mb-4
-            //-     .card-header Delete Account
-            //-     .card-body
-            //-         p Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.
-            //-         button.btn.btn-danger-soft.text-danger(type='button') I understand, delete my account
+                            input.form-control#twoFactorSMS(type='tel', placeholder='Enter a mobile number', value='+63 9## ### ####')
 
 ng-template(#notificationModal, let-modal)
     .modal-header

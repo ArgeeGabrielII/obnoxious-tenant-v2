@@ -14,6 +14,7 @@ import { environment } from 'environments/environment';
 })
 export class LoginComponent implements OnInit {
     @ViewChild('confirmationModal') confirmationModal!: TemplateRef<unknown>;
+    @ViewChild('notificationModal') notificationModal!: TemplateRef<unknown>;
 
     loginForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
@@ -41,6 +42,8 @@ export class LoginComponent implements OnInit {
                     },
                     (reason) => {}
                 );
+            } else {
+                this.modalService.open(this.notificationModal);
             }
             
         }

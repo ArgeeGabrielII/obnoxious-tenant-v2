@@ -3,7 +3,7 @@ const axios = require('axios');
 // GCP: CloudFunctions - Update User Password
 exports.updateUserPassword = async (req, res) => {
   try {
-    console.log(`[LOG] userPassword: Payload: ${req.body || req.query}`);
+    console.log(`[LOG] userPassword: Payload: ${JSON.stringify(req.body || req.query)}`);
 
     // This handles PreFlight Requests
     res.set('Access-Control-Allow-Origin', '*');

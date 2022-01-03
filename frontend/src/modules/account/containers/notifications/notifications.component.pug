@@ -11,55 +11,47 @@ sbpro-dashboard-head-compact(
         a.nav-link(routerLink='/dashboard/account/files') Files
         a.nav-link(routerLink='/dashboard/account/security') Security
         a.nav-link.active(routerLink='/dashboard/account/notifications') Notifications
+        a.nav-link(routerLink='/dashboard/account/administrator') Administrator
     hr.mt-0.mb-4
     .row.gx-4
-        .col-lg-8
-            // Email notifications preferences card
+        .col-lg-12
+            // notifications preferences card
             .card.mb-4
-                .card-header Email Notifications
+                .card-header Notifications
                 .card-body
                     form
-                        // Form Group (default email)
+                        // Form Group (selection)
                         .mb-3
-                            label(for='inputNotificationEmail').small.mb-1 Default notification email
-                            input#inputNotificationEmail.form-control(type='email', value='name@example.com', disabled)
-                        // Form Group (email updates checkboxes)
+                            label.small.mb-1 Choose where to send your notification
+                            .form-check
+                                input#checkEmailNotification.form-check-input(
+                                    type='checkbox', checked
+                                )
+                                label.form-check-label(for='checkEmailNotification') Receive Email Notification
+                            .form-check
+                                input#checkSMSNotification.form-check-input(
+                                    type='checkbox', checked
+                                )
+                                label.form-check-label(for='checkSMSNotification') Receive SMS Notification
+                        // Form Group (updates checkboxes)
                         .mb-0
-                            label.small.mb-1 Choose which types of email updates you receive
+                            label.small.mb-1 Choose which types of notification updates you receive
                             .form-check
-                                input#checkAccountChanges.form-check-input(type='checkbox', checked)
+                                input#checkAccountChanges.form-check-input(
+                                    type='checkbox', checked
+                                )
                                 label.form-check-label(for='checkAccountChanges') Changes made to your account
                             .form-check
-                                input#checkPromotional.form-check-input(type='checkbox', checked)
+                                input#checkPromotional.form-check-input(
+                                    type='checkbox', 
+                                    checked
+                                )
                                 label.form-check-label(for='checkPromotional') Marketing and promotional offers
                             .form-check
-                                input#checkSecurity.form-check-input(type='checkbox', checked, disabled)
-                                label.form-check-label(for='checkSecurity') Security alerts
-            // SMS push notifications card
-            .card.mb-4
-                .card-header Push SMS Notifications
-                .card-body
-                    form
-                        // Form Group (default SMS number)
-                        .mb-3
-                            label(for='inputNotificationSms').small.mb-1 Default SMS number
-                            input#inputNotificationSms.form-control(type='tel', value='123-456-7890', disabled)
-        .col-lg-4
-            // Notifications preferences card
-            .card
-                .card-header Notification Preferences
-                .card-body
-                    form
-                        // Form Group (notification preference checkboxes)
-                        .mb-3
-                            .form-check
-                                input#checkAccountChanges.form-check-input(type='checkbox', checked)
-                                label.form-check-label(for='checkAccountChanges') Changes made to your account
-                            .form-check
-                                input#checkPromotional.form-check-input(type='checkbox', checked)
-                                label.form-check-label(for='checkPromotional') Marketing and promotional offers
-                            .form-check
-                                input#checkSecurity.form-check-input(type='checkbox', checked, disabled)
-                                label.form-check-label(for='checkSecurity') Security alerts
-                        // Submit button
-                        button.btn.btn-danger-soft.text-danger Unsubscribe from all notifications
+                                input#checkSecurity.form-check-input(
+                                    type='checkbox', 
+                                    checked, 
+                                    disabled,
+                                    data-bs-toggle='tooltip', data-bs-placement='top', title='Security Notification'
+                                )
+                                label.form-check-label(for='checkSecurity') Account security alerts

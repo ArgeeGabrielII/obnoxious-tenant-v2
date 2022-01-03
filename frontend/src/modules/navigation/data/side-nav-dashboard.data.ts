@@ -43,6 +43,10 @@ export const sideNavItems: SideNavItems = {
                 link: '/dashboard/account/notifications',
                 text: 'Notifications',
             },
+            {
+                link: '/dashboard/account/administrator',
+                text: 'Administrator',
+            },
         ],
         text: 'Account',
     },

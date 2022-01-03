@@ -6,8 +6,8 @@ build:
 	npm run docker:build
 
 local: build
-	docker stop obnoxious-tenant-container
-	docker rm obnoxious-tenant-container
+	docker stop obnoxious-tenant
+	docker rm obnoxious-tenant
 	npm run docker:run
 
 gcp_config:

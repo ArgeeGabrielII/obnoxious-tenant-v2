@@ -2,51 +2,28 @@
 ><!-- Main page content-->
 <div class="container-xl px-4 mt-4">
     <!-- Account page navigation-->
-    <nav class="nav nav-borders"><a class="nav-link" routerLink="/dashboard/account/profile">Profile</a><a class="nav-link" routerLink="/dashboard/account/files">Files</a><a class="nav-link" routerLink="/dashboard/account/security">Security</a><a class="nav-link active" routerLink="/dashboard/account/notifications">Notifications</a></nav>
+    <nav class="nav nav-borders"><a class="nav-link" routerLink="/dashboard/account/profile">Profile</a><a class="nav-link" routerLink="/dashboard/account/files">Files</a><a class="nav-link" routerLink="/dashboard/account/security">Security</a><a class="nav-link active" routerLink="/dashboard/account/notifications">Notifications</a><a class="nav-link" routerLink="/dashboard/account/administrator">Administrator</a></nav>
     <hr class="mt-0 mb-4" />
     <div class="row gx-4">
-        <div class="col-lg-8">
-            <!-- Email notifications preferences card-->
+        <div class="col-lg-12">
+            <!-- notifications preferences card-->
             <div class="card mb-4">
-                <div class="card-header">Email Notifications</div>
+                <div class="card-header">Notifications</div>
                 <div class="card-body">
                     <form>
-                        <!-- Form Group (default email)-->
-                        <div class="mb-3"><label class="small mb-1" for="inputNotificationEmail">Default notification email</label><input class="form-control" id="inputNotificationEmail" type="email" value="name@example.com" disabled /></div>
-                        <!-- Form Group (email updates checkboxes)-->
-                        <div class="mb-0">
-                            <label class="small mb-1">Choose which types of email updates you receive</label>
-                            <div class="form-check"><input class="form-check-input" id="checkAccountChanges" type="checkbox" checked /><label class="form-check-label" for="checkAccountChanges">Changes made to your account</label></div>
-                            <div class="form-check"><input class="form-check-input" id="checkPromotional" type="checkbox" checked /><label class="form-check-label" for="checkPromotional">Marketing and promotional offers</label></div>
-                            <div class="form-check"><input class="form-check-input" id="checkSecurity" type="checkbox" checked disabled /><label class="form-check-label" for="checkSecurity">Security alerts</label></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- SMS push notifications card-->
-            <div class="card mb-4">
-                <div class="card-header">Push SMS Notifications</div>
-                <div class="card-body">
-                    <form>
-                        <!-- Form Group (default SMS number)-->
-                        <div class="mb-3"><label class="small mb-1" for="inputNotificationSms">Default SMS number</label><input class="form-control" id="inputNotificationSms" type="tel" value="123-456-7890" disabled /></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <!-- Notifications preferences card-->
-            <div class="card">
-                <div class="card-header">Notification Preferences</div>
-                <div class="card-body">
-                    <form>
-                        <!-- Form Group (notification preference checkboxes)-->
+                        <!-- Form Group (selection)-->
                         <div class="mb-3">
+                            <label class="small mb-1">Choose where to send your notification</label>
+                            <div class="form-check"><input class="form-check-input" id="checkEmailNotification" type="checkbox" checked /><label class="form-check-label" for="checkEmailNotification">Receive Email Notification</label></div>
+                            <div class="form-check"><input class="form-check-input" id="checkSMSNotification" type="checkbox" checked /><label class="form-check-label" for="checkSMSNotification">Receive SMS Notification</label></div>
+                        </div>
+                        <!-- Form Group (updates checkboxes)-->
+                        <div class="mb-0">
+                            <label class="small mb-1">Choose which types of notification updates you receive</label>
                             <div class="form-check"><input class="form-check-input" id="checkAccountChanges" type="checkbox" checked /><label class="form-check-label" for="checkAccountChanges">Changes made to your account</label></div>
                             <div class="form-check"><input class="form-check-input" id="checkPromotional" type="checkbox" checked /><label class="form-check-label" for="checkPromotional">Marketing and promotional offers</label></div>
-                            <div class="form-check"><input class="form-check-input" id="checkSecurity" type="checkbox" checked disabled /><label class="form-check-label" for="checkSecurity">Security alerts</label></div>
+                            <div class="form-check"><input class="form-check-input" id="checkSecurity" type="checkbox" checked disabled data-bs-toggle="tooltip" data-bs-placement="top" title="Security Notification" /><label class="form-check-label" for="checkSecurity">Account security alerts</label></div>
                         </div>
-                        <!-- Submit button--><button class="btn btn-danger-soft text-danger">Unsubscribe from all notifications</button>
                     </form>
                 </div>
             </div>
