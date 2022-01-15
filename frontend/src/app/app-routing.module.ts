@@ -1,23 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from '../modules/auth/guards/auth.guard';
+
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/dashboard',
-    },
-    {
-        path: 'charts',
-        loadChildren: () =>
-            import('modules/charts/charts-routing.module').then((m) => m.ChartsRoutingModule),
+        redirectTo: '/auth/login',
     },
     {
         path: 'dashboard',
         loadChildren: () =>
-            import('modules/dashboard/dashboard-routing.module').then(
-                (m) => m.DashboardRoutingModule
-            ),
+            import('modules/dashboard/dashboard-routing.module').then((m) => m.DashboardRoutingModule),
     },
     {
         path: 'account',
@@ -30,33 +25,9 @@ const routes: Routes = [
             import('modules/auth/auth-routing.module').then((m) => m.AuthRoutingModule),
     },
     {
-        path: 'error',
-        loadChildren: () =>
-            import('modules/error/error-routing.module').then((m) => m.ErrorRoutingModule),
-    },
-    {
-        path: 'knowledge-base',
-        loadChildren: () =>
-            import('modules/knowledge-base/knowledge-base-routing.module').then(
-                (m) => m.KnowledgeBaseRoutingModule
-            ),
-    },
-    {
-        path: 'shop',
-        loadChildren: () =>
-            import('modules/shop/shop-routing.module').then((m) => m.ShopRoutingModule),
-    },
-    {
-        path: 'tables',
-        loadChildren: () =>
-            import('modules/tables/tables-routing.module').then((m) => m.TablesRoutingModule),
-    },
-    {
         path: 'version',
         loadChildren: () =>
-            import('modules/app-common/app-common-routing.module').then(
-                (m) => m.AppCommonRoutingModule
-            ),
+            import('modules/app-common/app-common-routing.module').then((m) => m.AppCommonRoutingModule),
     },
     {
         path: '**',

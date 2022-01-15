@@ -13,7 +13,8 @@
             [
                 "app",
                 "sb",
-                "sbpro"
+                "sbpro",
+                "ot"
             ],
             "kebab-case"
         ],
@@ -28,7 +29,8 @@
             [
                 "app",
                 "sb",
-                "sbpro"
+                "sbpro",
+                "ot"
             ],
             "camelCase"
         ],
@@ -55,7 +57,12 @@
                 ]
             }
         ],
-        "no-any": [true, { "ignore-rest-args": true }],
+        "no-any": [
+            true,
+            {
+                "ignore-rest-args": true
+            }
+        ],
         "no-angle-bracket-type-assertion": true,
         "no-conflicting-lifecycle": true,
         "no-consecutive-blank-lines": false,

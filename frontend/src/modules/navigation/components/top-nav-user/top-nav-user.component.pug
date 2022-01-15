@@ -1,5 +1,5 @@
 li.nav-item.dropdown.no-caret.me-3.me-lg-0.dropdown-user(
-    *ngIf='userService.user$ | async as user',
+    *ngIf='profileData',
     ngbDropdown,
     [placement]='placement',
     display='dynamic'
@@ -11,23 +11,23 @@ li.nav-item.dropdown.no-caret.me-3.me-lg-0.dropdown-user(
         aria-haspopup='true',
         aria-expanded='false'
     )
-        img.img-fluid([src]='user.image')
+        img.img-fluid([src]='profileData.image_path')
 
     .dropdown-menu.border-0.shadow.animated--fade-in-up(
         ngbDropdownMenu,
         aria-labelledby='dropdownUser'
     )
         h6.dropdown-header.d-flex.align-items-center
-            img.dropdown-user-img([src]='user.image')
+            img.dropdown-user-img([src]='profileData.image_path')
             .dropdown-user-details
-                .dropdown-user-details-name {{ user.firstName }} {{ user.lastName }}
-                .dropdown-user-details-email {{ user.email }}
+                .dropdown-user-details-name {{ profileData.first_name }} {{ profileData.last_name }}
+                .dropdown-user-details-email {{ profileData.email_address }}
         .dropdown-divider
-        a.dropdown-item(routerLink='/dashboard')
+        a.dropdown-item(routerLink='/dashboard/account/profile')
             .dropdown-item-icon
                 i-feather(name='settings')
-            | Account
-        a.dropdown-item(routerLink='/dashboard')
+            | Profile
+        a.dropdown-item((click)="logout()") 
             .dropdown-item-icon
                 i-feather(name='log-out')
             | Logout

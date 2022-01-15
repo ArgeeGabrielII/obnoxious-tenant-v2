@@ -11,7 +11,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY scripts/docker/start-nginx.sh /usr/share/nginx/start-nginx.sh
 
-COPY dist/sb-admin-pro-angular /usr/share/nginx/html
+COPY dist /usr/share/nginx/html
 COPY version /usr/share/nginx/html/assets/version
 
 ENTRYPOINT ["/usr/share/nginx/start-nginx.sh"]

@@ -1,19 +1,12 @@
 sbpro-dashboard-head(
     icon='activity',
     title='Dashboard',
-    description='Example dashboard overview and content summary',
-    [showDateRange]='true'
+    description='The Dashboard helps leasing managers stay on top of the complexities of tenant leasing.',
+    [showDateRange]='false'
 )
 .container-xl.px-4.mt-n10
 
-    .row.gx-4
-        .col-xxl-4.col-xl-12.mb-4
-            sbpro-dashboard-default-welcome
-        .col-xxl-4.col-xl-6.mb-4
-            sbpro-dashboard-recent-activity
-        .col-xxl-4.col-xl-6.mb-4
-            sbpro-dashboard-progress-tracker
-
-    sbpro-dashboard-colored-cards
+    sbpro-dashboard-multi-click-cards
+    sbpro-dashboard-recent-activity
     sbpro-dashboard-charts
-    sbpro-dashboard-tables
+    //- sbpro-dashboard-tables

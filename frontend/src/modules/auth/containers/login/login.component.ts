@@ -3,6 +3,9 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { UserService } from '../../services/user.service';
+import { environment } from 'environments/environment';
+
 @Component({
     selector: 'sb-login',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,26 +14,38 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class LoginComponent implements OnInit {
     @ViewChild('confirmationModal') confirmationModal!: TemplateRef<unknown>;
+    @ViewChild('notificationModal') notificationModal!: TemplateRef<unknown>;
 
     loginForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]],
-        checkbox: [false],
     });
 
-    constructor(private fb: FormBuilder, private modalService: NgbModal, private router: Router) {}
-    ngOnInit() {}
+    constructor(
+        private fb: FormBuilder, 
+        private modalService: NgbModal, 
+        private router: Router, 
+        public userService: UserService) {}
+    ngOnInit() { localStorage.clear(); }
 
-    onSubmit() {
+    async onSubmit() {
         if (this.loginForm.status === 'VALID') {
-            this.modalService.open(this.confirmationModal).result.then(
-                (result) => {
-                    if (result === 'DASHBOARD') {
-                        this.router.navigate(['/dashboard']);
-                    }
-                },
-                (reason) => {}
-            );
+            if(!environment.production) { console.log(`Login: Username: ${this.loginForm.value.email}, Password: ${this.loginForm.value.password}`); }
+            const isValid = await this.userService.getLoginData(this.loginForm.value.email, this.loginForm.value.password);
+
+            if(isValid){
+                this.modalService.open(this.confirmationModal).result.then(
+                    (result) => {
+                        if (result === 'DASHBOARD') {
+                            this.router.navigate(['/dashboard']);
+                        }
+                    },
+                    (reason) => {}
+                );
+            } else {
+                this.modalService.open(this.notificationModal);
+            }
+            
         }
 
         for (const key in this.loginForm.controls) {
@@ -39,8 +54,7 @@ export class LoginComponent implements OnInit {
         }
     }
 
-    /* Accessor Methods */
-
+    //#region Accessor Methods
     get emailControl() {
         return this.loginForm.get('email') as FormControl;
     }
@@ -71,4 +85,5 @@ export class LoginComponent implements OnInit {
                 this.passwordControl.hasError('minlength'))
         );
     }
+    //#endregion
 }

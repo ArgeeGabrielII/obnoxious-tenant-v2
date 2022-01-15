@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { UserService } from '@modules/auth/services';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'sbpro-top-nav-user',
@@ -10,6 +10,15 @@ import { UserService } from '@modules/auth/services';
 export class TopNavUserComponent implements OnInit {
     @Input() placement = 'bottom-end';
     dropdownClasses: string[] = [];
-    constructor(public userService: UserService) {}
+    constructor(private router: Router) {}
+
+    profileData = JSON.parse(localStorage.getItem('_ld') || '');
+
     ngOnInit() {}
+
+    logout(){
+        console.log(`logout`);
+        localStorage.clear();
+        this.router.navigate(['/auth/login']);
+    }
 }

@@ -1,4 +1,4 @@
-# SB Admin Pro Angular
+# Obnoxious Tenant
 
 See full documentation at <https://docs.startbootstrap.com/sb-admin-pro-angular>
 

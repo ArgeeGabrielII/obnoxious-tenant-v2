@@ -1,16 +1,19 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
     production: false,
-};
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+    baseFileUrl: `https://storage.googleapis.com/obnoxious-tenant-gcp-bucket/`,
+
+    getLoginDetails: `https://asia-east2-crested-display-322005.cloudfunctions.net/checkLogin`,
+    getUserToken: `https://asia-east2-crested-display-322005.cloudfunctions.net/generateToken`,
+    crypt: `https://asia-east2-crested-display-322005.cloudfunctions.net/crypto`,
+
+    getMasterList: `https://asia-east2-crested-display-322005.cloudfunctions.net/getMasterList`,
+    fileUpload: `https://asia-east2-crested-display-322005.cloudfunctions.net/fileUpload`,
+    getUserAccountDetails: `https://asia-east2-crested-display-322005.cloudfunctions.net/getUserAccountDetails`,
+    getUserAccountIdentificationList: `https://asia-east2-crested-display-322005.cloudfunctions.net/getUserAccountIdentificationList`,
+    insertUserAccountDetails: `https://asia-east2-crested-display-322005.cloudfunctions.net/insertUserAccountDetails`,
+    insertUserAccountIdentificationList: `https://asia-east2-crested-display-322005.cloudfunctions.net/insertUserAccountIdentificationFile`,
+    updateUserAccountDetails: `https://asia-east2-crested-display-322005.cloudfunctions.net/updateUserAccountDetails`,
+    updateUserAccountProfileImage: `https://asia-east2-crested-display-322005.cloudfunctions.net/updateUserAccountProfileImage`,
+    updateUserAccountPassword: `https://asia-east2-crested-display-322005.cloudfunctions.net/updateUserPassword`,
+};

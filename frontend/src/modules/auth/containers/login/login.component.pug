@@ -38,16 +38,6 @@ sb-layout-auth
                                 .invalid-feedback(*ngIf='passwordControl.hasError("minlength")')
                                     | Password must be at least 8 characters.
 
-                            .mb-3
-                                .form-check
-                                    input#rememberPasswordCheck.form-check-input(
-                                        data-cy='rememberPasswordCheck',
-                                        type='checkbox',
-                                        formControlName='checkbox'
-                                    )
-                                    label.form-check-label(for='rememberPasswordCheck')
-                                        | Remember password
-
                             .d-flex.align-items-center.justify-content-between.mt-4
                                 a.small(routerLink='/auth/forgot-password') Forgot Password?
                                 button.btn.btn-primary(
@@ -62,7 +52,7 @@ sb-layout-auth
 
 ng-template(#confirmationModal, let-modal)
     .modal-header
-        h5.modal-title Login Form Data
+        h5.modal-title Login
         button.btn-close(
             type='button',
             aria-label='Close',
@@ -70,19 +60,26 @@ ng-template(#confirmationModal, let-modal)
         )
             span(aria-hidden='true') ×
     .modal-body.
-        Wired up and ready to go. Just add a backend.
-        <br><br>
-        email: <code>{{loginForm.value.email}}</code>
-        <br>
-        password: <code>{{loginForm.value.password}}</code>
-        <br>
-        remember password: <code>{{loginForm.value.checkbox}}</code>
+        Login Successful!
     .modal-footer
-        button.btn.btn-secondary(
-            type='button',
-            (click)='modal.close()'
-        ) Close
         button.btn.btn-primary(
             type='button',
             (click)='modal.close("DASHBOARD")'
-        ) Proceed back to Dashboard
+        ) OK
+
+ng-template(#notificationModal, let-modal)
+    .modal-header
+        h5.modal-title Login
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Email Address and Password is not valid.
+    .modal-footer
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close()'
+        ) OK

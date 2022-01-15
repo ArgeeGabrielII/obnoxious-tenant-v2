@@ -21,7 +21,7 @@ export class AppComponent {
                 while (snapshot.firstChild !== null) {
                     snapshot = snapshot.firstChild;
                 }
-                this.titleService.setTitle(snapshot.data.title || 'SB Admin Pro Angular');
+                this.titleService.setTitle(snapshot.data.title || 'Obnoxious Tenant');
             });
     }
 }

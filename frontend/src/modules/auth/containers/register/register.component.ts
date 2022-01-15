@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { UserService } from '../../services/user.service';
+
 @Component({
     selector: 'sb-register',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,28 +16,41 @@ export class RegisterComponent implements OnInit {
 
     registerForm = this.fb.group(
         {
-            firstName: ['', [Validators.required]],
-            lastName: ['', [Validators.required]],
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(8)]],
+            first_name: ['', [Validators.required]],
+            last_name: ['', [Validators.required]],
+            email_address: ['', [Validators.required, Validators.email]],
+            username: ['', [Validators.required]],
+            password: ['', [Validators.required, Validators.minLength(12)]],
             confirmPassword: ['', [Validators.required]],
         },
         { validator: this._checkPasswords }
     );
 
-    constructor(private fb: FormBuilder, private modalService: NgbModal, private router: Router) {}
+    constructor(private fb: FormBuilder, private modalService: NgbModal, private router: Router, public userService: UserService) {}
     ngOnInit() {}
 
-    onSubmit() {
+    async onSubmit() {
         if (this.registerForm.status === 'VALID') {
-            this.modalService.open(this.confirmationModal).result.then(
-                (result) => {
-                    if (result === 'DASHBOARD') {
-                        this.router.navigate(['/dashboard']);
-                    }
-                },
-                (reason) => {}
+
+            let data: any = await this.userService.insertUserProfile(
+                this.registerForm.value.first_name,
+                this.registerForm.value.last_name,
+                this.registerForm.value.email_address,
+                this.registerForm.value.username,
+                this.registerForm.value.password
             );
+
+            // {msg: 'User Profile Successfully Inserted', id: response.returning[0].id}
+            if(data.msg === 'User Profile Successfully Inserted') {
+                this.modalService.open(this.confirmationModal).result.then(
+                    (result) => {
+                        if (result === 'LOGIN') {
+                            this.router.navigate(['/auth/login']);
+                        }
+                    },
+                    (reason) => {}
+                );
+            }
         }
         for (const key in this.registerForm.controls) {
             const control = this.registerForm.controls[key];
@@ -50,46 +65,65 @@ export class RegisterComponent implements OnInit {
         return pass === confirmPass ? null : { passwordMismatch: true };
     }
 
-    /* Accessor Methods */
-
-    get firstNameControl() {
-        return this.registerForm.get('firstName') as FormControl;
+    //#region Accessor Methods
+    get first_nameControl() {
+        return this.registerForm.get('first_name') as FormControl;
     }
 
-    get firstNameControlValid() {
-        return this.firstNameControl.touched && !this.firstNameControlInvalid;
+    get first_nameControlValid() {
+        return this.first_nameControl.touched && !this.first_nameControlInvalid;
     }
 
-    get firstNameControlInvalid() {
-        return this.firstNameControl.touched && this.firstNameControl.hasError('required');
+    get first_nameControlInvalid() {
+        return this.first_nameControl.touched && this.first_nameControl.hasError('required');
     }
 
-    get lastNameControl() {
-        return this.registerForm.get('lastName') as FormControl;
+
+
+    get last_nameControl() {
+        return this.registerForm.get('last_name') as FormControl;
     }
 
-    get lastNameControlValid() {
-        return this.lastNameControl.touched && !this.lastNameControlInvalid;
+    get last_nameControlValid() {
+        return this.last_nameControl.touched && !this.last_nameControlInvalid;
     }
 
-    get lastNameControlInvalid() {
-        return this.lastNameControl.touched && this.lastNameControl.hasError('required');
+    get last_nameControlInvalid() {
+        return this.last_nameControl.touched && this.last_nameControl.hasError('required');
     }
 
-    get emailControl() {
-        return this.registerForm.get('email') as FormControl;
+
+
+    get email_addressControl() {
+        return this.registerForm.get('email_address') as FormControl;
     }
 
-    get emailControlValid() {
-        return this.emailControl.touched && !this.emailControlInvalid;
+    get email_addressControlValid() {
+        return this.email_addressControl.touched && !this.email_addressControlInvalid;
     }
 
-    get emailControlInvalid() {
+    get email_addressControlInvalid() {
         return (
-            this.emailControl.touched &&
-            (this.emailControl.hasError('required') || this.emailControl.hasError('email'))
+            this.email_addressControl.touched &&
+            (this.email_addressControl.hasError('required') || this.email_addressControl.hasError('email'))
         );
     }
+
+
+
+    get usernameControl() {
+        return this.registerForm.get('username') as FormControl;
+    }
+
+    get usernameControlValid() {
+        return this.usernameControl.touched && !this.usernameControlInvalid;
+    }
+
+    get usernameControlInvalid() {
+        return this.usernameControl.touched && this.usernameControl.hasError('required');
+    }
+
+
 
     get passwordControl() {
         return this.registerForm.get('password') as FormControl;
@@ -107,6 +141,7 @@ export class RegisterComponent implements OnInit {
         );
     }
 
+
     get confirmPasswordControl() {
         return this.registerForm.get('confirmPassword') as FormControl;
     }
@@ -123,4 +158,5 @@ export class RegisterComponent implements OnInit {
                 this.registerForm.hasError('passwordMismatch'))
         );
     }
+    //#endregion
 }

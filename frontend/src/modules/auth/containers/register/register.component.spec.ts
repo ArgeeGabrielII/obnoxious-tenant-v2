@@ -59,9 +59,10 @@ describe('RegisterComponent', () => {
     it('should submit if valid', () => {
         spyOn(router, 'navigate');
         spyOn(modalService, 'open').and.callThrough();
-        component.firstNameControl.setValue('Testy');
-        component.lastNameControl.setValue('McTestface');
-        component.emailControl.setValue('test@test.com');
+        component.usernameControl.setValue('UsernameSample1');
+        component.first_nameControl.setValue('McTestFirst');
+        component.last_nameControl.setValue('McTestLast');
+        component.email_addressControl.setValue('test@test.com');
         component.passwordControl.setValue('1234567890');
         component.confirmPasswordControl.setValue('1234567890');
         component.onSubmit();
@@ -80,38 +81,38 @@ describe('RegisterComponent', () => {
         expect(modalService.open).not.toHaveBeenCalled();
     });
     it('should return firstNameControlValid', () => {
-        expect(component.firstNameControlValid).toBe(false);
+        expect(component.first_nameControlValid).toBe(false);
 
-        component.firstNameControl.markAsTouched();
-        component.firstNameControl.setValue('Testy');
-        expect(component.firstNameControlValid).toBe(true);
+        component.first_nameControl.markAsTouched();
+        component.first_nameControl.setValue('Testy');
+        expect(component.first_nameControlValid).toBe(true);
     });
     it('should return firstNameControlInvalid', () => {
-        component.firstNameControl.markAsTouched();
-        expect(component.firstNameControlInvalid).toBe(true);
+        component.first_nameControl.markAsTouched();
+        expect(component.first_nameControlInvalid).toBe(true);
     });
     it('should return lastNameControlValid', () => {
-        expect(component.lastNameControlValid).toBe(false);
+        expect(component.last_nameControlValid).toBe(false);
 
-        component.lastNameControl.markAsTouched();
-        component.lastNameControl.setValue('McTestface');
-        expect(component.lastNameControlValid).toBe(true);
+        component.last_nameControl.markAsTouched();
+        component.last_nameControl.setValue('McTestface');
+        expect(component.last_nameControlValid).toBe(true);
     });
     it('should return lastNameControlInvalid', () => {
-        component.lastNameControl.markAsTouched();
-        expect(component.lastNameControlInvalid).toBe(true);
+        component.last_nameControl.markAsTouched();
+        expect(component.last_nameControlInvalid).toBe(true);
     });
     it('should return emailControlValid', () => {
-        expect(component.emailControlValid).toBe(false);
+        expect(component.email_addressControlValid).toBe(false);
 
-        component.emailControl.markAsTouched();
-        component.emailControl.setValue('test@test.com');
-        expect(component.emailControlValid).toBe(true);
+        component.email_addressControl.markAsTouched();
+        component.email_addressControl.setValue('test@test.com');
+        expect(component.email_addressControlValid).toBe(true);
     });
     it('should return emailControlInvalid', () => {
-        component.emailControl.markAsTouched();
-        component.emailControl.setValue('bademail');
-        expect(component.emailControlInvalid).toBe(true);
+        component.email_addressControl.markAsTouched();
+        component.email_addressControl.setValue('bademail');
+        expect(component.email_addressControlInvalid).toBe(true);
     });
     it('should return passwordControlValid', () => {
         expect(component.passwordControlValid).toBe(false);

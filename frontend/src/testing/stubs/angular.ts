@@ -13,6 +13,7 @@ import {
     RouterEvent,
     Scroll,
 } from '@angular/router';
+import { environment } from 'environments/environment';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
 /**
@@ -64,6 +65,6 @@ export class RouterStub {
 
 export const ChangeDetectorRefStub = {
     detectChanges: () => {
-        console.log('asd');
+        if(!environment.production) { console.log(`AngularTS: Change Detected`); }
     },
 };

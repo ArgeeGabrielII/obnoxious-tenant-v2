@@ -7,66 +7,238 @@ sbpro-dashboard-head-compact(
 .container-xl.px-4.mt-4
     // Account page navigation
     nav.nav.nav-borders
-        a.nav-link.active.ms-0(routerLink='/dashboard/account/profile') Profile
-        a.nav-link(routerLink='/dashboard/account/billing') Billing
+        a.nav-link.active(routerLink='/dashboard/account/profile') Profile
+        a.nav-link(routerLink='/dashboard/account/files') Files
         a.nav-link(routerLink='/dashboard/account/security') Security
         a.nav-link(routerLink='/dashboard/account/notifications') Notifications
+        a.nav-link(routerLink='/dashboard/account/administrator') Administrator
     hr.mt-0.mb-4
     .row.gx-4
+        
         .col-xl-4
             // Profile picture card
-            .card
+            .card.mb-4
                 .card-header Profile Picture
                 .card-body.text-center
-                    // Profile picture image
-                    img.img-account-profile.rounded-circle.mb-2(src='assets/img/illustrations/profiles/profile-1.png', alt='')
-                    // Profile picture help block
-                    .small.font-italic.text-muted.mb-4 JPG or PNG no larger than 5 MB
-                    // Profile picture upload button
-                    button.btn.btn-primary(type='button') Upload new image
+                    form((ngSubmit)="imageSubmit()")
+                        // Profile picture image
+                        img.img-account-profile.rounded-circle.mb-2([src]='this.profileData.image_path', alt='') 
+                        // Profile picture help block
+                        .small.font-italic.text-muted.mb-4 JPG no larger than 5 MB
+                        // Profile picture upload button
+                        input#profile_picture.form-control(
+                            type='file', 
+                            name='profile_picture', 
+                            (change)="onFileSelect($event)")
+                        br
+                        button.btn.btn-primary(type='submit') Upload
+
+            //- //- // Profile picture card
+            //- //- .card.mb-4
+            //- //-     .card-header Account Tier
+            //- //-     .card-body.text-center
+            //- //-         //- img.img-account-profile.rounded-circle.mb-2([src]='this.account.tier_list.image_path', alt='') 
+            //- //-         p {{ this.account.tier_list.tier }}
+            //- //-         p {{ this.account.tier_list.description }}
+
         .col-xl-8
             // Account details card
             .card.mb-4
                 .card-header Account Details
                 .card-body
-                    form
-                        // Form Group (username)
-                        .mb-3
-                            label.small.mb-1(for='inputUsername') Username (how your name will appear to other users on the site)
-                            input#inputUsername.form-control(type='text', placeholder='Enter your username', value='username')
+                    form([formGroup]='accountDetails', (ngSubmit)='onSubmit()')
+
+                        .row
+                            // Form Group (username)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputUsername') Username 
+                                input#inputUsername.form-control(
+                                    type='text',
+                                    placeholder='Username',
+                                    formControlName='username'
+                                )
+                            // Form Group (tier)
+                            .mb-3.col-md-6(formGroupName='tier_list')
+                                label.small.mb-1(for='inputTier') Tier 
+                                input#inputTier.form-control(
+                                    type='text',
+                                    placeholder='Tier',
+                                    formControlName='tier'
+                                )
+                            
                         // Form Row
                         .row
-                            // Form Group (first name)
+                            // Form Group (First Name)
                             .mb-3.col-md-6
-                                label.small.mb-1(for='inputFirstName') First name
-                                input#inputFirstName.form-control(type='text', placeholder='Enter your first name', value='Valerie')
-                            // Form Group (last name)
+                                label.small.mb-1(for='inputfirstname') First Name
+                                input#inputfirstname.form-control(
+                                    type='text', 
+                                    placeholder='First Name', 
+                                    formControlName='first_name',
+                                    [class.is-valid]='firstnameControlValid',
+                                    [class.is-invalid]='firstnameControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='firstnameControl.hasError("required")')
+                                    | First Name Required
+                            // Form Group (Last Name)
                             .mb-3.col-md-6
-                                label.small.mb-1(for='inputLastName') Last name
-                                input#inputLastName.form-control(type='text', placeholder='Enter your last name', value='Luna')
-                        // Form Row        
-                        .row
-                            // Form Group (organization name)
-                            .mb-3.col-md-6
-                                label.small.mb-1(for='inputOrgName') Organization name
-                                input#inputOrgName.form-control(type='text', placeholder='Enter your organization name', value='Start Bootstrap')
-                            // Form Group (location)
-                            .mb-3.col-md-6
-                                label.small.mb-1(for='inputLocation') Location
-                                input#inputLocation.form-control(type='text', placeholder='Enter your location', value='San Francisco, CA')
-                        // Form Group (email address)
-                        .mb-3
-                            label.small.mb-1(for='inputEmailAddress') Email address
-                            input#inputEmailAddress.form-control(type='email', placeholder='Enter your email address', value='name@example.com')
+                                label.small.mb-1(for='inputlastname') Last Name 
+                                input#inputlastname.form-control(
+                                    type='text', 
+                                    placeholder='Last Name', 
+                                    formControlName='last_name',
+                                    [class.is-valid]='lastnameControlValid',
+                                    [class.is-invalid]='lastnameControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='lastnameControl.hasError("required")')
+                                    | Last Name Required
+                        
                         // Form Row
                         .row
-                            // Form Group (phone number)
+                            // Form Group (Email Address)
                             .mb-3.col-md-6
-                                label.small.mb-1(for='inputPhone') Phone number
-                                input#inputPhone.form-control(type='tel', placeholder='Enter your phone number', value='555-123-4567')
-                            // Form Group (birthday)
+                                label.small.mb-1(for='inputemailaddress') Email Address 
+                                input#inputemailaddress.form-control(
+                                    type='email', 
+                                    placeholder='Email Address', 
+                                    formControlName='email_address'
+                                )
+                            // Form Group (date of birth)
                             .mb-3.col-md-6
-                                label.small.mb-1(for='inputBirthday') Birthday
-                                input#inputBirthday.form-control(type='text', name='birthday', placeholder='Enter your birthday', value='06/10/1988')
+                                label.small.mb-1(for='inputDateOfBirth') Date of Birth
+                                input#inputDateOfBirth.form-control(
+                                    type='date', 
+                                    placeholder='Date of Birth', 
+                                    formControlName='date_of_birth',
+                                    [class.is-valid]='dateofbirthControlValid',
+                                    [class.is-invalid]='dateofbirthControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='dateofbirthControl.hasError("required")')
+                                    | Date of Birth Required
+                        
+                        // Form Row
+                        .row
+                            // Form Group (contact number)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputContactNumber') Contact Number
+                                input#inputContactNumber.form-control(
+                                    type='text', 
+                                    placeholder='Contact Number', 
+                                    formControlName='contact_number',
+                                    [class.is-valid]='contactnumberControlValid',
+                                    [class.is-invalid]='contactnumberControlInvalid'
+                                )
+                                .invalid-feedback(*ngIf='contactnumberControl.hasError("required")')
+                                    | Contact Number Required
+                            // Form Group (gender)
+                            .mb-3.col-md-6 
+                                label.small.mb-1(for='inputGender') Gender
+                                select#inputCountry.form-control(
+                                    placeholder='Gender', 
+                                    formControlName='gender',
+                                    [class.is-valid]='genderControlValid',
+                                    [class.is-invalid]='genderControlInvalid'
+                                )
+                                    option(value='') Select
+                                    option(value='male') Male
+                                    option(value='female') Female
+                                .invalid-feedback(*ngIf='genderControl.hasError("required")')
+                                    | Gender Required
+                        
+                        // Form Group (address 1)
+                        .mb-3
+                            label.small.mb-1(for='inputAddress1') Address 1 
+                            input#inputAddress1.form-control(
+                                type='text', 
+                                placeholder='Address 1', 
+                                formControlName='address_1',
+                                [class.is-valid]='address1ControlValid',
+                                [class.is-invalid]='address1ControlInvalid'
+                            )
+                            .invalid-feedback(*ngIf='address1Control.hasError("required")')
+                                | Address Required
+                        
+                        // Form Group (address 2)
+                        .mb-3
+                            label.small.mb-1(for='inputAddress2') Address 2 
+                            input#inputAddress2.form-control(
+                                type='text', 
+                                placeholder='Address 2', 
+                                formControlName='address_2'
+                            )
+                        
+                        // Form Row
+                        .row
+                            // Form Group (country)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputCountry') Country 
+                                select#inputCountry.form-control(
+                                    formControlName='country_name',
+                                    [class.is-valid]='countrynameControlValid',
+                                    [class.is-invalid]='countrynameControlInvalid'
+                                )
+                                    option(value='') Select
+                                    option(*ngFor='let cList of country_list', value='{{ cList.iso_code }}') {{ cList.country_name }}
+                                .invalid-feedback(*ngIf='countrynameControl.hasError("required")')
+                                    | Country Required
+                            // Form Group (nationality)
+                            .mb-3.col-md-6
+                                label.small.mb-1(for='inputNationality') Nationality 
+                                input#inputNationality.form-control(
+                                    type='text', 
+                                    placeholder='Nationality', 
+                                    formControlName='nationality',
+                                    [class.is-valid]='nationalityControlValid',
+                                    [class.is-invalid]='nationalityControlInvalid'
+                                )
+                                
                         // Save changes button
-                        button.btn.btn-primary(type='button') Save changes
+                        button.btn.btn-primary(
+                            data-cy='accountDetailsButton',
+                            type='submit',
+                            [disabled]='accountDetails.invalid'
+                        ) Submit
+
+
+ng-template(#confirmationModal, let-modal)
+    .modal-header
+        h5.modal-title Profile Data - Save Confirmation
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Are you sure you want to save the following details?
+        <br><br>
+        First Name: <code>{{accountDetails.value.first_name}}</code><br />
+        Last Name: <code>{{accountDetails.value.last_name}}</code><br />
+        Date of Birth: <code>{{accountDetails.value.date_of_birth}}</code><br />
+        Contact Number: <code>{{accountDetails.value.contact_number}}</code><br />
+        Gender: <code>{{accountDetails.value.gender}}</code><br />
+        Address 1: <code>{{accountDetails.value.address_1}}</code><br />
+        Address 2: <code>{{accountDetails.value.address_2}}</code><br />
+        Country: <code>{{accountDetails.value.country_code}}</code><br />
+        Nationality: <code>{{accountDetails.value.nationality}}</code><br />
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close("CANCEL")'
+        ) Cancel
+        button.btn.btn-primary(
+            type='button',
+            (click)='modal.close("SAVE")'
+        ) Save Changes
+
+ng-template(#notificationModal, let-modal)
+    .modal-header
+        h5.modal-title Profile Data
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        Account Details has been successfully saved!

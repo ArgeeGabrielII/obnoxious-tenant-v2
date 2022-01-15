@@ -24,7 +24,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.LoginComponent,
         data: {
-            title: 'Login - SB Admin Pro Angular',
+            title: 'Login - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -32,7 +32,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.RegisterComponent,
         data: {
-            title: 'Register - SB Admin Pro Angular',
+            title: 'Register - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -40,31 +40,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.ForgotPasswordComponent,
         data: {
-            title: 'Forgot Password - SB Admin Pro Angular',
-        } as SBRouteData,
-    },
-    {
-        path: 'login-social',
-        canActivate: [],
-        component: authContainers.LoginSocialComponent,
-        data: {
-            title: 'Login Social - SB Admin Pro Angular',
-        } as SBRouteData,
-    },
-    {
-        path: 'register-social',
-        canActivate: [],
-        component: authContainers.RegisterSocialComponent,
-        data: {
-            title: 'Register Social - SB Admin Pro Angular',
-        } as SBRouteData,
-    },
-    {
-        path: 'forgot-password-social',
-        canActivate: [],
-        component: authContainers.ForgotPasswordSocialComponent,
-        data: {
-            title: 'Forgot Password Social - SB Admin Pro Angular',
+            title: 'Forgot Password - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -72,7 +48,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.MultiTenantSelectComponent,
         data: {
-            title: 'Multi-Tenant Select - SB Admin Pro Angular',
+            title: 'Multi-Tenant Select - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -80,7 +56,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.MultiTenantAddUsersComponent,
         data: {
-            title: 'Multi-Tenant Add Users - SB Admin Pro Angular',
+            title: 'Multi-Tenant Add Users - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -88,7 +64,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.OrgCreateComponent,
         data: {
-            title: 'Org Create - SB Admin Pro Angular',
+            title: 'Org Create - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -96,7 +72,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.OrgJoinComponent,
         data: {
-            title: 'Org Join - SB Admin Pro Angular',
+            title: 'Org Join - Obnoxious Tenant',
         } as SBRouteData,
     },
 ];

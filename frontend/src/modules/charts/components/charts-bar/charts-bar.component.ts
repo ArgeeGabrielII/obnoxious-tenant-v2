@@ -83,11 +83,11 @@ export class ChartsBarComponent implements OnInit, AfterViewInit, OnChanges {
                                 // max: 15000,
                                 maxTicksLimit: 5,
                                 padding: 10,
-                                // Include a dollar sign in the ticks
+                                // Include a philippine peso sign in the ticks
                                 callback: (value, index, values) => {
                                     return value.toLocaleString('en-US', {
                                         style: 'currency',
-                                        currency: 'USD',
+                                        currency: 'PHP',
                                         minimumFractionDigits: 0,
                                     });
                                 },
@@ -129,7 +129,7 @@ export class ChartsBarComponent implements OnInit, AfterViewInit, OnChanges {
                                 ': ' +
                                 (tooltipItem.yLabel as number).toLocaleString('en-US', {
                                     style: 'currency',
-                                    currency: 'USD',
+                                    currency: 'PHP',
                                     minimumFractionDigits: 0,
                                 })
                             );

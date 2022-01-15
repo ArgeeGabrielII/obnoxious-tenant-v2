@@ -1,0 +1,55 @@
+sbpro-dashboard-head-compact(
+    title='Account Settings - Files',
+    icon='user'
+)
+
+// Main page content
+.container-xl.px-4.mt-4
+    // Account page navigation
+    nav.nav.nav-borders
+        a.nav-link(routerLink='/dashboard/account/profile') Profile
+        a.nav-link.active(routerLink='/dashboard/account/files') Files
+        a.nav-link(routerLink='/dashboard/account/security') Security
+        a.nav-link(routerLink='/dashboard/account/notifications') Notifications
+        a.nav-link(routerLink='/dashboard/account/administrator') Administrator
+    hr.mt-0.mb-4
+    .row.gx-4
+        .col-lg-8
+            // Identification File Directory Card
+            .card.mb-4
+                .card-header Identification File Directory
+                .card-body
+                    file-upload-table([pageSize]='4')
+
+        .col-lg-4
+            // File Upload Card
+            .card.mb-4
+                .card-header File Upload
+                .card-body.text-center
+                    form((ngSubmit)="imageSubmit()")
+                        select#inputCountry.form-control(name='selected_file_type', [(ngModel)]='this.selected_file_type')
+                            option(value='') File Type
+                            option(*ngFor='let flList of file_type_list', value='{{ flList.id }}') {{ flList.identification_name }}
+                        br
+                        // File upload button
+                        input#document.form-control(type='file', name='document', (change)='onFileSelect($event)')
+                        // File help block
+                        .small.font-italic.text-muted.mb-4 PNG no larger than 5 MB
+                        button.btn.btn-primary(type='submit') Upload
+
+ng-template(#notificationModal, let-modal)
+    .modal-header
+        h5.modal-title File Upload - Warning!
+        button.btn-close(
+            type='button',
+            aria-label='Close',
+            (click)='modal.dismiss("Cross click")'
+        )
+            span(aria-hidden='true') ×
+    .modal-body.
+        {{ notifMessage }}
+    .modal-footer
+        button.btn.btn-secondary(
+            type='button',
+            (click)='modal.close()'
+        ) Ok

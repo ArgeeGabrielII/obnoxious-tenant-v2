@@ -24,7 +24,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: errorContainers.Error400Component,
         data: {
-            title: 'Error 400 - SB Admin Pro Angular',
+            title: 'Error 400 - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -32,7 +32,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: errorContainers.Error401Component,
         data: {
-            title: 'Error 401 - SB Admin Pro Angular',
+            title: 'Error 401 - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -40,7 +40,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: errorContainers.Error403Component,
         data: {
-            title: 'Error 403 - SB Admin Pro Angular',
+            title: 'Error 403 - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -48,7 +48,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: errorContainers.Error4041Component,
         data: {
-            title: 'Error 404 - SB Admin Pro Angular',
+            title: 'Error 404 - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -56,7 +56,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: errorContainers.Error4042Component,
         data: {
-            title: 'Error 404 - SB Admin Pro Angular',
+            title: 'Error 404 - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -64,7 +64,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: errorContainers.Error500Component,
         data: {
-            title: 'Error 500 - SB Admin Pro Angular',
+            title: 'Error 500 - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -72,7 +72,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: errorContainers.Error503Component,
         data: {
-            title: 'Error 503 - SB Admin Pro Angular',
+            title: 'Error 503 - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
@@ -80,7 +80,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: errorContainers.Error504Component,
         data: {
-            title: 'Error 504 - SB Admin Pro Angular',
+            title: 'Error 504 - Obnoxious Tenant',
         } as SBRouteData,
     },
     {
