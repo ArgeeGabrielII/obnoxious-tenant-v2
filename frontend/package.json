@@ -107,7 +107,7 @@
         "pug-lint": "2.6.0",
         "secure-web-storage": "^1.0.2",
         "serve": "12.0.0",
-        "shelljs": "0.8.4",
+        "shelljs": "0.8.5",
         "ts-loader": "9.2.3",
         "ts-node": "10.0.0",
         "tslint": "6.1.3",
