@@ -48,7 +48,7 @@
         "angular-feather": "6.1.0",
         "axios": "^0.21.2",
         "change-case": "4.1.2",
-        "chart.js": "2.9.3",
+        "chart.js": "2.9.4",
         "copy-to-clipboard": "3.3.1",
         "cross-env": "7.0.3",
         "date-fns": "2.22.1",
