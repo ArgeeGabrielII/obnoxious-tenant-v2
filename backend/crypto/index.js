@@ -25,12 +25,12 @@ exports.crypto = async (req, res) => {
         const ciphertext = CryptoJS.AES.encrypt(input_data, KEY).toString();
         console.log(`{data: ${ciphertext}}`);
         res.status(200).send({data: ciphertext});
-      } else if(type_data === 'D') {
-        // Decrypt
-        const bytes  = CryptoJS.AES.decrypt(input_data, KEY);
-        const deciphertext = bytes.toString(CryptoJS.enc.Utf8);
-        res.status(200).send({data: deciphertext});
       }
+
+      // Decrypt
+      const bytes  = CryptoJS.AES.decrypt(input_data, KEY);
+      const deciphertext = bytes.toString(CryptoJS.enc.Utf8);
+      res.status(200).send({data: deciphertext});
     }
   } catch (e) {
     const errorMsg = { status: 500, message: 'Error: ' + e }

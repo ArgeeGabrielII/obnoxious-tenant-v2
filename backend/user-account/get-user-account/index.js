@@ -17,33 +17,36 @@ exports.getUserAccountDetails = async (req, res) => {
     };
 
     const q = `
-    query getUserAccountDetails {
-      obnoxious_tenant_user_account(where: {id: {_eq: ${id}}, active: {_eq: true}}) {
-        id
-        username
-        first_name
-        last_name
-        email_address
-        date_of_birth
-        contact_number
-        gender
-        address_1
-        address_2
-        country_code
-        nationality
-        image_path
-        tier_list {
+      query getUserAccountDetails {
+        skilled_worker_user_account(
+          where: {
+            id: {_eq: ${id}}, 
+            isActive: {_eq: true}}) {
           id
-          tier
-          description
+          first_name
+          last_name
+          email_address
+          username
+          date_of_birth
+          contact_number
+          gender
+          address_1
+          address_2
+          country_code
+          nationality
           image_path
-        }
-        role_list {
-          id
-          roles
+          tier_list {
+            id
+            tier
+            description
+            tier_image_path
+          }
+          role_list {
+            id
+            roles
+          }
         }
       }
-    }
     `;
 
     const axRes = await axios.post(process.env.GRAPHQL_ENDPOINT, { query: q }, { headers: h });

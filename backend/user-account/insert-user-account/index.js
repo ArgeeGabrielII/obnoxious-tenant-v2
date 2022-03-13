@@ -29,27 +29,50 @@ exports.insertUserAccountDetails = async (req, res) => {
       };
 
       const q = `
-      mutation insertUserAccountDetails {
-        insert_obnoxious_tenant_user_account(
-          objects: {
-            first_name: "${first_name}", 
-            last_name: "${last_name}", 
-            email_address: "${email_address}",
-            username: "${username}", 
-            password: "${password}"}) {
-          returning {
-            id
+        mutation insertUserAccountDetails {
+          insert_skilled_worker_user_account(
+            objects: {
+              first_name: "${first_name}", 
+              last_name: "${last_name}", 
+              email_address: "${email_address}", 
+              username: "${username}"}) {
+            returning {
+              id
+            }
+            affected_rows
           }
-          affected_rows
         }
-      }
       `;
 
+      // Save User Account Data
       const axRes = await axios.post(process.env.GRAPHQL_ENDPOINT, { query: q }, { headers: h });
-      const response = axRes.data.data.insert_obnoxious_tenant_user_account;
+      const response = axRes.data.data.insert_skilled_worker_user_account;
+      console.log(`[LOG] Skilled Worker User Account Response: ${response}`);
+
+      // Encrypt Password
+      const encryptData = await axios.post(process.env.CRYPT, { input_data: password, type_data: "E" });
+      console.log(`decryptData: ${JSON.stringify(encryptData.data)}`);
       
       if(response.affected_rows === 1) {
-        res.status(200).send({msg: 'User Profile Successfully Inserted', id: response.returning[0].id});
+        const query = `
+          mutation insertUserAccountAuthenticationnDetails {
+            insert_skilled_worker_user_authentication(
+              objects: {
+                user_id: ${response.returning[0].id}, 
+                password: "${encryptData.data.data}"}) {
+              returning {
+                id
+              }
+              affected_rows
+            }
+          }
+        `;
+
+        // Save User Account Authentication Data
+        await axios.post(process.env.GRAPHQL_ENDPOINT, { query: query }, { headers: h });
+
+        console.log(`[RETURN] {msg: 'User Account Successfully Inserted', id: ${response.returning[0].id}}`);
+        res.status(200).send({msg: 'User Account Successfully Inserted', id: response.returning[0].id});
       }
     }
 

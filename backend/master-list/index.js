@@ -16,12 +16,12 @@ exports.getMasterList = async (req, res) => {
       console.log(`[LOG] getMasterList`);
       const gQL_MasterList = `
         query getMasterList {
-          obnoxious_tenant_country_list {
+          skilled_worker_country_list {
             country_name
             iso_code
             country_code
           }
-          obnoxious_tenant_identification_list {
+          skilled_worker_identification_list {
             id
             id_code
             identification_name
