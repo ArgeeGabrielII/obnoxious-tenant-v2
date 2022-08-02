@@ -21,7 +21,7 @@
     "@google-cloud/debug-agent": "^5.2.7",
     "axios": "^0.21.2",
     "escape-html": "^1.0.3",
-    "moment": "^2.29.1"
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.9.0"
