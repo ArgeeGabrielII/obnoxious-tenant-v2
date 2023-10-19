@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@google-cloud/debug-agent": "^5.2.7",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.9.0"
