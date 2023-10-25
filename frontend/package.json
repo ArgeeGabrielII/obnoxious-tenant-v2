@@ -85,7 +85,7 @@
         "codelyzer": "6.0.2",
         "concurrently": "6.2.0",
         "cross-env": "7.0.3",
-        "crypto-js": "^4.1.1",
+        "crypto-js": "^4.2.0",
         "cypress": "7.6.0",
         "cypress-multi-reporters": "1.5.0",
         "dotenv": "10.0.0",
