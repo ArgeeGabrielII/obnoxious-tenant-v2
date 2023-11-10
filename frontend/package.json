@@ -46,7 +46,7 @@
         "@ng-bootstrap/ng-bootstrap": "11.0.0-beta.1",
         "@prettier/plugin-pug": "1.15.3",
         "angular-feather": "6.1.0",
-        "axios": "^0.21.2",
+        "axios": "^1.6.0",
         "change-case": "4.1.2",
         "chart.js": "2.9.4",
         "copy-to-clipboard": "3.3.1",
